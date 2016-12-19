@@ -3,6 +3,8 @@ ob_start();
 $page="dashboard";
 include "header.php";
 include 'js-session-check.php';
+$first= $db->query("SELECT count(*) as c FROM js_my_resumes where jsid='$user_info[Job_Seeker_Id]'")->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <section class="inner_page_info">
 <div class="gmap-area1">
@@ -10,20 +12,9 @@ include 'js-session-check.php';
 <div class="container">
 <div class="row profile">
     <div class="col-sm-8">
-        <h3 class="main-heading">Dashboard</h3>
         
         
-        
-<div class="row dashboard">
-
-
-
-<div class="col-lg-4 col-xs-6">
-<!-- small box -->
-<div class="small-box bg-green">
-<div class="inner">
-<h3>
-<?php
+        <?php
 $filled_c=0;
 $totc=0;
 foreach ($user_info as $key => $value) {
@@ -49,6 +40,26 @@ $lc=0;
 if($lang->rowCount()==0){  $totc++; } else { $filled_c++; $totc++; }
 
 $prof_perc = round(($filled_c*100)/$totc);
+?>
+        
+        <?php if($prof_perc != 100): ?>
+        <div class="alert alert-info">
+  <p>Complete your Profile <a href="<?php echo $my_path; ?>/job-seeker/edit-profile.aspx" class="small-box-footer">Click here</a><p>
+</div>
+        
+        <?php endif ?>
+        <h3 class="main-heading">Dashboard</h3>
+<div class="row dashboard">
+
+
+
+<div class="col-lg-4 col-xs-6">
+<!-- small box -->
+<div class="small-box bg-green">
+<div class="inner">
+<h3>
+
+<?php
 echo $lsp=$prof_perc."%";        
 ?>
                        

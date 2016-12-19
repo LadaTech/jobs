@@ -16,11 +16,11 @@ include "header.php";
 Opp: Ramalayam Temple, Kothaguda,<br />
 Kondapur, Hyderabad - 500081<br />
 Telangana.<br />
-Office : 040 4012 0229<br />
-Mail Id: info@virtuellhire.com<br />
-Sales Id: sales@virtuellhire.com<br />
-Support Id: support@virtuellhire.com<br />
-Web site: www.virtuellhire.com<br />
+Mobile : +91 9581958206<br />
+Mail Id: info@jatka.in<br />
+Sales Id: sales@jatka.in<br />
+Support Id: support@jatka.in<br />
+Web site: www.jatka.in<br />
       </h5>
       <h4>&nbsp;</h4>
       <h4 style=" border-bottom:1px dashed #333333; width:150px">Banglore</h4>

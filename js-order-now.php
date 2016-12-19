@@ -237,6 +237,8 @@ while($row_dom = $jt->fetch(PDO::FETCH_ASSOC)){
 <div class="form-group">
 <div class="col-sm-4 col-sm-offset-4">
 <input type="submit" name="submit" value="Pay Now"  class="btn btn-primary btn-full open2 continue"/>
+
+
 </div>
 </div>
 </div>

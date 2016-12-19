@@ -2,94 +2,104 @@
 $page="services";
 include "header.php";
 ?>
-    <section id="services" class="service-item">
+
+
+    <section id="" class="">
         <div class="container">
-            <div class="center wow fadeInDown">
+            <div class="wow fadeInDown">
+                 <div class="center wow fadeInDown">
                 <h2>Services we offer</h2>
-                <p class="lead">Standout premium career services are personalized services in various stages of the job searching and job application process.
-                    <br> Whether you are looking for resume writing services, job assistance, job reference services, certifications or learning courses, we have it all.
-                    <br> We have the largest pool of career services available online providing 360 degree unified career solutions.</p>
-            </div>
+                           </div>
+                <p class="lead" align="justify">Jatka.in is a resume making software that emerges as THE ONLY platform that helps a job
 
-            <div class="row">
+seeker create a perfect high impact resume and depict the best of their skills, talents and
 
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services1.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Magic Resume</h3>
-                            <p>First impression is the last impression. Multiply opportunity of getting your resume shortlisted by recruiters.</p>
-                        </div>
-                    </div>
+accomplishments in a professionally appropriate manner so as to connect them to a better
+
+career.
+                </p>
+                
+                <p class="lead" align="justify">Whether you’re about to start your professional career or if you’re embarking on an entirely
+
+new career phase or switching industries, Jatka.in is your ultimate solution to maximize your
+
+chances of sailing ahead of the competition out there.
+                </p>
+                
+                <p class="lead text-justify">The portal majorly caters to two categories of professionals –
+                </p>
+                <ul>
+                <li>Job seekers</li>
+                <li>Recruiters</li>
+                </ul>
+                
+                <div class="row">
+                <div class="col-md-8">
+                <p class="lead" align="justify">For <b>Job Seekers</b>, Jatka.in is the perfect solution and one-stop software that enables them to
+
+independently and effortlessly create their resume with just a few clicks. It consists of a
+
+plethora of dynamic predefined templates from which the job seeker may choose from based
+
+on their respective industry, domain and of course, their level of experience.
+                </p>
+                <p class="lead text-justify">The predefined customizable templates are formed keeping in mind what employers and
+
+recruitment firms ideally look for in a CV in terms of its content and format. They also
+
+contain industry-specific keywords which appeal to potential employers when a profile is
+
+browsed.
+                </p>
+                </div>
+                <div class="col-md-3">
+                <img class="img-responsive" src="<?php echo $path; ?>images/services/1_jobseeker.jpg" />
+                </div>
+                </div>
+                
+                
+                
+                
+                <p class="lead" align="justify">This unique technology also bridges the gap for professionals who are hard-pressed for time
+
+to create their resume. The platform connects job seekers to a team of certified professional
+
+content writers with 10+ years of expertise in writing, who are always happy to assist and
+
+suggest them to help articulate and depict the details of their roles and accomplishments
+
+effectively onto paper. In other words, the professional writers will work with job seekers
+
+until they are completely satisfied with the final order and outlook of their resume.
+                </p>
+                
+                <div class="col-md-3" >
+                <img class="img-responsive" src="<?php echo $path; ?>images/services/1_recruiter.jpg" />
+                </div>
+                <div class="col-md-9">
+                <br /><br />
+                <p class="lead" align="justify">For <b>Recruiters</b>, Jatka.in has a unique benefit of giving them a chance where they can demand
+
+their potential candidates to submit their details via a specified and predetermined resume
+
+format according to their respective company norms. In other words, the resume making
+
+engine enables recruiters to create a customized specific resume format so that they can
+
+gather only specific candidate details.
+                </p>
+                </div>
+                
                 </div>
 
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services2.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Social Profiler</h3>
-                            <p>80% of the companies are using social platform to find employees. Get complete profile development and visibility support</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services3.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Visual Resume </h3>
-                            <p>High Impact Resume with relevant images & graphics. Recruiters retain visuals more than text giving you a competitive advantage.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services4.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Resume Distribution</h3>
-                            <p>Maximise your reach amongst the most relevant Job consultants and recruiters across India and gulf countries.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services5.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Get Referred Today</h3>
-                            <p>Earn job referrals from company insider and get hired. Get Referred in up to 2500+ top companies.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services6.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Profile Highlighter</h3>
-                            <p>Improve profile visibility among recruiters on Resume Portals. Highlight your Profile in Recruiters paid search list.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/.row-->
+            
         </div>
         <!--/.container-->
-    </section>
+    </section >
     <!--/#services-->
+
+
+
 
     <?php
 include "footer.php";

@@ -91,7 +91,7 @@ if ($stmt_dom->rowCount() == 0){
 ?>
     <div class="alert alert-danger alert-dismissable">
 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-<h4>	<i class="icon fa fa-times"></i> Sorry, No Chat Found!</h4>
+<h4>	<i class="icon fa fa-times"></i> Sorry, No Invitations Found!</h4>
 </div>
 <?php    
 }

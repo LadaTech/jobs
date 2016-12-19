@@ -53,7 +53,7 @@ include "header.php";
 
                 <div class="col-sm-6 wow fadeInDown">
                     <div class="accordion">
-                        <h2>Why Jatka?</h2>
+                        <h2>Why Jatka.in?</h2>
                         <div class="panel-group" id="accordion1">
                             <div class="panel panel-default">
                                 <div class="panel-heading active">
@@ -68,12 +68,10 @@ include "header.php";
                                 <div id="collapseOne1" class="panel-collapse collapse in">
                                     <div class="panel-body">
                                         <div class="media accordion-inner">
-                                            <div class="pull-left">
-                                                <img class="img-responsive" src="images/accordion1.png">
-                                            </div>
+                                            
                                             <div class="media-body">
-                                                <p>Place your order, provide details about your unique background, and receive a draft of your job-winning documents in 4 to 5 business days!</p>
-                                                <p>Enjoy easy online access to your resume and other career documents</p>
+                                                <p>The job seeker can login to Jatka.in and select from a pool of predefined resume templates that are tailor made to match their respective profile type, industry and domain.</p>
+                                                <p>Need the assistance of a professional? Don’t worry, you can use this platform and get connected to our industry experts, send your enquiry and get their assistance and suggestions to help you all along the way.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -91,8 +89,8 @@ include "header.php";
                                 </div>
                                 <div id="collapseTwo1" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        We hire the top certified resume writers in the field, all located different parts of the world.
-                                        <br> Each resume writer possesses expert knowledge of the latest hiring trends and technologies, specializes in one (or more) of 90 industries, and must meet our strict standards for internal certification.
+We never compromise on quality. We have the best of industry experts, who are top professional certified resume writers located across the globe in order to boost up your employment prospects. You can work closely with them and they will suggest the best strategy to work out the best profile.
+                                        <br> With the assistance of a professional, you can witness the 360 degree transformation of your old, beaten profile into one that is worthy enough to earn you an interview, ensuring that recruiters take notice of all your unique skills and accomplishments.
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +106,7 @@ include "header.php";
                                 </div>
                                 <div id="collapseThree1" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        In addition to the best writers, our team includes editors ready to assist you. Providing our expertise means that we will first select a strategy that best matches your current career goals, and then our team works closely with you to incorporate your feedback and answer questions.
+                                        Our resume experts consist of a team of professional content writers and industry experts having decades of experience, who are ever ready to assist and suggest job seekers to articulate and depict the details of their roles and accomplishments effectively onto paper. They ensure that your profile is fine-tuned and skilfully crafted as per current recruiting trends and technologies, thus creating a high impact eye-catching resume that gets you the attention it deserves.
                                     </div>
                                 </div>
 
@@ -123,8 +121,8 @@ include "header.php";
                                     </div>
                                     <div id="collapseFour1" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            Our services are affordable with lasting benefits including free lifetime document storage and special reduced rates on future updates.
-                                            <br> We confidently guarantee you will be 100% satisfied or we'll rewrite your resume for free!
+                                           One of the key factors that make Jatka.in stand out in the competitive industry is affordability and uncompromised quality and the passion our team has for its clients.
+                                            <br> It is the complete package for a job seeker and comprises of the best tools, the best predefined templates, the best of passionate experts who work together towards the success of clients by striving and ensuring that their dreams are fulfilled.
                                         </div>
                                     </div>
                                 </div>

@@ -176,18 +176,7 @@ while($row_dom = $stmt_dom->fetch(PDO::FETCH_ASSOC)){
 <!--<td><a class="preview" data-rid="<?php echo $row_dom["id"]; ?>"><i class="fa fa-eye"></i> Preview</a></td>                -->
                 <td>
 <?php echo $row_dom["status"]; ?></td><td>
-<a title='Preview' class="preview" data-rid="<?php echo $row_dom["id"]; ?>"><i class="fa fa-eye"></i></a>                
-<?php
-if($row_dom["amount"]!="paid"){
-?>
-<!--<a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/edit-resume.aspx" class="btn-rsms"><i class="fa fa-pencil"></i> Edit</a> -->
-
-<a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/order-now.aspx" class="btn-rsms" title='Pay Now'><i class="fa fa-money"></i></a> 
-
-<a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/delete-resume.aspx" onclick="javascript:return confirm('Do you want Delete This?');" class="btn-rsms" title='Delete'><i class="fa fa-trash-o"></i></a>
-
-<?php } else { ?>
-
+<a title='Preview' class="preview" data-rid="<?php echo $row_dom["id"]; ?>"><i class="fa fa-eye"></i></a> 
 <div class="dropdown down-dropdown">
     <button class="btn btn-primary dropdown-toggle download-btn" type="button" data-toggle="dropdown"><i class="fa fa-download"></i>
     <span class="caret"></span></button>
@@ -195,14 +184,12 @@ if($row_dom["amount"]!="paid"){
         <li>
            <a  href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/pdf-download.aspx" ><i class="fa fa-download"></i> As PDF</a> 
         </li>
-        <li>
+        <!--<li>
          <a class="doc-download" data-rid="<?php echo $row_dom["id"]; ?>"><i class="fa fa-download"></i> As Doc</a>   
-        </li>
+        </li>-->
     </ul>
-  </div>
-
-<?php } 
-?>
+  </div>  
+  <a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/delete-resume.aspx" onclick="javascript:return confirm('Do you want Delete This?');" class="btn-rsms" title='Delete'><i class="fa fa-trash-o"></i></a>
 </td></tr>
 <?php } ?> 
         </tbody>
@@ -317,3 +304,35 @@ $("#preview-popup").modal("show");
 //    $(".modal-header").html()
 });
 </script>
+
+
+
+
+
+           
+<?php
+//if($row_dom["amount"]!="paid"){
+?>
+<!--<a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/edit-resume.aspx" class="btn-rsms"><i class="fa fa-pencil"></i> Edit</a> 
+
+<a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/order-now.aspx" class="btn-rsms" title='Pay Now'><i class="fa fa-money"></i></a> 
+
+<a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/delete-resume.aspx" onclick="javascript:return confirm('Do you want Delete This?');" class="btn-rsms" title='Delete'><i class="fa fa-trash-o"></i></a>
+-->
+<?php //} else { ?>
+<!--
+<div class="dropdown down-dropdown">
+    <button class="btn btn-primary dropdown-toggle download-btn" type="button" data-toggle="dropdown"><i class="fa fa-download"></i>
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li>
+           <a  href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/pdf-download.aspx" ><i class="fa fa-download"></i> As PDF</a> 
+        </li>
+        <li>
+         <a class="doc-download" data-rid="<?php echo $row_dom["id"]; ?>"><i class="fa fa-download"></i> As Doc</a>   
+        </li>
+    </ul>
+  </div>
+-->
+<?php //} 
+?>
