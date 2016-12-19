@@ -1,0 +1,173 @@
+/* iCheck plugin Square skin, blue
+----------------------------------- */
+.icheckbox_square-blue,
+.iradio_square-blue {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: url(blue.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_square-blue {
+    background-position: 0 0;
+}
+    .icheckbox_square-blue.hover {
+        background-position: -24px 0;
+    }
+    .icheckbox_square-blue.checked {
+        background-position: -48px 0;
+    }
+    .icheckbox_square-blue.disabled {
+        background-position: -72px 0;
+        cursor: default;
+    }
+    .icheckbox_square-blue.checked.disabled {
+        background-position: -96px 0;
+    }
+
+.iradio_square-blue {
+    background-position: -120px 0;
+}
+    .iradio_square-blue.hover {
+        background-position: -144px 0;
+    }
+    .iradio_square-blue.checked {
+        background-position: -168px 0;
+    }
+    .iradio_square-blue.disabled {
+        background-position: -192px 0;
+        cursor: default;
+    }
+    .iradio_square-blue.checked.disabled {
+        background-position: -216px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_square-blue,
+    .iradio_square-blue {
+        background-image: url(blue@2x.png);
+        -webkit-background-size: 240px 24px;
+        background-size: 240px 24px;
+    }
+}
+
+span.m_imp {
+    color: #F00;
+}
+ul.pagination li a.current, ul.pagination li a:hover {
+    background: #3C8DBC;
+    color: #fff;
+}
+.form-group.heading div {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3C8DBC;
+    border-bottom: 1px solid;
+    padding: 10px;
+    text-align: left;
+    background: rgba(246, 246, 246, 0.75);
+}
+
+  body.login-page {
+    background: url("../../images/bg4.jpg") no-repeat 0px 0px;
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    font-family: 'ABeeZee', sans-serif;
+    position: relative;
+}     
+
+.login-box-body, .register-box-body {
+border-radius: 0px;
+}
+
+input.btn.btn-register {
+    background: #eb7928;
+    color: #fff;
+    width: 100%;
+    font-size: 19px;
+    border-radius: 0px;
+    font-weight: bold;
+}
+p.margin-top {
+    text-align: center;
+    margin-top: 7px;
+}
+.margin-20{
+    margin-top: 150px;
+}
+.imp {
+    color: #f00;
+}
+form.my_form {
+    padding: 0px 10px 10px 10px !important;
+}
+h4.main_heading {
+    font-size: 20px;
+    color: #1495df;
+    font-weight: bold;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+h3.sub_heading {
+    font-size: 18px;
+    font-weight: 300;
+    color: #0043ff;
+}
+
+#preview-popup .modal-header {
+    background: #e48f1a;
+        padding: 7px;
+}
+#preview-popup .modal-header h3 {
+    margin: 0px;
+    text-align: center;
+    font-size: 19px;
+    color: #fff;
+}
+#preview-popup button.close {
+    color: #fff;
+    opacity: 0.6;
+    padding-right: 13px;
+    padding-top: 2px;
+}
+.modal-dialog{
+    width: 70%;
+}
+a{
+    cursor: pointer;
+}
+table.table-wrapper {
+    width: 100%;
+    border: 1px solid #8c8989;
+}
+table.table-wrapper tbody tr td {
+    border-right: 1px solid #d1d1d1;
+        padding: 6px;
+}
+table.table-wrapper tr th {
+    background: #343333;
+    padding: 6px;
+    color: #fff;
+    border-right: 1px solid #ad9090;
+}
+table.table-wrapper tbody tr:nth-child(n){
+    background:  #f8f4f1;
+}
+table.table-wrapper tbody tr:nth-child(2n+1){
+    background:  #fff3e8;
+}
+.ui-widget-header .ui-icon {
+    background-image: url('images/ui-icons_222222_256x240.png') !important;
+}
