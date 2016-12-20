@@ -1,8 +1,204 @@
 <?php
 ob_start();
-$page = "dashboard";
+$page = "";
 include "header.php";
 include 'js-session-check.php';
+ 
+if(isset($_GET['r']) && $_GET['r'] == 's' ){
+    $uploaded_dir = "images/jobseeker/";
+    $profPic = $user_info['profile_pic'];
+    $fullPath = $uploaded_dir.$profPic;
+    unlink($fullPath);
+    $removeProfPic = $db->query("update job_seeker set profile_pic='' where Job_Seeker_Id=$user_info[Job_Seeker_Id]");    
+    if($removeProfPic){
+        $errorMsg = "Profile picture removed successfully";
+        $msg->error($errorMsg);
+        $pa=$my_path."/job-seeker/t-0/profile-updated.aspx";
+        $pa=$my_path."/js-profile.php?tab=0";
+        header("Location: $pa");
+    } else {
+        $errorMsg = "Profile picture not removed ";
+        $msg->error($errorMsg);
+        $pa=$my_path."/job-seeker/edit-profile.aspx";
+        header("Location: $pa");
+    }
+}
+
+if(isset($_POST['submit']))
+{
+$fname=ucwords($_POST['First_name']);
+$lname=ucwords($_POST['Last_name']);
+$Industry=$_POST["Industry"];
+$Alternate_email=$_POST["Alternate_email"];
+$Alternate_Phone_no=$_POST["Alternate_Phone_no"];
+$Father_Name=$_POST["Father_Name"];
+$Domain=$_POST["Domain"];
+$Phone_No=$_POST["Phone_No"];
+$Address=$_POST["Address"];
+$Objective=$_POST["Objective"];
+$old_img1=$_POST['old_img1'];
+//exit();
+$tab_place=$_POST["tab_place"];
+$uploaded_dir = "images/jobseeker/";
+$filename = $_FILES["image1"]["name"];
+$filename=rand(100,999)."_".$filename;
+$path = $uploaded_dir.$filename;
+$imageFileType = pathinfo($filename,PATHINFO_EXTENSION);
+if($imageFileType != '' && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"  ) {
+    $errorMsg = "Sorry, only JPG, JPEG, PNG  files are allowed";
+    $msg->error($errorMsg);
+    $pa=$my_path."/job-seeker/edit-profile.aspx";
+    header("Location: $pa");
+    exit;
+} else {
+    if (move_uploaded_file($_FILES["image1"]["tmp_name"], $path))
+    {
+    unlink($uploaded_dir.$old_img1);    
+    $image1=$filename;
+    }
+    else {
+    $image1=$old_img1;  
+    }
+}
+$Experience_level=$_POST['Experience_level'];
+$jsinsert=$db->query("update job_seeker set 
+First_name='$fname',Last_name='$lname',Phone_No='$Phone_No',Industry='$Industry',Domain='$Domain',Experience_level='$Experience_level',Alternate_email='$Alternate_email',Alternate_Phone_no='$Alternate_Phone_no',Father_Name='$Father_Name',Address='$Address',Objective='$Objective',profile_pic='$image1' where Job_Seeker_Id=$user_info[Job_Seeker_Id]");    
+
+/**********Skills************/
+$db->query("delete from  js_skills where job_seeker_id=$user_info[Job_Seeker_Id]");
+$language_name=$_POST["language_name"];
+$skills=$_POST["skills"];
+$llc=0;
+    while(list($key1,$val1)= each($skills))
+    {
+$skill_title=$_POST["skill_title"][$llc];  
+if($val1!="" && $skill_title!=""){
+$rs=$db->query("insert into js_skills(js_skill_description,job_seeker_id,skill_title) values('$val1','$user_info[Job_Seeker_Id]','$skill_title')") or die(mysql_error());
+        }
+        $llc++;
+    }
+/***********Skills*************/
+
+/***********languages*****************/
+$db->query("delete from js_languages where Job_Seeker_Id=$user_info[Job_Seeker_Id]");
+$language_name=$_POST["language_name"];
+if(is_array($language_name))
+{
+    $llc=0;
+    while(list($key1,$val1)= each($language_name))
+    {
+
+if($val1!=""){
+try{            
+    echo "";
+    echo "<br/>";
+echo $profficiency_level=$_POST["profficiency_level"][$llc];
+echo $lang_read=$_POST["lang_read"][$llc];
+echo $writes=$_POST["writes"][$llc];
+echo $speaks=$_POST["speaks"][$llc];
+//exit();
+$rs=$db->query("insert into js_languages(language_name,profficiency_level,lang_read,writes,speaks,job_seeker_id) values('$val1','$profficiency_level','$lang_read','$writes','$speaks','$user_info[Job_Seeker_Id]')") or die(mysql_error());
+}
+catch(PDOException $e)
+		{
+			echo $e->getMessage();	
+			return false;
+		}
+
+        }
+        $llc++;
+    }
+}
+/***********languages*****************/
+
+
+/*********************Education Starts*************************/
+$db->query("delete from  js_educational_information where job_seeker_id=$user_info[Job_Seeker_Id]");
+$js_qualification_name=$_POST["js_qualification_name"];
+if(is_array($js_qualification_name))
+{
+    $llc=0;
+    while(list($key1,$val1)= each($js_qualification_name))
+    {
+if($val1!=""){
+try{   
+     echo "<br/>";
+   // print_r($_POST['js_course']);
+   // echo $_POST['js_course'][$llc];
+    echo "<br/>";
+echo $js_course=$_POST["js_course"][$llc];
+echo $js_institution_name=$_POST["js_institution_name"][$llc];
+echo $js_percentage=$_POST["js_percentage"][$llc];
+echo $js_start_date=$_POST["js_start_date"][$llc];
+echo $js_end_date=$_POST["js_end_date"][$llc];
+$ed_description=$_POST["ed_description"][$llc];
+//exit();
+$rs=$db->query("insert into js_educational_information(js_qualification_name,js_course,js_institution_name,js_percentage,js_start_date,js_end_date,job_seeker_id,ed_description) values('$val1','$js_course','$js_institution_name','$js_percentage','$js_start_date','$js_end_date','$user_info[Job_Seeker_Id]','$ed_description')") or die(mysql_error());
+}
+catch(PDOException $e)
+		{
+			echo $e->getMessage();	
+			return false;
+		}
+
+        }
+     $llc++;
+    }
+}
+
+
+/*********************Education Ends*************************/
+
+
+
+/********************* js_work_experience Starts*************************/
+$db->query("delete from   js_work_experience where job_seeker_id=$user_info[Job_Seeker_Id]");
+$Company_Name=$_POST["Company_Name"];
+if(is_array($Company_Name))
+{
+    $llc=0;
+    while(list($key1,$val1)= each($Company_Name))
+    {
+
+if($val1!=""){
+try{            
+    echo "";
+    echo "<br/>";
+echo $Current_CTC=$_POST["Current_CTC"][$llc];
+echo $Designation=$_POST["Designation"][$llc];
+echo $Expected_CTC=$_POST["Expected_CTC"][$llc];
+echo $Start_date=$_POST["Start_date"][$llc];
+echo $End_date=$_POST["End_date"][$llc];
+$exp_description=$_POST["exp_description"][$llc];
+//exit();
+$rs=$db->query("insert into  js_work_experience(Company_Name,Current_CTC,Designation,Expected_CTC,Start_date,End_date,job_seeker_id,exp_description) values('$val1','$Current_CTC','$Designation','$Expected_CTC','$Start_date','$End_date','$user_info[Job_Seeker_Id]','$exp_description')") or die(mysql_error());
+}
+catch(PDOException $e)
+		{
+			echo $e->getMessage();	
+			return false;
+		}
+
+        }
+    $llc++;    
+    }
+}
+
+
+/********************* js_work_experience Ends*************************/
+
+
+if($jsinsert)
+{    
+$pa=$my_path."/job-seeker/t-".trim($tab_place)."/profile-updated.aspx";
+header("Location: $pa");
+}
+else {
+$pa=$my_path."/job-seeker/edit-profile.aspx";
+header("Location: $pa");
+}
+}
+ob_end_flush();
 ?>
 
 <section class="inner_page_info">
@@ -33,7 +229,7 @@ if($msg=='updated')
 <form name="submenus" action="<?php echo $my_path; ?>/job-seeker/edit-profile.aspx" method="post" class="form-horizontal" id="identicalForm" enctype="multipart/form-data">     
 <input type="hidden" name="old_img1" id="pid_v" value="<?php echo $user_info['profile_pic']; ?>" />
    <input type="hidden" name="tab_place" class="tab_place" value="<?php if(isset($_GET["tab"])){
-   if($_GET["tab"]=='4') { echo "4"; } else { echo ($_GET["tab"]+1); } } else { ?>0 <?php } ?>" />
+   if($_GET["tab"]=='4') { echo "4"; } else { echo ($_GET["tab"]); } } else { ?>0 <?php } ?>" />
 <div class="tabs-wrap profile_tabs_wrapper">
 <ul class="nav nav-tabs" role="tablist">
 <li role="presentation" class="tab0 active">
@@ -185,9 +381,17 @@ $sql_dom = "SELECT * FROM domains where iid='$user_info[Industry]'";
 
 
 </div>   
-    <div class="col-lg-4 dp">
-<?php if($user_info['profile_pic']!=0 && $user_info['profile_pic']!="") { ?><img src="<?php echo $my_path; ?>/images/jobseeker/<?php echo $user_info['profile_pic']; ?>" height="130px"><?php } else { ?><img src="<?php echo $my_path; ?>/images/user.png" height="130px"> <?php } ?>
-<input type="file" name="image1" id=""  class="form-control1" />
+<div class="col-lg-4 dp">
+    <?php if($user_info['profile_pic']!=0 && $user_info['profile_pic']!="") { ?>
+        <img src="<?php echo $my_path; ?>/images/jobseeker/<?php echo $user_info['profile_pic']; ?>" height="130px">
+    <?php } else { ?>
+        <img src="<?php echo $my_path; ?>/images/user.png" height="130px"> 
+    <?php } ?>
+    <input type="file" name="image1" id=""  class="form-control1" />
+
+    <?php if(isset($user_info['profile_pic']) && $user_info['profile_pic'] != '' ) { ?>
+        <a href="/js-profile.php?r=s">Remove</a>
+    <?php } ?>
 </div>
 <div class="clear"></div>
 </div>   
@@ -214,7 +418,7 @@ if($lang->rowCount()==0){
 <option value="Beginner">Beginner</option>
 <option value="Intermediate">Intermediate</option>
 <option value="Expert">Expert</option>
-<option value="Profossional">Profossional</option>
+<option value="Professional">Professional</option>
         </select>
     </div>
 
@@ -262,7 +466,7 @@ $lc++;
 <option value="Beginner"  <?php if($rec_j["profficiency_level"]=="Beginner"){ echo "selected";}?>>Beginner</option>
 <option value="Intermediate" <?php if($rec_j["profficiency_level"]=="Intermediate"){ echo "selected";}?>>Intermediate</option>
 <option value="Expert" <?php if($rec_j["profficiency_level"]=="Expert"){ echo "selected";}?>>Expert</option>
-<option value="Profossional" <?php if($rec_j["profficiency_level"]=="Profossional"){ echo "selected";}?>>Profossional</option>
+<option value="Professional" <?php if($rec_j["profficiency_level"]=="Professional"){ echo "selected";}?>>Professional</option>
         </select>
     </div>
 
@@ -855,7 +1059,7 @@ $lc++;
 <option value="Beginner">Beginner</option>
 <option value="Intermediate">Intermediate</option>
 <option value="Expert">Expert</option>
-<option value="Profossional">Profossional</option>
+<option value="Professional">Professional</option>
         </select>
     </div>
 
@@ -948,179 +1152,12 @@ if (r == true) {
 });
 </script>
 
-<?php
-ob_start();
-if(isset($_POST['submit']))
-{
-$fname=ucwords($_POST['First_name']);
-$lname=ucwords($_POST['Last_name']);
-$Industry=$_POST["Industry"];
-$Alternate_email=$_POST["Alternate_email"];
-$Alternate_Phone_no=$_POST["Alternate_Phone_no"];
-$Father_Name=$_POST["Father_Name"];
-$Domain=$_POST["Domain"];
-$Phone_No=$_POST["Phone_No"];
-$Address=$_POST["Address"];
-$Objective=$_POST["Objective"];
-$old_img1=$_POST['old_img1'];
-//exit();
-$tab_place=$_POST["tab_place"];
-$uploaded_dir = "images/jobseeker/";
-$filename = $_FILES["image1"]["name"];
-$filename=rand(100,999)."_".$filename;
-$path = $uploaded_dir.$filename;
-if (move_uploaded_file($_FILES["image1"]["tmp_name"], $path))
-{
-unlink($uploaded_dir.$old_img1);    
-$image1=$filename;
-}
-else {
-$image1=$old_img1;  
-}
-$Experience_level=$_POST['Experience_level'];
-$jsinsert=$db->query("update job_seeker set 
-First_name='$fname',Last_name='$lname',Phone_No='$Phone_No',Industry='$Industry',Domain='$Domain',Experience_level='$Experience_level',Alternate_email='$Alternate_email',Alternate_Phone_no='$Alternate_Phone_no',Father_Name='$Father_Name',Address='$Address',Objective='$Objective',profile_pic='$image1' where Job_Seeker_Id=$user_info[Job_Seeker_Id]");    
-
-/**********Skills************/
-$db->query("delete from  js_skills where job_seeker_id=$user_info[Job_Seeker_Id]");
-$language_name=$_POST["language_name"];
-$skills=$_POST["skills"];
-$llc=0;
-    while(list($key1,$val1)= each($skills))
-    {
-$skill_title=$_POST["skill_title"][$llc];  
-if($val1!="" && $skill_title!=""){
-$rs=$db->query("insert into js_skills(js_skill_description,job_seeker_id,skill_title) values('$val1','$user_info[Job_Seeker_Id]','$skill_title')") or die(mysql_error());
-        }
-        $llc++;
-    }
-/***********Skills*************/
-
-/***********languages*****************/
-$db->query("delete from js_languages where Job_Seeker_Id=$user_info[Job_Seeker_Id]");
-$language_name=$_POST["language_name"];
-if(is_array($language_name))
-{
-    $llc=0;
-    while(list($key1,$val1)= each($language_name))
-    {
-
-if($val1!=""){
-try{            
-    echo "";
-    echo "<br/>";
-echo $profficiency_level=$_POST["profficiency_level"][$llc];
-echo $lang_read=$_POST["lang_read"][$llc];
-echo $writes=$_POST["writes"][$llc];
-echo $speaks=$_POST["speaks"][$llc];
-//exit();
-$rs=$db->query("insert into js_languages(language_name,profficiency_level,lang_read,writes,speaks,job_seeker_id) values('$val1','$profficiency_level','$lang_read','$writes','$speaks','$user_info[Job_Seeker_Id]')") or die(mysql_error());
-}
-catch(PDOException $e)
-		{
-			echo $e->getMessage();	
-			return false;
-		}
-
-        }
-        $llc++;
-    }
-}
-/***********languages*****************/
-
-
-/*********************Education Starts*************************/
-$db->query("delete from  js_educational_information where job_seeker_id=$user_info[Job_Seeker_Id]");
-$js_qualification_name=$_POST["js_qualification_name"];
-if(is_array($js_qualification_name))
-{
-    $llc=0;
-    while(list($key1,$val1)= each($js_qualification_name))
-    {
-if($val1!=""){
-try{   
-     echo "<br/>";
-   // print_r($_POST['js_course']);
-   // echo $_POST['js_course'][$llc];
-    echo "<br/>";
-echo $js_course=$_POST["js_course"][$llc];
-echo $js_institution_name=$_POST["js_institution_name"][$llc];
-echo $js_percentage=$_POST["js_percentage"][$llc];
-echo $js_start_date=$_POST["js_start_date"][$llc];
-echo $js_end_date=$_POST["js_end_date"][$llc];
-$ed_description=$_POST["ed_description"][$llc];
-//exit();
-$rs=$db->query("insert into js_educational_information(js_qualification_name,js_course,js_institution_name,js_percentage,js_start_date,js_end_date,job_seeker_id,ed_description) values('$val1','$js_course','$js_institution_name','$js_percentage','$js_start_date','$js_end_date','$user_info[Job_Seeker_Id]','$ed_description')") or die(mysql_error());
-}
-catch(PDOException $e)
-		{
-			echo $e->getMessage();	
-			return false;
-		}
-
-        }
-     $llc++;
-    }
-}
-
-
-/*********************Education Ends*************************/
-
-
-
-/********************* js_work_experience Starts*************************/
-$db->query("delete from   js_work_experience where job_seeker_id=$user_info[Job_Seeker_Id]");
-$Company_Name=$_POST["Company_Name"];
-if(is_array($Company_Name))
-{
-    $llc=0;
-    while(list($key1,$val1)= each($Company_Name))
-    {
-
-if($val1!=""){
-try{            
-    echo "";
-    echo "<br/>";
-echo $Current_CTC=$_POST["Current_CTC"][$llc];
-echo $Designation=$_POST["Designation"][$llc];
-echo $Expected_CTC=$_POST["Expected_CTC"][$llc];
-echo $Start_date=$_POST["Start_date"][$llc];
-echo $End_date=$_POST["End_date"][$llc];
-$exp_description=$_POST["exp_description"][$llc];
-//exit();
-$rs=$db->query("insert into  js_work_experience(Company_Name,Current_CTC,Designation,Expected_CTC,Start_date,End_date,job_seeker_id,exp_description) values('$val1','$Current_CTC','$Designation','$Expected_CTC','$Start_date','$End_date','$user_info[Job_Seeker_Id]','$exp_description')") or die(mysql_error());
-}
-catch(PDOException $e)
-		{
-			echo $e->getMessage();	
-			return false;
-		}
-
-        }
-    $llc++;    
-    }
-}
-
-
-/********************* js_work_experience Ends*************************/
-
-
-
-if($jsinsert)
-{    
-$pa=$my_path."/job-seeker/t-".trim($tab_place)."/profile-updated.aspx";
-header("Location: $pa");
-}
-else {
-$pa=$my_path."/job-seeker/edit-profile.aspx";
-header("Location: $pa");
-}
-}
-ob_end_flush();
-
+<?php 
 if(isset($_GET["tab"])){
- if($_GET["tab"]=='4') { $tab="tab4"; } else { $tab="tab".($_GET["tab"]+1); }   
+ if($_GET["tab"]=='4') { $tab="tab4"; } else { $tab="tab".($_GET["tab"]); } 
+ 
 ?>
+
 <script>
 $(document).ready(function () {
 $('.nav.nav-tabs li').removeClass('active');

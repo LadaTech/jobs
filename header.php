@@ -3,6 +3,8 @@
 include "db.php";
 include_once 'page_number.php';
 date_default_timezone_set("Asia/Kolkata"); 
+require_once 'library/FlashMessages.php';
+$msg = new \Plasticbrain\FlashMessages\FlashMessages();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +31,6 @@ date_default_timezone_set("Asia/Kolkata");
 </head><!--/head-->
 
 <body class="homepage">
-
     <header id="header">
         <div class="top-bar">
             <div class="container">
@@ -383,3 +384,8 @@ if(isset($_SESSION["cwid"])){
         </nav><!--/nav-->
 		
     </header><!--/header-->
+     <?php 
+    if ($msg->hasErrors()) {
+        echo $msg->display();
+    } 
+    ?>

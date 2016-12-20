@@ -1,5 +1,5 @@
 <?php
-$my_path="http://jatka.in";
+$my_path="http://localhost:8061";
 $path="http://jatka.in/";
 $DB_host = "localhost";
 $company_url="#";
