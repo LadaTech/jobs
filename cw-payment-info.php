@@ -30,12 +30,12 @@ $payment = $p1->fetch(PDO::FETCH_ASSOC);
                                 <h4>	<i class="icon fa fa-check"></i> Payment Info has been updated!</h4>
 
                             </div>
-        <?php
-    }
-}
-?>
+                            <?php
+                        }
+                    }
+                    ?>
 
-                    <form name="submenus" action="<?php echo $my_path; ?>/cw/payment-info.aspx" method="post" class="form-horizontal" id="identicalForm" enctype="multipart/form-data">     
+                    <form name="submenus" action="<?php echo $my_path; ?>/cw/payment-info.aspx" method="post" class="form-horizontal" id="cwEditPaymentInfo" enctype="multipart/form-data">     
                         <div class="tabs-wrap profile_tabs_wrapper">
 
                             <div class="tab-content">
@@ -48,21 +48,21 @@ $payment = $p1->fetch(PDO::FETCH_ASSOC);
 
                                             <select class="form-control" id="Industry" name="iid">
                                                 <option value="">Select Industry</option>
-<?php
-$sql_dom = 'SELECT * FROM industry  order by name asc';
-$stmt_dom = $db->query($sql_dom);
+                                                <?php
+                                                $sql_dom = 'SELECT * FROM industry  order by name asc';
+                                                $stmt_dom = $db->query($sql_dom);
 //$stmt_dom->execute();
 
-if ($stmt_dom->rowCount() > 0) {
-    while ($row_dom = $stmt_dom->fetch(PDO::FETCH_ASSOC)) {
-        echo $row_dom['domain_name'];
-        ?>
+                                                if ($stmt_dom->rowCount() > 0) {
+                                                    while ($row_dom = $stmt_dom->fetch(PDO::FETCH_ASSOC)) {
+                                                        echo $row_dom['domain_name'];
+                                                        ?>
 
                                                         <option  value="<?php echo $row_dom['id']; ?>" <?php
-                                                if ($payment["iid"] == $row_dom['id']) {
-                                                    echo "selected";
-                                                }
-        ?>><?php echo $row_dom['name']; ?></option>
+                                                        if ($payment["iid"] == $row_dom['id']) {
+                                                            echo "selected";
+                                                        }
+                                                        ?>><?php echo $row_dom['name']; ?></option>
                                                                  <?php
                                                              }
                                                          }
@@ -100,43 +100,43 @@ if ($stmt_dom->rowCount() > 0) {
                                     </div>  
                                     <div class="form-group email_weapper">
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">Fresher Price </label>
+                                            <label class="control-label" for="special_fresher">Fresher Price </label>
                                             <input type="number" name="special_fresher" id="email_a" placeholder="Fresher Price" value="<?php echo $payment["special_fresher"]; ?>" class="form-control"  autocomplete="off">
                                         </div>
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">1-3 Experience </label>
-                                            <input type="number" name="special_1_exp" id="Alternate_email" placeholder="1-3 Experience" value="<?php echo $payment["special_1_exp"]; ?>" class="form-control"  autocomplete="off">
+                                            <label class="control-label" for="special_1_exp">1-3 Experience </label>
+                                            <input type="number" name="special_1_exp" id="special_1_exp" placeholder="1-3 Experience" value="<?php echo $payment["special_1_exp"]; ?>" class="form-control"  autocomplete="off">
                                         </div>   
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">3-5 Experience </label>
-                                            <input type="number" name="special_2_exp" id="Alternate_email" placeholder="3-5 Experience" value="<?php echo $payment["special_2_exp"]; ?>" class="form-control"  autocomplete="off">
+                                            <label class="control-label" for="special_2_exp">3-5 Experience </label>
+                                            <input type="number" name="special_2_exp" id="special_2_exp" placeholder="3-5 Experience" value="<?php echo $payment["special_2_exp"]; ?>" class="form-control"  autocomplete="off">
                                         </div> 
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">5-10 Experience </label>
-                                            <input type="number" name="special_3_exp" id="Alternate_email" placeholder="5-10 Experience" value="<?php echo $payment["special_3_exp"]; ?>" class="form-control"  autocomplete="off">
+                                            <label class="control-label" for="special_3_exp">5-10 Experience </label>
+                                            <input type="number" name="special_3_exp" id="special_3_exp" placeholder="5-10 Experience" value="<?php echo $payment["special_3_exp"]; ?>" class="form-control"  autocomplete="off">
                                         </div>   
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">10+ Experience </label>
-                                            <input type="number" name="special_4_exp" id="Alternate_email" placeholder="10+ Experience" value="<?php echo $payment["special_4_exp"]; ?>" class="form-control"  autocomplete="off">
+                                            <label class="control-label" for="special_4_exp">10+ Experience </label>
+                                            <input type="number" name="special_4_exp" id="special_4_exp" placeholder="10+ Experience" value="<?php echo $payment["special_4_exp"]; ?>" class="form-control"  autocomplete="off">
                                         </div> 
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">Expected Delivery </label>
+                                            <label class="control-label" for="expected_special_delivery">Expected Delivery </label>
                                             <select class="form-control" id="expected_special_delivery" name="expected_special_delivery">
                                                 <option value="3" <?php
-                                                         if ($payment["expected_special_delivery"] == "3") {
-                                                             echo "selected";
-                                                         }
-                                                         ?>>0-3 Business Days</option>
+                                                if ($payment["expected_special_delivery"] == "3") {
+                                                    echo "selected";
+                                                }
+                                                ?>>0-3 Business Days</option>
                                                 <option value="5" <?php
-                                                        if ($payment["expected_special_delivery"] == "5") {
-                                                            echo "selected";
-                                                        }
-                                                        ?>>3-5 Business Days</option>
+                                                if ($payment["expected_special_delivery"] == "5") {
+                                                    echo "selected";
+                                                }
+                                                ?>>3-5 Business Days</option>
                                                 <option value="7" <?php
-                                                        if ($payment["expected_special_delivery"] == "7") {
-                                                            echo "selected";
-                                                        }
-                                                        ?>>5-7 Business Days</option>
+                                                if ($payment["expected_special_delivery"] == "7") {
+                                                    echo "selected";
+                                                }
+                                                ?>>5-7 Business Days</option>
                                             </select>
                                         </div>     
                                         <div class="clear"></div>
@@ -146,43 +146,43 @@ if ($stmt_dom->rowCount() > 0) {
 
                                     <div class="form-group email_weapper">
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">Fresher Price <span class="imp">*</span> </label>
-                                            <input type="number" name="general_fresher" id="email_a" placeholder="Fresher Price" value="<?php echo $payment["general_fresher"]; ?>" class="form-control" required="required" autocomplete="off">
+                                            <label class="control-label" for="general_fresher">Fresher Price <span class="imp">*</span> </label>
+                                            <input type="number" name="general_fresher" id="email_a" placeholder="General Fresher Price" value="<?php echo $payment["general_fresher"]; ?>" class="form-control" required="required" autocomplete="off">
                                         </div>
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">1-3 Experience <span class="imp">*</span></label>
-                                            <input type="number" name="general_1_exp" id="Alternate_email" placeholder="1-3 Experience" value="<?php echo $payment["general_1_exp"]; ?>" class="form-control"  autocomplete="off" required>
+                                            <label class="control-label" for="general_1_exp">1-3 Experience <span class="imp">*</span></label>
+                                            <input type="number" name="general_1_exp" id="general_1_exp" placeholder="1-3 Experience" value="<?php echo $payment["general_1_exp"]; ?>" class="form-control"  autocomplete="off" required>
                                         </div>   
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">3-5 Experience <span class="imp">*</span></label>
-                                            <input type="number" name="general_2_exp" id="Alternate_email" placeholder="3-5 Experience" value="<?php echo $payment["general_2_exp"]; ?>" class="form-control"  autocomplete="off" required>
+                                            <label class="control-label" for="general_2_exp">3-5 Experience <span class="imp">*</span></label>
+                                            <input type="number" name="general_2_exp" id="general_2_exp" placeholder="3-5 Experience" value="<?php echo $payment["general_2_exp"]; ?>" class="form-control"  autocomplete="off" required>
                                         </div> 
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">5-10 Experience <span class="imp">*</span></label>
-                                            <input type="number" name="general_3_exp" id="Alternate_email" placeholder="5-10 Experience" value="<?php echo $payment["general_3_exp"]; ?>" class="form-control"  autocomplete="off" required>
+                                            <label class="control-label" for="general_3_exp">5-10 Experience <span class="imp">*</span></label>
+                                            <input type="number" name="general_3_exp" id="general_3_exp" placeholder="5-10 Experience" value="<?php echo $payment["general_3_exp"]; ?>" class="form-control"  autocomplete="off" required>
                                         </div>   
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">10+ Experience <span class="imp">*</span></label>
-                                            <input type="number" name="general_4_exp" id="Alternate_email" placeholder="10+ Experience" value="<?php echo $payment["general_4_exp"]; ?>" class="form-control"  autocomplete="off" required>
+                                            <label class="control-label" for="general_4_exp">10+ Experience <span class="imp">*</span></label>
+                                            <input type="number" name="general_4_exp" id="general_4_exp" placeholder="10+ Experience" value="<?php echo $payment["general_4_exp"]; ?>" class="form-control"  autocomplete="off" required>
                                         </div>
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="address">Expected Delivery </label>
+                                            <label class="control-label" for="expected_delivery">Expected Delivery </label>
                                             <select class="form-control" id="expected_special_delivery" name="expected_delivery">
                                                 <option value="3" <?php
-                                                        if ($payment["expected_delivery"] == "3") {
-                                                            echo "selected";
-                                                        }
-                                                        ?>>0-3 Business Days</option>
+                                                if ($payment["expected_delivery"] == "3") {
+                                                    echo "selected";
+                                                }
+                                                ?>>0-3 Business Days</option>
                                                 <option value="5" <?php
-                                                        if ($payment["expected_delivery"] == "5") {
-                                                            echo "selected";
-                                                        }
-                                                        ?>>3-5 Business Days</option>
+                                                if ($payment["expected_delivery"] == "5") {
+                                                    echo "selected";
+                                                }
+                                                ?>>3-5 Business Days</option>
                                                 <option value="7" <?php
-                                                        if ($payment["expected_delivery"] == "7") {
-                                                            echo "selected";
-                                                        }
-                                                        ?>>5-7 Business Days</option>
+                                                if ($payment["expected_delivery"] == "7") {
+                                                    echo "selected";
+                                                }
+                                                ?>>5-7 Business Days</option>
                                             </select>
                                         </div>       
                                         <div class="clear"></div>
@@ -209,7 +209,7 @@ if ($stmt_dom->rowCount() > 0) {
                 </div>
                 <div class="col-sm-4">
 
-<?php require_once 'cw_sidebar.php'; ?>      
+                    <?php require_once 'cw_sidebar.php'; ?>      
 
                 </div>
 
