@@ -9,10 +9,11 @@ $compnay_small_name = "Jatka";
 $logo_img_url = "logo.png";
 $fav_icon_url = "";
 $compnay_name = "Jatka.in";
+//echo $_SERVER['SERVER_NAME'];
 switch ($_SERVER['SERVER_NAME']) {
-    case 'jatka.in' : {
-            $my_path = "http://www." . $_SERVER['HTTP_HOST'];
-            $path = "http://www." . $_SERVER['HTTP_HOST'] . "/";
+    case 'www.jatka.in' : {
+            $my_path = "http://" . $_SERVER['HTTP_HOST'];
+            $path = "http://" . $_SERVER['HTTP_HOST'] . "/";
             $DB_user = "nagendra_jin";
             $DB_pass = "nagendra@ipl";
             $DB_name = "jatkaupdate";

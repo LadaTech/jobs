@@ -24,10 +24,10 @@ if(isset($_POST['submit'])){
         $last_id=$db->lastinsertid(); 
         include_once 'library/ccavenue_gateway/CCAvenue.php';
         $ccpayObj = new CCAvenue();
-        $formData['order_id'] = date('YmdHis');
+        $formData['order_id'] = "O".date('YmdHis');
         $formData['amount'] = $_POST['price'] = '10.00';
         $formData['redirect_url'] = $my_path.'/js-payment-success.php';
-        $formData['cancel_url'] = $my_path.'js-payment-failure.php';
+        $formData['cancel_url'] = $my_path.'/js-payment-failure.php';
         $ccpayObj->request($formData);
         //$pa=$my_path."/job-seeker/cwo-$last_id/payment-now.aspx";
         //header("Location: $pa");

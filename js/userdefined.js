@@ -6,6 +6,14 @@
 
 
 $(function () {
+
+    $.validator.addMethod("validProfilePic", function (value, element) {
+        var ext = value.split('.').pop().toLowerCase();
+        if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+            alert('invalid extension!');
+        }
+    }, "Please Upload Valid file format");
+
     $("#identicalForm").validate({
         rules: {
             Industry: {
@@ -23,7 +31,7 @@ $(function () {
             exp_mnths: {
                 required: true
             },
-            selected_template:{
+            selected_template: {
                 required: true
             }
         },
@@ -43,7 +51,7 @@ $(function () {
             exp_mnths: {
                 required: 'Please select months'
             },
-            selected_template:{
+            selected_template: {
                 required: "Please select template"
             }
         }
@@ -90,7 +98,7 @@ $(function () {
             general_4_exp: {
                 required: true
             },
-            expected_delivery:{
+            expected_delivery: {
                 required: true
             }
         },
@@ -134,7 +142,7 @@ $(function () {
             general_4_exp: {
                 required: 'Please enter price for 10+ Experience'
             },
-            expected_delivery:{
+            expected_delivery: {
                 required: 'Please enter Expected Delivery'
             }
         }

@@ -17,6 +17,8 @@
 	foreach ($_POST as $key => $value){
 		$merchant_data.=$key.'='.urlencode($value).'&';
 	}
+        echo $merchant_data;
+        exit;
 
 	$encrypted_data=encrypt($merchant_data,$working_key); // Method for encrypting the data.
 
