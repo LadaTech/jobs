@@ -1,5 +1,5 @@
 <?php
-
+include_once 'config.php';
 $my_path = "http://" . $_SERVER['HTTP_HOST'];
 $path = "http://" . $_SERVER['HTTP_HOST'] . "/";
 $DB_host = "localhost";

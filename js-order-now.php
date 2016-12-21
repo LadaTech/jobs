@@ -4,9 +4,39 @@ $page = "enquiries";
 include "header.php";
 include 'js-session-check.php';
 if(!isset($_GET["cwid"])){
-$p_a=$my_path."/job-seeker/dashboard.aspx";
-header("Location: $p_a");    
+    $p_a=$my_path."/job-seeker/dashboard.aspx";
+    header("Location: $p_a");    
 }
+if(isset($_POST['submit'])){
+    $fname=ucwords($_POST['First_name']);
+    $lname=ucwords($_POST['Last_name']);
+    $Industry=$_POST["Industry"];
+    $Domain=$_POST["Domain"];
+    $exp_yrs=$_POST["exp_yrs"];
+    $exp_mnths=$_POST["exp_mnths"];
+    $cwid=$_POST["cwid"];
+    $Experience_level=$_POST['Experience_level'];
+    $price=$_POST['price'];
+    $selected_template=$_POST['selected_template'];
+
+    $jsinsert=$db->query("insert into cw_ordernow(cwid,jid,iid,did,ptype,exp_years,exp_mnths,approve,price,selected_template) value('$cwid','$user_info[Job_Seeker_Id]','$Industry','$Domain','$Experience_level','$exp_yrs','$exp_mnths','Pending','$price','$selected_template')");    
+    if($jsinsert){    
+        $last_id=$db->lastinsertid(); 
+        include_once 'library/ccavenue_gateway/CCAvenue.php';
+        $ccpayObj = new CCAvenue();
+        $formData['order_id'] = date('YmdHis');
+        $formData['amount'] = $_POST['price'] = '10.00';
+        $formData['redirect_url'] = $my_path.'/js-payment-success.php';
+        $formData['cancel_url'] = $my_path.'js-payment-failure.php';
+        $ccpayObj->request($formData);
+        //$pa=$my_path."/job-seeker/cwo-$last_id/payment-now.aspx";
+        //header("Location: $pa");
+    } else {
+        $pa=$my_path."/job-seeker/dashboard.aspx";
+        header("Location: $pa");
+    }
+}
+ob_end_flush();
 ?>
 
 <section class="inner_page_info">
@@ -341,32 +371,4 @@ $("#pricefield").empty().val(data);
 });
 </script>
 
-<?php
-ob_start();
-if(isset($_POST['submit']))
-{
-$fname=ucwords($_POST['First_name']);
-$lname=ucwords($_POST['Last_name']);
-$Industry=$_POST["Industry"];
-$Domain=$_POST["Domain"];
-$exp_yrs=$_POST["exp_yrs"];
-$exp_mnths=$_POST["exp_mnths"];
-$cwid=$_POST["cwid"];
-$Experience_level=$_POST['Experience_level'];
-$price=$_POST['price'];
-$selected_template=$_POST['selected_template'];
-
-$jsinsert=$db->query("insert into cw_ordernow(cwid,jid,iid,did,ptype,exp_years,exp_mnths,approve,price,selected_template) value('$cwid','$user_info[Job_Seeker_Id]','$Industry','$Domain','$Experience_level','$exp_yrs','$exp_mnths','Pending','$price','$selected_template')");    
-if($jsinsert)
-{    
-$last_id=$db->lastinsertid();  
-$pa=$my_path."/job-seeker/cwo-$last_id/payment-now.aspx";
-header("Location: $pa");
-}
-else {
-$pa=$my_path."/job-seeker/dashboard.aspx";
-header("Location: $pa");
-}
-}
-ob_end_flush();
-?>  
+  

@@ -22,6 +22,9 @@ $(function(){
             },
             exp_mnths:{
                 required: true
+            },
+            selected_template:{
+                required: true
             }
         },
         messages: {
@@ -39,6 +42,9 @@ $(function(){
             },
             exp_mnths: {
                 required: 'Please select months'
+            },
+            selected_template:{
+                required: "Please select template"
             }
         }
     });
