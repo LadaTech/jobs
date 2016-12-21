@@ -1,4 +1,5 @@
 <?php
+
 include_once 'config.php';
 $my_path = "http://" . $_SERVER['HTTP_HOST'];
 $path = "http://" . $_SERVER['HTTP_HOST'] . "/";
@@ -10,12 +11,16 @@ $fav_icon_url = "";
 $compnay_name = "Jatka.in";
 switch ($_SERVER['SERVER_NAME']) {
     case 'jatka.in' : {
+            $my_path = "http://www." . $_SERVER['HTTP_HOST'];
+            $path = "http://www." . $_SERVER['HTTP_HOST'] . "/";
             $DB_user = "nagendra_jin";
             $DB_pass = "nagendra@ipl";
             $DB_name = "jatkaupdate";
             break;
         }
     case "localhost": {
+            $my_path = "http://" . $_SERVER['HTTP_HOST'];
+            $path = "http://" . $_SERVER['HTTP_HOST'] . "/";
             $DB_user = "root";
             $DB_pass = "";
             $DB_name = "jatkaupdate";
