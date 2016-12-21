@@ -74,7 +74,7 @@ include 'cw-session-check.php';
                             $sql1 = "SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM cw_ordernow i where cwid='$user_info[Content_writer_id]' and id in(select item_number from payments where payment_status='Completed' and rtype='cw') and  (created_on like '%$q%'  or  ptype like '%$q%'  or   approve like '%$q%'  or   jid in(select Job_Seeker_Id from job_seeker where  First_name like '%$q%')  )";
                             $stmt_dom = $db->query("$sql1");
                         } else {
-                            echo $sql1 = "SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM cw_ordernow i where cwid='$user_info[Content_writer_id]' and id in(select item_number from payments where payment_status='Completed' and rtype='cw') order by id desc";
+                            $sql1 = "SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM cw_ordernow i where cwid='$user_info[Content_writer_id]' and id in(select item_number from payments where payment_status='Completed' and rtype='cw') order by id desc";
 //$sql_dom="SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jsname FROM chat_info i where cwid='$user_info[Content_writer_id]' order by id desc";
                             $stmt_dom = $db->query("$sql1 limit $id,$no");
                         }
