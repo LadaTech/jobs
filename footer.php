@@ -88,9 +88,11 @@ Telangana.<br />
     <script src="<?php echo $my_path; ?>/js/bootstrap.min.js"></script>
   
     
-    <script src="<?php echo $my_path; ?>/js/main.js"></script>
+  <script src="<?php echo $my_path; ?>/js/main.js"></script>
   <script src="<?php echo $my_path; ?>/js/star-rating.min.js"></script>
   <script src="<?php echo $my_path; ?>/js/bootstrap-filestyle.js"></script>
+  <script src="<?php echo $my_path; ?>/js/jquery.validate.min.js" type="text/javascript"></script>
+  <script src="<?php echo $my_path; ?>/js/userdefined.js" type="text/javascript"></script>
 <script>
     $(":file").filestyle({
         icon: false,

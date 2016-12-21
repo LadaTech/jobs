@@ -119,22 +119,30 @@ echo "checked";
 } ?>> Experienced </div>
 
 </div>
-
+<?php 
+ if ($user_info["Experience_level"] == "Fresher") {
+     $fresher = '1';
+ } else {
+     $fresher = '0';
+ }
+?>
   <div class="col-lg-6">
 <label class="control-label" for="address">Experience <span class="imp">*</span> </label>
 <div class="row">
 <div class="col-xs-6">
 <select class="form-control" id="exp_years" name="exp_yrs" required>
-<option value="">Years</option>
-<?php for($k=0;$k<50;$k++) { ?> <option value="<?php echo $k; ?>" ><?php echo $k; ?> Years</option><?php } ?>
-
+    <option value="">Years</option>
+    <?php for($k=0;$k<50;$k++) { ?> 
+        <option  <?php echo ($k == 0 && $fresher == 1) ? 'selected': '' ;?>  value="<?php echo $k; ?>" > <?php echo $k; ?> Years </option>
+    <?php } ?>
 </select>
 </div>
 <div class="col-xs-6">
 <select class="form-control" id="exp_months" name="exp_mnths" required>
-<option value="">Months</option>
-<?php for($k=0;$k<12;$k++) { ?> <option value="<?php echo $k; ?>" 
-        ><?php echo $k; ?> Months</option><?php } ?>
+    <option value="">Months</option>
+    <?php for($k=0;$k<12;$k++) { ?> 
+        <option  <?php echo ($k == 0 && $fresher == 1) ? 'selected': '' ;?> value="<?php echo $k; ?>" > <?php echo $k; ?> Months</option>
+    <?php } ?>
 </select>
 </div>
 </div>
