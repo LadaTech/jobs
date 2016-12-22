@@ -13,16 +13,16 @@ $compnay_name = "Jatka.in";
 switch ($_SERVER['SERVER_NAME']) {
     case 'www.jatka.in' :
     case 'jatka.in' : {
-            $my_path = "http://" . $_SERVER['HTTP_HOST'];
-            $path = "http://" . $_SERVER['HTTP_HOST'] . "/";
+            $my_path = "http://" . $_SERVER['HTTP_HOST']."/test";
+            $path = "http://" . $_SERVER['HTTP_HOST'] . "/test";
             $DB_user = "nagendra_jin";
             $DB_pass = "nagendra@ipl";
             $DB_name = "jatkaupdate";
             break;
         }
     case "localhost": {
-            $my_path = "http://" . $_SERVER['HTTP_HOST'];
-            $path = "http://" . $_SERVER['HTTP_HOST'] . "/";
+            $my_path = "http://" . $_SERVER['HTTP_HOST']."/test";
+            $path = "http://" . $_SERVER['HTTP_HOST'] . "/test";
             $DB_user = "root";
             $DB_pass = "";
             $DB_name = "jatkaupdate";

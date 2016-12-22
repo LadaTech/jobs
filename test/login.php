@@ -2,6 +2,7 @@
 ob_start();
 ?> 
 <?php
+
 $page="";
 include 'header.php';
 ?>
