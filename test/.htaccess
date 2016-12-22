@@ -1,0 +1,167 @@
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.aspx
+
+
+RewriteRule ^about-us.aspx about.php [NC]
+RewriteRule ^why-jatka.aspx skill.php [NC]
+RewriteRule ^portfolio.aspx portfolio.php [NC]
+RewriteRule ^contact.aspx contact.php [NC]
+RewriteRule ^services.aspx services.php [NC]
+
+#Content Writers Start
+RewriteRule ^cw/register.aspx cw-register.php [NC]
+RewriteRule ^cw/login.aspx cw-login.php [NC]
+RewriteRule ^cw/logout.aspx cw-logout.php [NC]
+RewriteRule ^cw/login/password-sent.aspx cw-login.php?msg=password-sent [NC]
+RewriteRule ^cw/login/account-deactivated.aspx cw-login.php?msg=account-deactivated [NC]
+RewriteRule ^cw/login/([a-zA-Z0-9-/+]+)/activation.aspx cw-login.php?activation_code=$1 [NC]
+RewriteRule ^cw/login/activatelinksent.aspx cw-login.php?msg=activatelinksent [NC]
+RewriteRule ^cw/send-activation-link.aspx cw_resend_activationlink.php [NC]
+RewriteRule ^cw/login/not-activated.aspx cw-login.php?msg=not-activated [NC]
+RewriteRule ^cw/login/not-valid.aspx cw-login.php?msg=not-valid [NC]
+RewriteRule ^cw/forgot-password.aspx cw-forgot-password.php [NC]
+RewriteRule ^cw/register/email-exist.aspx cw-register.php?msg=exist [NC]
+RewriteRule ^cw/register/fail.aspx cw-register.php?msg=fail [NC]
+RewriteRule ^cw/register/success.aspx cw-login.php?msg=success [NC]
+RewriteRule ^cw/my-orders/resume-completed.aspx  cw-my-orders.php?msg=resume-completed [NC]
+RewriteRule ^cw/my-orders/resume-saved.aspx  cw-my-orders.php?msg=resume-saved [NC]
+#Content Writer After Login
+RewriteRule ^cw/i-([a-zA-Z0-9-/+]+)/delete-enquiry.aspx  cw-delete-enquiry.php?id=$1 [NC]
+RewriteRule ^cw/enquiries/enquiry-deleted.aspx  cw-enquiries.php?msg=enquiry-deleted [NC]
+RewriteRule ^cw/c-([a-zA-Z0-9-/+]+)/delete-chat.aspx  cw-delete-chat.php?id=$1 [NC]
+RewriteRule ^cw/chat/chat-deleted.aspx  cw-chat.php?msg=chat-deleted [NC]
+RewriteRule ^cw/i-([a-zA-Z0-9-/+]+)/delete-invitation.aspx  cw-delete-invitation.php?id=$1 [NC]
+RewriteRule ^cw/invitations/invitation-deleted.aspx cw-invitations.php?msg=invitation-deleted [NC]
+
+RewriteRule ^cw/password-updated.aspx cw-change-password.php?msg=updated [NC]
+RewriteRule ^cw/wrong-password.aspx cw-change-password.php?msg=wrong [NC]
+RewriteRule ^cw/change-password.aspx cw-change-password.php [NC]
+RewriteRule ^cw/account-settings.aspx cw-edit-profile.php [NC]
+RewriteRule ^cw/payment-info-updated.aspx cw-payment-info.php?msg=updated [NC]
+RewriteRule ^cw/payment-info.aspx cw-payment-info.php [NC]
+RewriteRule ^cw/edit-profile.aspx cw-profile.php [NC]
+RewriteRule ^cw/job-seekers.aspx cw-job-seekers.php [NC]
+RewriteRule ^cw/profile-updated.aspx cw-profile.php?msg=updated [NC]
+RewriteRule ^cw/js-([a-zA-Z0-9-/+]+)/start-chat.aspx cw-start-chat.php?jid=$1 [NC]
+RewriteRule ^cw/enquiries-approved.aspx cw-enquiries.php?msg=approved [NC]
+RewriteRule ^cw/enquiries-canceled.aspx cw-enquiries.php?msg=canceled [NC]
+RewriteRule ^cw/enquiries.aspx cw-enquiries.php [NC]
+RewriteRule ^cw/my-orders.aspx cw-my-orders.php [NC]
+RewriteRule ^cw/my-orders/page-([a-zA-Z0-9-/+]+).aspx cw-my-orders.php?page=$1
+RewriteRule ^cw/job-seekers/page-([a-zA-Z0-9-/+]+).aspx cw-job-seekers.php?page=$1
+RewriteRule ^cw/invitations/page-([a-zA-Z0-9-/+]+).aspx cw-invitations.php?page=$1
+RewriteRule ^cw/enquiries/page-([a-zA-Z0-9-/+]+).aspx cw-enquiries.php?page=$1
+RewriteRule ^cw/chat/page-([a-zA-Z0-9-/+]+).aspx cw-chat.php?page=$1
+
+
+
+
+
+
+RewriteRule ^cw/save-resume.aspx cw-save-resume.php [NC]
+RewriteRule ^cw/chat.aspx cw-chat.php [NC]
+RewriteRule ^cw/js-([a-zA-Z0-9-/+]+)/send-invitation.aspx cw-send-invitation.php?jid=$1 [NC]
+RewriteRule ^cw/invitations.aspx cw-invitations.php [NC]
+RewriteRule ^cw/invitation-sent.aspx cw-invitations.php?msg=sent [NC]
+RewriteRule ^cw/e-([a-zA-Z0-9-/+]+)/cancel.aspx cw-enquiry-approve.php?eid=$1&msg=Canceled [NC]
+RewriteRule ^cw/i-([a-zA-Z0-9-/+]+)/create-resume.aspx cw-resume-creation.php?cwoid=$1 [NC]
+RewriteRule ^cw/e-([a-zA-Z0-9-/+]+)/approve.aspx cw-enquiry-approve.php?eid=$1&msg=Approved [NC]
+RewriteRule ^cw/([a-zA-Z0-9-/+]+).aspx cw-dashboard.php [NC]
+
+# Content Writers End
+
+RewriteRule ^register.aspx register.php [NC]
+RewriteRule ^index.aspx index.php [NC]
+RewriteRule ^login.aspx login.php [NC]
+RewriteRule ^forgot-password.aspx forgot-password.php [NC]
+RewriteRule ^login/password-sent.aspx login.php?msg=password-sent [NC]
+RewriteRule ^contact-us.aspx oneness-contact-us.php [NC]
+RewriteRule ^gallery.aspx oneness-gallery.php [NC]
+RewriteRule ^register/email-exist.aspx register.php?msg=exist [NC]
+RewriteRule ^register/fail.aspx register.php?msg=fail [NC]
+RewriteRule ^register/success.aspx login.php?msg=success [NC]
+RewriteRule ^login/account-deactivated.aspx login.php?msg=account-deactivated [NC]
+RewriteRule ^login/not-activated.aspx login.php?msg=not-activated [NC]
+RewriteRule ^login/not-valid.aspx login.php?msg=not-valid [NC]
+RewriteRule ^login/activatelinksent.aspx login.php?msg=activatelinksent [NC]
+RewriteRule ^login/([a-zA-Z0-9-/+]+)/activation.aspx login.php?activation_code=$1 [NC]
+RewriteRule ^job-seeker/send-activation-link.aspx js_resend_activationlink.php [NC]
+# After user Login
+RewriteRule ^logout.aspx js-logout.php [NC]
+RewriteRule ^order-([a-zA-Z0-9-/+]+)/success.aspx edit-order.php?oid=$1&msg=success [NC]
+RewriteRule ^order-([a-zA-Z0-9-/+]+)/updated.aspx edit-order.php?oid=$1&msg=updated [NC]
+RewriteRule ^order-([a-zA-Z0-9-/+]+)/edit-order.aspx edit-order.php?oid=$1 [NC]
+RewriteRule ^password-updated.aspx js-change-password.php?msg=updated [NC]
+RewriteRule ^wrong-password.aspx js-change-password.php?msg=wrong [NC]
+RewriteRule ^change-password.aspx js-change-password.php [NC]
+RewriteRule ^edit-profile.aspx cw-edit-profile.php [NC]
+RewriteRule ^account-settings.aspx js-edit-profile.php [NC]
+RewriteRule ^dashboard/page-([a-zA-Z0-9-/+]+).aspx user-dashboard.php?page=$1 [NC]
+RewriteRule ^user/flight-bookings.aspx orders.php [NC]
+RewriteRule ^user/flight-bookings/page-([a-zA-Z0-9-/+]+).aspx orders.php?page=$1 [NC]
+RewriteRule ^orders/deleted.aspx orders.php?msg=deleted [NC]
+RewriteRule ^order-([a-zA-Z0-9-/+]+)/delete-order.aspx delete-order.php?oid=$1 [NC]
+RewriteRule ^job-seeker/cw-([a-zA-Z0-9-/+]+)/send-enquiry.aspx js-send-enquiry.php?cwid=$1 [NC]
+RewriteRule ^job-seeker/cw-([a-zA-Z0-9-/+]+)/order-now.aspx js-order-now.php?cwid=$1 [NC]
+RewriteRule ^job-seeker/cwo-([a-zA-Z0-9-/+]+)/payment-now.aspx js-store-ordernow.php?cwoid=$1 [NC]
+
+RewriteRule ^job-seeker/cw-([a-zA-Z0-9-/+]+)/start-chat.aspx js-start-chat.php?cwid=$1 [NC]
+RewriteRule ^job-seeker/t-([a-zA-Z0-9-/+]+)/create-resume.aspx js-resume-creation.php?tid=$1 [NC]
+RewriteRule ^job-seeker/my-resumes/resume-saved.aspx  js-my-resumes.php?msg=resume-saved [NC]
+RewriteRule ^job-seeker/my-resumes/resume-updated.aspx  js-my-resumes.php?msg=resume-updated [NC]
+RewriteRule ^job-seeker/r-([a-zA-Z0-9-/+]+)/order-now.aspx  js-payment-confirmation.php?id=$1&p=self [NC]
+RewriteRule ^job-seeker/r-([a-zA-Z0-9-/+]+)/delete-resume.aspx  js-delete-resume.php?id=$1 [NC]
+RewriteRule ^job-seeker/i-([a-zA-Z0-9-/+]+)/delete-invitation.aspx  js-delete-invitation.php?id=$1 [NC]
+RewriteRule ^job-seeker/c-([a-zA-Z0-9-/+]+)/delete-chat.aspx  js-delete-chat.php?id=$1 [NC]
+RewriteRule ^job-seeker/r-([a-zA-Z0-9-/+]+)/pdf-download.aspx  get_js_resume_pdf_download.php?id=$1 [NC]
+RewriteRule ^job-seeker/r-([a-zA-Z0-9-/+]+)/doc-download.aspx  get_js_resume_doc_download.php?id=$1 [NC]
+RewriteRule ^job-seeker/r-([a-zA-Z0-9-/+]+)/edit-resume.aspx  js-resume-edition.php?id=$1 [NC]
+RewriteRule ^job-seeker/my-resumes/resume-deleted.aspx  js-my-resumes.php?msg=resume-deleted [NC]
+RewriteRule ^job-seeker/chat/chat-deleted.aspx  js-chat.php?msg=chat-deleted [NC]
+RewriteRule ^job-seeker/i-([a-zA-Z0-9-/+]+)/delete-enquiry.aspx  js-delete-enquiry.php?id=$1 [NC]
+RewriteRule ^job-seeker/enquiries/enquiry-deleted.aspx  js-enquiries.php?msg=enquiry-deleted [NC]
+
+RewriteRule ^job-seeker/i-([a-zA-Z0-9-/+]+)/cancel.aspx js-invitation-approve.php?eid=$1&msg=Canceled [NC]
+RewriteRule ^job-seeker/i-([a-zA-Z0-9-/+]+)/approve.aspx js-invitation-approve.php?eid=$1&msg=Approved [NC]
+RewriteRule ^job-seeker/enquiries.aspx js-enquiries.php [NC]
+
+#payment
+RewriteRule ^job-seeker/transactions-payment-success.aspx js-payment-processing.php?rtype=self [NC]
+RewriteRule ^job-seeker/cw-order/transactions-payment-success.aspx js-payment-processing.php?rtype=cw [NC]
+RewriteRule ^job-seeker/transactions-payment-cancelled.aspx js-my-resumes.php?msg=payment-cancelled [NC]
+RewriteRule ^job-seeker/my-resumes/payment-success.aspx js-my-resumes.php?msg=payment-success [NC]
+RewriteRule ^job-seeker/my-resumes/payment-cancel.aspx js-my-resumes.php?msg=payment-cancelled [NC]
+
+
+RewriteRule ^job-seeker/enquiries-sent.aspx js-enquiries.php?msg=sent [NC]
+RewriteRule ^job-seeker/invitation-approved.aspx js-invitations.php?msg=approved [NC]
+RewriteRule ^job-seeker/invitation-canceled.aspx js-invitations.php?msg=canceled [NC]
+RewriteRule ^job-seeker/invitations.aspx js-invitations.php [NC]
+RewriteRule ^job-seeker/invitations/invitation-deleted.aspx js-invitations.php?msg=invitation-deleted [NC]
+RewriteRule ^job-seeker/chat.aspx js-chat.php [NC]
+RewriteRule ^job-seeker/transactions.aspx js-transactions.php [NC]
+RewriteRule ^job-seeker/our-experts.aspx js-our-experts.php [NC]
+RewriteRule ^job-seeker/our-experts/page-([a-zA-Z0-9-/+]+).aspx js-our-experts.php?page=$1
+RewriteRule ^job-seeker/my-resumes/page-([a-zA-Z0-9-/+]+).aspx js-my-resumes.php?page=$1
+RewriteRule ^job-seeker/invitations/page-([a-zA-Z0-9-/+]+).aspx js-invitations.php?page=$1
+RewriteRule ^job-seeker/enquiries/page-([a-zA-Z0-9-/+]+).aspx js-enquiries.php?page=$1
+RewriteRule ^job-seeker/chat/page-([a-zA-Z0-9-/+]+).aspx js-chat.php?page=$1
+RewriteRule ^job-seeker/transactions/page-([a-zA-Z0-9-/+]+).aspx js-transactions.php?page=$1
+RewriteRule ^job-seeker/my-resumes.aspx  js-my-resumes.php [NC]
+RewriteRule ^job-seeker/save-resume.aspx js-save-resume.php [NC]
+RewriteRule ^job-seeker/update-resume.aspx js-update-resume.php [NC]
+RewriteRule ^job-seeker/resume-templates.aspx js-resume-templates.php [NC]
+RewriteRule ^job-seeker/edit-profile.aspx js-profile.php [NC]
+RewriteRule ^job-seeker/t-([a-zA-Z0-9-/+]+)/profile-updated.aspx js-profile.php?tab=$1&msg=updated [NC]
+
+
+
+RewriteRule ^job-seeker/profile-updated.aspx js-profile.php?msg=updated [NC]
+
+RewriteRule ^job-seeker/([a-zA-Z0-9-/+]+).aspx js-dashboard.php [NC]
+
+# user Login End
+
+RewriteRule 404 $1.aspx
