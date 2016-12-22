@@ -30,15 +30,13 @@ class CCAvenue {
         $formData['merchant_id'] = $this->_merchantKey;
         $formData['currency'] = CURRENCY_TYPE;
         $formData['language'] = LANGUAGE;
-        $formData['tid'] = date('YmdHis');
         foreach ($formData as $key => $value){
             $merchant_data.=trim($key).'='.urlencode(trim($value)).'&';
         }
 //        echo $merchant_data;exit;
-//        $merchant_data="117679merchant_id=117679&order_id=123654789&amount=10.00¤cy=INR&redirect_url=http%3A%2F%2Fjatka.in%2Fpaymentgateway%2FccavResponseHandler.php&cancel_url=http%3A%2F%2Fjatka.in%2Fpaymentgateway%2FccavResponseHandler.php&language=EN&";
         $encrypted_data= $this->encrypt($merchant_data);
         
-       echo '<form method="post" name="redirect" action="'.$this->_sandobxUrl.'"> '
+       echo '<form method="post" name="redirect" action="'.$this->_productionUrl.'"> '
             .'<input type=hidden name=encRequest value='. $encrypted_data .'>'
             .'<input type=hidden name=access_code value='. $access_code. '>'
             .'</form>'
