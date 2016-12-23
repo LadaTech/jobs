@@ -117,7 +117,7 @@ if(isset($_POST['chat']))
 $chat=ucwords($_POST['chat']);
 $cwid=ucwords($_POST['cwid']);
 $jid=$user_info['Job_Seeker_Id'];
-$jsinsert=$db->query("insert into chat_info(jid,cwid,msg,msg_from) values('$jid','$cwid','$chat','js')");    
+$jsinsert=$db->query("insert into chat_info(jid,cwid,msg,msg_from,created_on) values('$jid','$cwid','$chat','js',now())");    
 if($jsinsert)
 {    
 $pa=$my_path."/job-seeker/cw-$cwid/start-chat.aspx";
