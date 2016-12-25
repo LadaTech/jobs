@@ -17,16 +17,25 @@ if(isset($_POST['submit'])){
     $cwid=$_POST["cwid"];
     $Experience_level=$_POST['Experience_level'];
     $price=$_POST['price'];
-    $selected_template=$_POST['selected_template'];
+    list($templateId,$templateName) = explode("-",$_POST['selected_template']);
+    $selected_template=$templateId;
 
     $jsinsert=$db->query("insert into cw_ordernow(cwid,jid,iid,did,ptype,exp_years,exp_mnths,approve,price,selected_template) value('$cwid','$user_info[Job_Seeker_Id]','$Industry','$Domain','$Experience_level','$exp_yrs','$exp_mnths','Pending','$price','$selected_template')");    
     if($jsinsert){    
         $last_id=$db->lastinsertid(); 
+        //Product Info
+        $orderInfo = array();
+        $orderInfo['item_number'] = $templateId;
+        $orderInfo['item_name'] = $templateName;
+        $orderInfo['jsid'] = $user_info['Job_Seeker_Id'];
+        $orderInfo['rtype'] = 'cw';
         include_once 'library/ccavenue_gateway/CCAvenue.php';
         $ccpayObj = new CCAvenue();
         $formData['tid'] = date('YmdHis');
         $formData['order_id'] = date('YmdHis');
-        $formData['amount'] = $_POST['price'] = '10.00';
+        $formData['merchant_param1'] = str_replace(array('&','='),array('|',','),http_build_query($orderInfo));
+        $formData['order_id'] = date('YmdHis');
+        $formData['amount'] = $_POST['price'] = '1.00';
         $formData['redirect_url'] = $my_path.'/js-payment-success.php';
         $formData['cancel_url'] = $my_path.'/js-payment-failure.php';
         $ccpayObj->request($formData);
@@ -261,7 +270,7 @@ while($row_dom = $jt->fetch(PDO::FETCH_ASSOC)){
 <div class="col-sm-4">
     <div class="s_template s_t1">    
 <a><img class="thumb template-T1 img-responsive" data-key="T1" src="<?php echo $my_path; ?>/images/templates/<?php echo $row_dom["image1"]; ?>" >
-    <h4> <input type="radio" name="selected_template" value="<?php echo $row_dom['id']; ?>" required>Select This</h4>
+    <h4> <input type="radio" name="selected_template" value="<?php echo $row_dom['id'].'-'.$row_dom['name']; ?>" required>Select This</h4>
 </a>
 </div>
 </div>  

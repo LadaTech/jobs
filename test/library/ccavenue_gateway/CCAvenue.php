@@ -54,4 +54,18 @@ class CCAvenue {
         parse_str($response,$responseArr);
         return $responseArr;
     }
+    
+    public function addBillingData($id){
+        $path = realpath(__DIR__."/../../db.php");
+        include_once $path;
+        $stmt = $db->prepare("SELECT * FROM job_seeker where Job_Seeker_Id=$id") or die(mysql_error());
+        $stmt->execute();
+        if ($stmt->rowCount() == 1) {
+            $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        print_r($user_info);
+        exit;
+    }
+    
+    
 }

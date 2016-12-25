@@ -1,5 +1,5 @@
 <?php
-    $no=30;
+    $no=20;
     if(isset($_GET['page']) && $_GET['page']!=1)
         {
             $pid=$_GET['page']-1;

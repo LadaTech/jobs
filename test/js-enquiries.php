@@ -64,17 +64,12 @@ if($msg=='enquiry-deleted')
         
 <div class="row my-resumes">
 <?php
-/*****************/
-//$ur=$db->query("update enquiry_info set jsread=1 where jid='$user_info[Job_Seeker_Id]'");
-/***********************/
 if(isset($_GET["q"])){
-$q=$_GET["q"];
-$sql1="SELECT *,(select First_name from content_writer where Content_writer_id=i.cwid) as cwname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM enquiry_info i where jid='$user_info[Job_Seeker_Id]' and (created_on like '%$q%' or approve like '%$q%' or ptype like '%$q%' or cwid in (select Content_writer_id from content_writer where First_name like '%$q%') )";
-$stmt_dom = $db->query("$sql1");
-}
-else {	
-$sql1="SELECT *,(select First_name from content_writer where Content_writer_id=i.cwid) as cwname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM enquiry_info i where jid='$user_info[Job_Seeker_Id]' order by id desc";
-$stmt_dom = $db->query("$sql1 limit $id,$no");
+    $sql1="SELECT *,(select First_name from content_writer where Content_writer_id=i.cwid) as cwname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM enquiry_info i where jid='$user_info[Job_Seeker_Id]' and (created_on like '%$q%' or approve like '%$q%' or ptype like '%$q%' or cwid in (select Content_writer_id from content_writer where First_name like '%$q%') )";
+    $stmt_dom = $db->query("$sql1");
+} else {
+    $sql1="SELECT *,(select First_name from content_writer where Content_writer_id=i.cwid) as cwname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM enquiry_info i where jid='$user_info[Job_Seeker_Id]' order by id desc";
+    $stmt_dom = $db->query("$sql1 limit $id,$no");
 }
 //$stmt_dom->execute();
 

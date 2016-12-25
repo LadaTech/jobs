@@ -22,7 +22,7 @@ while($row_dom = $jt->fetch(PDO::FETCH_ASSOC)){
 <div class="col-sm-4">
     <div class="s_template s_t1">    
 <a><img class="thumb template-T1 img-responsive" data-key="T1" src="<?php echo $my_path; ?>/images/templates/<?php echo $row_dom["image1"]; ?>" >
-    <h4> <input type="radio" name="selected_template" value="<?php echo $row_dom['id']; ?>" >Select This</h4>
+    <h4> <input type="radio" name="selected_template" value="<?php echo $row_dom['id'].'-'.$row_dom['name']; ?>" >Select This</h4>
 </a>
 </div>
 </div>  

@@ -4,8 +4,26 @@ $page="my-resumes";
 include "header.php";
 include 'js-session-check.php';
 if(!isset($_GET["id"])){
-$p_a=$my_path."/job-seeker/dashboard.aspx";
-header("Location: $p_a");
+    $p_a=$my_path."/job-seeker/dashboard.aspx";
+    header("Location: $p_a");
+}
+if(isset($_POST['submit'])){
+    //Product Info
+    $orderInfo = array();
+    $orderInfo['item_number'] = $_POST['item_number'];
+    $orderInfo['item_name'] = $_POST['item_name'];
+    $orderInfo['jsid'] = $user_info['Job_Seeker_Id'];
+    $orderInfo['rtype'] = 'self';
+    include_once 'library/ccavenue_gateway/CCAvenue.php';
+    $ccpayObj = new CCAvenue();
+    $formData['tid'] = date('YmdHis');
+    $formData['order_id'] = date('YmdHis');
+    $formData['merchant_param1'] = str_replace(array('&','='),array('|',','),http_build_query($orderInfo));
+    $formData['order_id'] = date('YmdHis');
+    $formData['amount'] = $_POST['price'] = '1.00';
+    $formData['redirect_url'] = $my_path.'/js-payment-success.php';
+    $formData['cancel_url'] = $my_path.'/js-payment-failure.php';
+    $ccpayObj->request($formData);
 }
 ?>
     <style>
@@ -60,7 +78,7 @@ if($msg=='canceled')
 <div class="row my-resumes">
     <div class="col-sm-6 resume_preview" id="resume-viewer">
  <?php
-$sql_dom="SELECT * FROM js_my_resumes where jsid='$user_info[Job_Seeker_Id]' and id=$_GET[id]";
+$sql_dom="SELECT m.*,t.name FROM js_my_resumes m LEFT JOIN templates t ON m.selected_template = t.id where m.jsid='$user_info[Job_Seeker_Id]' and m.id=$_GET[id]";
 $stmt_dom = $db->query($sql_dom);
 //$stmt_dom->execute();
 if ($stmt_dom->rowCount() == 1){
@@ -95,33 +113,12 @@ Now you can download your desired resume form My Resumes Tab.</p>
 
  
 </div>
-       <form name="customerData" action="http://jatka.in/paymentgateway/ccavRequestHandler.php" class="display-inline">
-
-        
- 
-        <input type="HIDDEN" name="tid" id="tid" readonly />
-				
-	<input type="HIDDEN" name="merchant_id" value="117679"/>
-				
-	<input type="HIDDEN" name="order_id" value="<?php echo $rt["id"]; ?>"/>
-			
-	<input type="HIDDEN" name="amount" value="<?php echo '130.00'; ?>"/>
-				
-	<input type="HIDDEN" name="currency" value="INR" />
-			
-	<input type="HIDDEN" name="redirect_url" value="http://jatka.in/paymentgateway/ccavResponseHandler.php"/>
-				
-	<input type="HIDDEN" name="cancel_url" value="http://jatka.in/paymentgateway/ccavResponseHandler.php"/>
-			 	
-	<input type="HIDDEN" name="language" value="EN"/>
-        
-        
-        <!-- Display the payment button. 
-
+        <form name="customerData" action="" class="display-inline" method="post">
+           <input type="hidden" name="item_number" value="<?php echo $rt["selected_template"]; ?>" /> 
+           <input type="hidden" name="item_name" value="<?php echo $rt["name"]; ?>" />   
         <div class="col-sm-6 col-sm-offset-3 div-paynow">
-        <input type="submit" class="btn  toolbar btn btn-primary open2 btn-full btn-paynow" value="Pay Now">
-        </div>-->
-         <a href="<?php echo $my_path; ?>/job-seeker/my-resumes.aspx" class="btn btn-primary col-md-offset-5" >Continue</a>
+            <input type="submit" name="submit" class="btn  toolbar btn btn-primary open2 btn-full" value="Pay Now">
+        </div>
     </form>  
    
     </div>

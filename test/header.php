@@ -93,16 +93,16 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
                                                     /*                                                     * ***********Invitations Tab End ****** */
 
                                                     /*                                                     * ***********Enquiries Tab****** */
-//$i1=$db->query("SELECT *,(select First_name from content_writer where Content_writer_id=i.cwid) as cwname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM enquiry_info i where jid='$user_info[Job_Seeker_Id]' and jsread=0 order by id desc");
-//if ($i1->rowCount() != 0){
-// while($row_dom = $i1->fetch(PDO::FETCH_ASSOC)){
-//
+$i1=$db->query("SELECT *,(select First_name from content_writer where Content_writer_id=i.cwid) as cwname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM enquiry_info i where jid='$user_info[Job_Seeker_Id]' and jsread=0 order by id desc");
+if ($i1->rowCount() != 0){
+ while($row_dom = $i1->fetch(PDO::FETCH_ASSOC)){
+        $cwid = $row_dom["id"];
                                                     ?>
-    <!--    <li class="bellinfo"><a href="//<?php echo $my_path; ?>/job-seeker/enquiries.aspx"><?php //echo $row_dom["cwname"];      ?> is <?php //echo $row_dom["approve"];      ?> your <b>request</b></a></li>-->
+        <li class="bellinfo"><a href="<?php echo $my_path; ?>/js-read-enquiries.php?id=<?php echo $cwid;?>"><?php echo $row_dom["cwname"];?> is <?php echo $row_dom["approve"]; ?> your <b>request</b></a></li>
                                                     <?php
-//     $rc++;
-// }   
-//}
+     $rc++;
+ }   
+}
                                                     /*                                                     * ***********Enquiries Tab End ****** */
 
 

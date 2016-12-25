@@ -50,19 +50,26 @@ if ($stmt_dom->rowCount() == 1){
 $rdom=$stmt_dom->fetch(PDO::FETCH_ASSOC);   
 if($rdom["approve"]=="Pending"){
 ?>
-<div class="col-sm-8 col-sm-offset-2"><a class="btn btn-primary open2 btn-full" disabled><i class="fa fa-eye" aria-hidden="true"></i> Enquiry Pending</a></div>      <?php    
-}
-else
-if($rdom["approve"]=="Approved"){
+<div class="col-sm-8 col-sm-offset-2">
+    <a href="<?php echo $my_path; ?>/job-seeker/cw-<?php echo $experts["Content_writer_id"]; ?>/send-enquiry.aspx" class="btn btn-primary open2 btn-full">
+        <i class="fa fa-text-width" aria-hidden="true"></i> Send Enquiry
+    </a>
+</div>
+<?php    
+} else if($rdom["approve"]=="Approved"){
 ?>
 <div class="col-sm-6"><a href="<?php echo $my_path; ?>/job-seeker/cw-<?php echo $experts["Content_writer_id"]; ?>/order-now.aspx" class="btn btn-primary open2 btn-full"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Order Now</a></div>   
 <div class="col-sm-6"><a class="btn btn-primary open2 btn-full" href="<?php echo $my_path; ?>/job-seeker/cw-<?php echo $experts["Content_writer_id"]; ?>/start-chat.aspx"><i class="fa fa-edit" aria-hidden="true"></i> Chat Now</a></div>   
 
 <?php
-}
-else{
+} else {
 ?>
-<div class="col-sm-8 col-sm-offset-2"><a class="btn btn-primary open2 btn-full" disabled><i class="fa fa-eye" aria-hidden="true"></i> Enquiry Canceled</a></div>      <?php    
+<div class="col-sm-8 col-sm-offset-2">
+    <a href="<?php echo $my_path; ?>/job-seeker/cw-<?php echo $experts["Content_writer_id"]; ?>/send-enquiry.aspx" class="btn btn-primary open2 btn-full">
+        <i class="fa fa-text-width" aria-hidden="true"></i> Send Enquiry
+    </a>
+</div>
+<?php    
 }    
 ?>
  

@@ -277,23 +277,21 @@ First_name,Last_name,Email_id,Password,Phone_No,Industry,Domain,Experience_level
 		}
 	}
 	//Hobbies insert function
-		public function hobbies($id, $hobby_name)
+        public function hobbies($id, $hobby_name)
 	{
-		try
-		{
-			$stmt = $this->db->prepare("INSERT INTO js_hobbies(job_seeker_id, hobby_name) VALUES(:id, :hobby_name)");
-
-			$stmt->bindparam(":hobby_name",$hobby_name);					
-			$stmt->bindparam(":id",$id);
-			$stmt->execute();
-			return true;
-		
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();	
-			return false;
-		}
+            try
+            {
+                $stmt = $this->db->prepare("INSERT INTO js_hobbies(job_seeker_id, hobby_name) VALUES(:id, :hobby_name)");
+                $stmt->bindparam(":hobby_name",$hobby_name);					
+                $stmt->bindparam(":id",$id);
+                $stmt->execute();
+                return true;
+            }
+            catch(PDOException $e)
+            {
+                echo $e->getMessage();	
+                return false;
+            }
 	}
 	
 	//Hobbies update function
@@ -302,8 +300,6 @@ First_name,Last_name,Email_id,Password,Phone_No,Industry,Domain,Experience_level
 		try
 		{
 			$stmt = $this->db->prepare("UPDATE js_hobbies SET hobby_name=:hobby_name WHERE 	job_seeker_id=:id");
-
-		
 			$stmt->bindparam(":hobby_name",$hobby_name);
 			$stmt->bindparam(":id",$id);
 			$stmt->execute();
