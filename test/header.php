@@ -241,7 +241,8 @@ if ($i1->rowCount() != 0){
 
 
                                                     /*                                                     * *********** My orders Tab****** */
-                                                    $i1 = $db->query("SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname FROM cw_ordernow i where cwid='$user_info[Content_writer_id]' and id in(select item_number from payments where payment_status='Completed' and rtype='cw') and approve='pending' order by id desc");
+                                                    $sqli1= "SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname FROM cw_ordernow i where cwid='$user_info[Content_writer_id]' and id in(select item_number from payments where payment_status='Completed' and rtype='cw') and approve='pending' order by id desc";
+                                                    $i1 = $db->query($sqli1);
                                                     if ($i1->rowCount() != 0) {
                                                         while ($row_dom = $i1->fetch(PDO::FETCH_ASSOC)) {
                                                             ?>

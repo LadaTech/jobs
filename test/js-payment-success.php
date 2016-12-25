@@ -1,15 +1,18 @@
 <?php
 ob_start();
 $page = "enquiries";
-include "header.php";
-include 'js-session-check.php';
-//$_POST['encResp'] = '4c0aaae6ecf33802f552c1605df8d9fdac3864f7d7b5f0994fb480beda604b861d2ac4c4f8d1eb4647a591a8c6e1621c13dfda2787cbfdd18b3ff1e63d1fe084b63ad0374434cd6986c27273266933c8866100019fe7153da4ea0b40edcc8a9536b6b809670a3fcd2356dd8d951e4b16bf3ef77a8268fec2079e91aede3488a13a9a195644b7904e973c7ccd05c99cd80131975855d4f617b907383f3a772b497b2cfdaac52ab0a49a81069708016f0c604afb644e6a27a91f2f79d5de81596c47364d0ea0480ab537cb0a9bdb22710e49c5919c958a788d79617f96b7e8f480c9f3f8c7a31ff43f72c1f16fb523b2b01a90633eead9ce2aff3ed5ce7080342da5208ef9b147663cd54ed98ba2268da543db4fadb55293d3257e3ecdccc3e9e9e1f3eb9af778362e5d6da5a84d103c10d7a06f185b0b870cd02302f439554cb51aad0c36acb18d68f878f1411747bd638d2415ff88ae6774240508fc79d893bbb88318434e1932002ed54880eaf32b71ed0764c17dfbbba31c0ccc71115c1ffe60dd8289cee26697d0e0db3de10463bd84116d867c410dad6a8508f5d9bfe9ac2761db2444eaf8202501f74a194ce6b0049d34b29958a764c4cb35d6c22cb74786a41b9d9e4a1c95fb0ab6288d2109673dd6b951f9ab17366c6fe48a15a16423e312328be698734984df5ba560adc858c9db30bb2b2f7bc3a09fb5909923aff7c25a1f835a703a7a209a4e503f5720c548dd74ac61efdffbd36f9fe0c3f0b26bd8deee4ea3f5d1acf6eba2618f260409d3bc39a6bce6c5dc82a2795df4669591d228b4d555b319873fa41de05a7e27c4725dc3f9db3d8bdd0287c63cf767a0b4ff7997d9fa0aee2c4739e12220da74e315f77c09f8ee15593ea2ff0e441be66e023f1fbc9179b477162a5bc18bcd1aaf0e59630f26c809e93cfa1b10148621418e588049318a4d636e6956c2ed920d4b9e05f45a59e99ed3cc969615487585def2b20e30785ad40ecf8b226b1b7796816b54e2593ba1ca095b9cebfb3d3661a18f44a5bebc2a8ca49d0ef7c1409c934319431f09b0ba11cfd99bd1972e15a87d89ea1d8abe664c9539bd0b832d4982ba9d655baa23b7ea5ab0ce3a278b243972e1db2ebeca5a6d50a87f4e2253ea590d';
+include_once "header.php";
+include_once 'js-session-check.php';
+
+//$_POST['encResp'] = '4c0aaae6ecf33802f552c1605df8d9fd325bcee707dc212426ca0cb67b9505366f4add120dc55162f16174496ce01a3863cdcdafb7e5b5409ca049bfddeed0d9178ba9167ff1360d394510460a7329ec6bea2ca05e796a8f96aaa9dbdac5fbfb5f6c758dca9802a5292b6ada975ed09da8109ebe2f1a88226551dc36cdad659610d7c35f9a2ec93784c4c82300796b739f689dc939e911f57f1d8fcc527853d01ab3d597db7842504302d744dc35723ecf5ef553366710fc8767d9bd02142b1a065ec032648ca6f16e3795d237b3167a5bf8f7170b9c8e4a9fb60b6a06525eb2cced82e63e10d51ae261e046cc6a9d81f6bc98ed2948c5365406e29924293666e630524fd5d09eac188d96afa4a912148c3222ac6912347c892d761183ebad9b592c931533f2d0e0cdbb10051a909646ae1fa8c20864c5e7d7cada6424ab0c1fa2ecde04cf001212a1f301c24efe9481c8cf397fc5dada743571a8fadb3cfea52a2e4c64251404ebd8e1c9104618890a705ab34238f9f306f1fb0ec8fa09891550c9e77037d77b78afa63a07daa927d4f6776959c3022a5f8fc69ae5a5aae463c4a6b36e0a1589bacb8e058545d6e90f9542881baeca4a05f2eb73502017b61317bb0c26acfcfbebb606862ec2952c68d210062fcea15bb147ba8b49a64ff8439dfe3cb566f39c28d18d58c27292063eb89b63d93611579f6283033567110742aae38b2ae20efb1370958a64d251c691f8c839a0c63e8e09f45e22c4c7dda021980d304a1e53f7334a2ba469a3ce0dad2c5c6c9fc0c49265e30df98badebea9fa882fe68639035040675887aad81d72060d815dddd06717ae85434e3438cd812d1e775f7fac73484ca097ce471f364a6f5ef5183c99cf8a6374d0ccb89e64aaba82e72da231ff167ee2dbfee2ec92e916cfda3ae6f3782d14bdf7df2dc5c378165fca3891d356acff6004bd686b05c652b7b1ea62e52eeea2445219dabf0968c7770a091a4db6eff2ea4140c831ea4ff2784543034c34c2838762c407bf98d4e5ae92776ac182f0c05730b6ea722ef8c3fe3ff82b46fc37ba8c73c93c9b79f8a02df451ab375b781a8a02c54f2117f93afa54ba3b06f4a41edb7f443ffa29253fa1ab085bfed8a00e583c8a380be7db883c0209ca50e1c3f0fe59fbf076cf847e415e185e71ef4d7f291f247b1a66b1acd76332afbd862ccab047f882a3e52416f729d006215d9112cb28a3b8fbd4912192bb0171f657421a12e0ec04483798865d65fb3e1bb8f578e345a6154f04648';
 //$_POST['orderNo'] = '20161224230711';
 //$orderInfo['item_number'] = '123';
 //$orderInfo['item_name'] = 'MyResume_2';
 //$orderInfo['jsid'] = '30';
 //$orderInfo['rtype'] = 'cw';
 //$_POST['merchant_param1'] = str_replace(array('&','='),array('|',','),http_build_query($orderInfo));
+//echo "<pre>";
+//print_r($_POST);
 if(!empty($_POST)){
     if($_POST['encResp'] != ''){
         include_once 'library/ccavenue_gateway/CCAvenue.php';
@@ -22,13 +25,13 @@ if(!empty($_POST)){
         $tableFieldNames['amount'] = 'payment_gross';
         $tableFieldNames['tracking_id'] = 'txn_id';
         $tableFieldNames['trans_date'] = 'created_on';
-
         if($response['order_status'] == 'Success'){
-            $response['merchant_param1'] = str_replace(array('|',','),array('&','='),$response['merchant_param1']);
+            $response['merchant_param1'] = str_replace(array('|',',','itemnumber',"itemname"),array('&','=',"item_number","item_name"),$response['merchant_param1']);
             parse_str($response['merchant_param1'],$productInfoArr);
             $response['trans_date'] = date('Y-m-d H:i:s',strtotime(str_replace('/','-',$response['trans_date'])));
             $response = array_merge($response,$productInfoArr);
             $fnamesList = implode(",",array_keys($response)); 
+            $response['order_status'] = 'Completed';
             $fvaluesList =  "'".implode("','",array_values($response))."'"; 
             $fnamesList = str_replace(array_keys($tableFieldNames), array_values($tableFieldNames),$fnamesList);
             $qry = "INSERT INTO payments (" . $fnamesList . ") VALUES (". $fvaluesList . ")";

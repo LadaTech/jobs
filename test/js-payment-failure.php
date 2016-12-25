@@ -14,7 +14,7 @@ if(!empty($_POST)){
     $tableFieldNames['tracking_id'] = 'txn_id';
     $tableFieldNames['trans_date'] = 'created_on';
     if($response['order_status'] == 'Aborted' || $response['order_status'] == 'Failure'){
-        $response['merchant_param1'] = str_replace(array('|',','),array('&','='),$response['merchant_param1']);
+        $response['merchant_param1'] = str_replace(array('|',',','itemnumber',"itemname"),array('&','=',"item_number","item_name"),$response['merchant_param1']);
         parse_str($response['merchant_param1'],$productInfoArr);
         if($response['trans_date'] == '') $response['trans_date'] = date('Y-m-d H:i:s');
         $response = array_merge($response,$productInfoArr);
