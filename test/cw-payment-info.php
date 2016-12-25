@@ -120,7 +120,7 @@ $payment = $p1->fetch(PDO::FETCH_ASSOC);
                                             <input type="number" name="special_4_exp" id="special_4_exp" placeholder="10+ Experience" value="<?php echo $payment["special_4_exp"]; ?>" class="form-control"  autocomplete="off">
                                         </div> 
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="expected_special_delivery">Expected Delivery </label>
+                                            <label class="control-label" for="expected_special_delivery">Expected Delivery <span class="imp">*</span></label>
                                             <select class="form-control" id="expected_special_delivery" name="expected_special_delivery">
                                                 <option value="3" <?php
                                                 if ($payment["expected_special_delivery"] == "3") {
@@ -166,7 +166,7 @@ $payment = $p1->fetch(PDO::FETCH_ASSOC);
                                             <input type="number" name="general_4_exp" id="general_4_exp" placeholder="10+ Experience" value="<?php echo $payment["general_4_exp"]; ?>" class="form-control"  autocomplete="off" required>
                                         </div>
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="expected_delivery">Expected Delivery </label>
+                                            <label class="control-label" for="expected_delivery">Expected Delivery <span class="imp">*</span></label>
                                             <select class="form-control" id="expected_special_delivery" name="expected_delivery">
                                                 <option value="3" <?php
                                                 if ($payment["expected_delivery"] == "3") {
