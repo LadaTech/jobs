@@ -89,7 +89,7 @@ if(isset($_POST['submit'])){
                                     
                                     <div>
                                         <button type="button" class="btn btn-primary" onclick="javascript:addDiv()">Add</button>
-                                        <button type="button" class="btn btn-default-custom open2" onclick="removeDiv()">Delete</button>
+                                        <!--<button type="button" class="btn btn-default-custom open2" onclick="removeDiv()">Delete</button>-->
                                     </div>
                                     <div align="center" class="form-group">
                                         <input type="submit" name="submit" value="Save & Continue" class="btn btn-primary open2"/>
