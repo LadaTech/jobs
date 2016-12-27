@@ -6,24 +6,14 @@ include_once 'js-session-check.php';
 if (isset($_POST['submit'])) {
     $count = count($_POST['project_name']);
     $fvaluesList = '';
-<<<<<<< HEAD
-    for($i=0;$i<$count;$i++){
-        if($_POST['project_name'][$i] != ''){
-            if(isset($_POST['to_date'][$i]) && $_POST['to_date'][$i] == 'on') $_POST['to_date'][$i] = '0000-00-00 11:11:11';
-            $fvaluesList .= "('".$user_info['Job_Seeker_Id'] ."','".$_POST['project_name'][$i] ."','". $_POST['team_size'][$i] ."','". $_POST['from_date'][$i] ."','". 
-                            $_POST['to_date'][$i]. "','" .$_POST['project_description'][$i] . "','" .$user_info['Job_Seeker_Id']
-                            . "','" .date('Y-m-d H:i:s')
-                            ."'),";
-=======
     for ($i = 0; $i < $count; $i++) {
         if ($_POST['project_name'][$i] != '') {
-            if (isset($_POST['till_date'][$i]) && $_POST['till_date'][$i] == 'on')
+            if(isset($_POST['to_date'][$i]) && $_POST['to_date'][$i] == 'on')
                 $_POST['to_date'][$i] = '0000-00-00 11:11:11';
             $fvaluesList .= "('" . $user_info['Job_Seeker_Id'] . "','" . $_POST['project_name'][$i] . "','" . $_POST['team_size'][$i] . "','" . $_POST['from_date'][$i] . "','" .
                     $_POST['to_date'][$i] . "','" . $_POST['project_description'][$i] . "','" . $user_info['Job_Seeker_Id']
                     . "','" . date('Y-m-d H:i:s')
                     . "'),";
->>>>>>> fbc7f3701a563cec53c2c8e7c23fcc6693d6b2da
         }
     }
     $fvaluesList = substr($fvaluesList, 0, -1);
@@ -35,58 +25,6 @@ if (isset($_POST['submit'])) {
     header("Location: $url");
 }
 ?>
-<<<<<<< HEAD
- 
-    <style>
-        .navbar-nav>li {
-            padding-bottom: 20px;
-        }
-        #experience {
-            display: none;
-        }
-    </style>
-   
-        
-        <section class="inner_page_info">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-sm-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div id="quick-resume">
-                                    <h1 class="heading">Quick Resume</h1>
-                                    <form id="fresher_projects" action="" method="post">
-                                        <div>
-                                            <h2 class="text-primary" style="margin-top: -7px;font-weight: 400;">Academic Projects</h2>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">Project Name</label>
-                                                        <input type="" class="form-control" id="" name="project_name[]" placeholder="Project Name">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>Team Size</label>
-                                                        <input class="form-control" type="team-size" name="team_size[]" placeholder="Team Size"> 
-                                                    </div> 
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">From</label>
-                                                        <input type="date" class="form-control" name="from_date[]" >
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">Due</label>
-                                                        <input type="date" class="form-control toDate" name="to_date[]">
-                                                    </div> 
-                                                    <div> <input type="checkbox" class="on_going" id="till_date[]" name="to_date[]" > On Going </div>
-                                                </div>
-=======
 
 <style>
     .navbar-nav>li {
@@ -114,7 +52,6 @@ if (isset($_POST['submit'])) {
                                             <div class="form-group">
                                                 <label for="">Project Name</label>
                                                 <input type="text" required="true" class="form-control" id="" name="project_name[]" placeholder="Project Name">
->>>>>>> fbc7f3701a563cec53c2c8e7c23fcc6693d6b2da
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -134,9 +71,9 @@ if (isset($_POST['submit'])) {
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Due</label>
-                                                <input type="date" class="form-control" required="true" name="to_date[]" >
+                                                <input type="date" class="form-control toDate" name="to_date[]">
                                             </div> 
-                                            <div> <input type="checkbox" required="true" onclick="checkEnable()" id="till_date[]" name="till_date[]" > Till Date </div>
+                                           <div> <input type="checkbox" class="on_going" id="till_date[]" name="to_date[]" > On Going </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -201,7 +138,7 @@ if (isset($_POST['submit'])) {
                     <label for="">Due</label>
                     <input type="date" class="form-control toDate" name="to_date[]" >
                 </div> 
-                <div> <input type="checkbox" class="on_going"   name="to_date[]"> On Going </div>
+                 <div> <input type="checkbox" class="on_going"   name="to_date[]"> On Going </div>
             </div>
         </div>
         <div class="form-group">
@@ -220,7 +157,8 @@ if (isset($_POST['submit'])) {
 </div>
 <?php include_once 'footer.php'; ?>
 <script>
-$(function(){
+
+   $(function(){
     $('form').on('click','.on_going',function(){
         if($(this).is(":checked")){
             $(this).parents('.col-md-6').find('.toDate').attr('disabled',true);
@@ -230,16 +168,7 @@ $(function(){
     });
 });
 
-<<<<<<< HEAD
-    
-    
-=======
-    function checkEnable() {
 
-    }
-
-
->>>>>>> fbc7f3701a563cec53c2c8e7c23fcc6693d6b2da
     // Add new div    
     function addDiv() {
         $('#experience').clone().addClass("clone-proj-div").appendTo("#add_projects").fadeIn('slow');
