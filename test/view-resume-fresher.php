@@ -71,15 +71,12 @@ if ($projects_obj->rowCount() >= 1) {
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 <body style="font-family: 'Oswald', sans-serif;">
-    <div>
-        <div>
-            <a class="btn btn-primary open2" href="<?php echo $my_path; ?>/quick-resume-fresher.php">Edit</a>
-        </div>
-        <div align="center" class="form-group">
+    <div class="col-md-6 col-md-offset-7">
+        <div class="form-group">
+            <a class="btn btn-primary open2" style="float:left;" href="<?php echo $my_path; ?>/quick-resume-fresher.php">Edit</a>
             <form action="" method="post">
-                <input type="submit" name="submit1" value="Pay & Download" class="btn btn-primary open2"/>
+                <input type="submit" style="margin-left:10px;" name="submit1" value="Pay & Download" class="btn btn-primary open2"/>
             </form>
-            
         </div>
     </div>
     <table align="center" cellpadding="0" cellspacing="0" style="min-height: 400px;border: 1px solid #ccc;border-radius: 3px;width: 630px;">
@@ -222,5 +219,6 @@ if ($projects_obj->rowCount() >= 1) {
             </td>
         </tr>
     </table>
-</body>        
+</body>   
+<br>
 <?php include_once 'footer.php'; ?>
