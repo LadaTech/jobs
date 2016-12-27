@@ -57,42 +57,42 @@ $(function () {
         }
     });
     
-     $("#fresher_projects").validate({
-        rules: {
-            "project_name[]": {
-                required: true
-            },
-            "team_size[]": {
-                required: true
-            },
-            "from_date[]": {
-                required: true
-            },
-            "to_date[]": {
-                required: true
-            },
-            "project_description[]": {
-                required: true
-            } 
-        },
-        messages: {
-            "project_name[]": {
-                required: 'Please enter project name'
-            },
-            "team_size[]": {
-                required: 'Please enter team size'
-            },
-            "from_date[]": {
-                required: 'Please enter from date'
-            },
-            "to_date[]": {
-                required: 'Please enter to date'
-            },
-            "project_description[]": {
-                required: 'Please enter description'
-            } 
-        }
-    });
+//     $("#fresher_projects").validate({
+//        rules: {
+//            "project_name[]": {
+//                required: true
+//            },
+//            "team_size[]": {
+//                required: true
+//            },
+//            "from_date[]": {
+//                required: true
+//            },
+//            "to_date[]": {
+//                required: true
+//            },
+//            "project_description[]": {
+//                required: true
+//            } 
+//        },
+//        messages: {
+//            "project_name[]": {
+//                required: 'Please enter project name'
+//            },
+//            "team_size[]": {
+//                required: 'Please enter team size'
+//            },
+//            "from_date[]": {
+//                required: 'Please enter from date'
+//            },
+//            "to_date[]": {
+//                required: 'Please enter to date'
+//            },
+//            "project_description[]": {
+//                required: 'Please enter description'
+//            } 
+//        }
+//    });
     
     $("#cwEditPaymentInfo").validate({
         rules: {

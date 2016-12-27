@@ -3,7 +3,8 @@ ob_start();
 $page = "";
 include "header.php";
 include 'js-session-check.php';
- 
+
+//Remove profile picture 
 if(isset($_GET['r']) && $_GET['r'] == 's' ){
     $uploaded_dir = "images/jobseeker/";
     $profPic = $user_info['profile_pic'];

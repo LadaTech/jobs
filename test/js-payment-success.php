@@ -39,9 +39,12 @@ if(!empty($_POST)){
             if($response['rtype'] == "self"){
                 $item_number = $response['item_number'];
                 $us=$db->query("update js_my_resumes set amount='paid' where id=$item_number ");           
+                $pa=$my_path."/js-order-success.php?q=$item_number";
+                header("Location: $pa");
+            } else {
+                $pa=$my_path."/js-enquiry-payment.php";
+                header("Location: $pa");
             }
-            $pa=$my_path."/job-seeker/my-resumes/payment-success.aspx";
-            header("Location: $pa");
         } else {
             //If transaction failure
         }

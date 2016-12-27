@@ -23,16 +23,11 @@ if(isset($_POST['submit'])){
                     . " VALUES ('$qr_academic_history','$user_info[Job_Seeker_Id]','$user_info[Job_Seeker_Id]','$dateTime' )";
     if($qr_academic_history != '') $db->query($qry);
     
-    //Hobbies and interests
-    $hobbies = explode(",",$_POST['hobbies']);
-    $fvaluesList = '';
-    foreach($hobbies as $hobby){
-        $fvaluesList .= "('". $hobby. "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
-    }
-    $fvaluesList = substr($fvaluesList,0,-1);
-    $qry = "INSERT INTO js_hobbies (hobby_name,job_seeker_id,inserted_by,inserted_time) VALUES ". $fvaluesList;
-    if($fvaluesList != '') $db->query($qry);
-    $url = $my_path."/quick-resume-fresher-step2.php";
+    //Success Stories in professional career
+    $qr_exp_success_stories =  $_POST['qr_exp_success_stories'];
+    $jsinsert = $db->query("update job_seeker set qr_exp_success_stories='$qr_exp_success_stories' where Job_Seeker_Id=$user_info[Job_Seeker_Id]"); 
+
+    $url = $my_path."/quick-resume-step3.php";
     header("Location: $url");
 }
 
@@ -78,15 +73,15 @@ if(isset($_POST['submit'])){
                                         </span>
                                         </div>
                                         <div class="form-group">
-                                        <label for="exampleInputEmail1">Hobbies & Interests</label>
-                                        <textarea class="form-control" rows="2" name="hobbies"></textarea>
-                                        <span>
-                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
+                                            <label for="exampleInputEmail1">Success Stories from your Professional career</label>
+                                            <textarea class="form-control" rows="2" name="qr_exp_success_stories"></textarea>
+                                            <span>
+                                                <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: ##383737;margin-top: 5px;">
                                                     <li>1. Screen readers will have trouble with your forms if you don't include</li>
                                                     <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
                                                     <li>3. as a replacement for other labelling methods is not advised.</li>
-                                            </ul>
-                                        </span>
+                                                </ul>
+                                            </span>
                                         </div>
                                         <div align="center" class="form-group">
                                             <a href="quick-resume-fresher.php" class="btn btn-default-custom open2">Back</a>

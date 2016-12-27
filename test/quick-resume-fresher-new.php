@@ -4,25 +4,7 @@ $page = "";
 include "header.php";
 include 'js-session-check.php';
  
-if(isset($_GET['r']) && $_GET['r'] == 's' ){
-    $uploaded_dir = "images/jobseeker/";
-    $profPic = $user_info['profile_pic'];
-    $fullPath = $uploaded_dir.$profPic;
-    unlink($fullPath);
-    $removeProfPic = $db->query("update job_seeker set profile_pic='' where Job_Seeker_Id=$user_info[Job_Seeker_Id]");    
-    if($removeProfPic){
-        $errorMsg = "Profile picture removed successfully";
-        $msg->error($errorMsg);
-        $pa=$my_path."/job-seeker/t-0/profile-updated.aspx";
-        $pa=$my_path."/js-profile.php?tab=0";
-        header("Location: $pa");
-    } else {
-        $errorMsg = "Profile picture not removed ";
-        $msg->error($errorMsg);
-        $pa=$my_path."/job-seeker/edit-profile.aspx";
-        header("Location: $pa");
-    }
-}
+ 
 
 if(isset($_POST['submit']))
 {
@@ -40,26 +22,7 @@ $old_img1=$_POST['old_img1'];
 //exit();
 $tab_place=$_POST["tab_place"];
 $uploaded_dir = "images/jobseeker/";
-$filename = $_FILES["image1"]["name"];
-$filename=rand(100,999)."_".$filename;
-$path = $uploaded_dir.$filename;
-$imageFileType = pathinfo($filename,PATHINFO_EXTENSION);
-if($imageFileType != '' && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"  ) {
-    $errorMsg = "Sorry, only JPG, JPEG, PNG  files are allowed";
-    $msg->error($errorMsg);
-    $pa=$my_path."/job-seeker/edit-profile.aspx";
-    header("Location: $pa");
-    exit;
-} else {
-    if (move_uploaded_file($_FILES["image1"]["tmp_name"], $path))
-    {
-    unlink($uploaded_dir.$old_img1);    
-    $image1=$filename;
-    }
-    else {
-    $image1=$old_img1;  
-    }
-}
+ 
 $Experience_level=$_POST['Experience_level'];
 $jsinsert=$db->query("update job_seeker set 
 First_name='$fname',Last_name='$lname',Phone_No='$Phone_No',Industry='$Industry',Domain='$Domain',Experience_level='$Experience_level',Alternate_email='$Alternate_email',Alternate_Phone_no='$Alternate_Phone_no',Father_Name='$Father_Name',Address='$Address',Objective='$Objective',profile_pic='$image1' where Job_Seeker_Id=$user_info[Job_Seeker_Id]");    
@@ -78,39 +41,6 @@ $rs=$db->query("insert into js_skills(js_skill_description,job_seeker_id,skill_t
         $llc++;
     }
 /***********Skills*************/
-
-/***********languages*****************/
-$db->query("delete from js_languages where Job_Seeker_Id=$user_info[Job_Seeker_Id]");
-$language_name=$_POST["language_name"];
-if(is_array($language_name))
-{
-    $llc=0;
-    while(list($key1,$val1)= each($language_name))
-    {
-
-if($val1!=""){
-try{            
-    echo "";
-    echo "<br/>";
-echo $profficiency_level=$_POST["profficiency_level"][$llc];
-echo $lang_read=$_POST["lang_read"][$llc];
-echo $writes=$_POST["writes"][$llc];
-echo $speaks=$_POST["speaks"][$llc];
-//exit();
-$rs=$db->query("insert into js_languages(language_name,profficiency_level,lang_read,writes,speaks,job_seeker_id) values('$val1','$profficiency_level','$lang_read','$writes','$speaks','$user_info[Job_Seeker_Id]')") or die(mysql_error());
-}
-catch(PDOException $e)
-		{
-			echo $e->getMessage();	
-			return false;
-		}
-
-        }
-        $llc++;
-    }
-}
-/***********languages*****************/
-
 
 /*********************Education Starts*************************/
 $db->query("delete from  js_educational_information where job_seeker_id=$user_info[Job_Seeker_Id]");
@@ -145,45 +75,18 @@ $rs=$db->query("insert into js_educational_information(js_qualification_name,js_
     }
 }
 /*********************Education Ends*************************/
-/********************* js_work_experience Starts*************************/
-$db->query("delete from   js_work_experience where job_seeker_id=$user_info[Job_Seeker_Id]");
-$Company_Name=$_POST["Company_Name"];
-if(is_array($Company_Name))
-{
-    $llc=0;
-    while(list($key1,$val1)= each($Company_Name))
-    {
-        if($val1!=""){
-            try{            
-                echo "";
-                echo "<br/>";
-                echo $Current_CTC=$_POST["Current_CTC"][$llc];
-                echo $Designation=$_POST["Designation"][$llc];
-                echo $Expected_CTC=$_POST["Expected_CTC"][$llc];
-                echo $Start_date=$_POST["Start_date"][$llc];
-                echo $End_date=$_POST["End_date"][$llc];
-                $exp_description=$_POST["exp_description"][$llc];
-                //exit();
-                $rs=$db->query("insert into  js_work_experience(Company_Name,Current_CTC,Designation,Expected_CTC,Start_date,End_date,job_seeker_id,"
-                        . "exp_description) values('$val1','$Current_CTC','$Designation','$Expected_CTC','$Start_date','$End_date','$user_info[Job_Seeker_Id]','$exp_description')") 
-                        or die(mysql_error());
-            } catch(PDOException $e)
-            {
-                echo $e->getMessage();	
-                return false;
-            }
-        }
-        $llc++;    
-    }
-}
-/********************* js_work_experience Ends*************************/
+/********************* Hobbies Starts*************************/
+$db->query("delete from   js_hobbies where job_seeker_id=$user_info[Job_Seeker_Id]");
+$Company_Name = $_POST["hobbies"];
+ 
+/********************* Hobbies  Ends*************************/
     if($jsinsert)
     {    
-        $pa=$my_path."/job-seeker/t-".trim($tab_place)."/profile-updated.aspx";
+        $pa=$my_path."/quick-resume-fresher-new.php";
         header("Location: $pa");
     }
     else {
-        $pa=$my_path."/job-seeker/edit-profile.aspx";
+        $pa=$my_path."/quick-resume-fresher-new.php";
         header("Location: $pa");
     }
 }
@@ -214,7 +117,7 @@ if(isset($_GET['msg']))
 }
 ?>
 
-<form name="submenus" action="<?php echo $my_path; ?>/job-seeker/edit-profile.aspx" method="post" class="form-horizontal" id="identicalForm" enctype="multipart/form-data">     
+<form name="submenus" action="<?php echo $my_path; ?>/quick-resume-fresher-new.php" method="post" class="form-horizontal" id="identicalForm" enctype="multipart/form-data">     
 <input type="hidden" name="old_img1" id="pid_v" value="<?php echo $user_info['profile_pic']; ?>" />
    <input type="hidden" name="tab_place" class="tab_place" value="<?php if(isset($_GET["tab"])){
    if($_GET["tab"]=='4') { echo "4"; } else { echo ($_GET["tab"]); } } else { ?>0 <?php } ?>" />
@@ -472,7 +375,7 @@ if(isset($_GET['msg']))
     <input type="button" name="submit" value="Back"  class="btn btn-primary btn-full open2 back"/>
     </div>
     <div class="col-sm-3 col-sm-offset-0">
-    <input type="submit" name="submit" value="Save" class="btn btn-primary btn-full open2">
+    <input type="submit" name="submit" value="Save & Continue" class="btn btn-primary btn-full open2">
     </div>    
     <div class="clearfix"></div>
     </div> 
@@ -743,47 +646,6 @@ if(isset($_GET['msg']))
 </div><!-- end #entry1 -->
 
 
-
-<div  class="hide  cloned-lang">  
-     <fieldset>  
-<h4 id="reference" name="reference" class="heading-reference">Language Details</h4>
-<!-- Select Basic -->
-<div class="form-group">
-    
-    
-    <div class="col-sm-4">   
-        <label class="control-label">Language Name</label>
-        <input type="text" name="language_name[]" placeholder="Language Name" data-error="This field is required" value=""  class="form-control input_lang">
-    </div>
-    <div class="col-sm-4">   
-        <label class="control-label">Proficiency Level</label>
-        <select data-error="This field is required"  name="profficiency_level[]" class="form-control select_prof">
-<option value="">Select</option>
-<option value="Beginner">Beginner</option>
-<option value="Intermediate">Intermediate</option>
-<option value="Expert">Expert</option>
-<option value="Professional">Professional</option>
-        </select>
-    </div>
-
-<div class="col-sm-4"> 
-<label class="control-label">Language Skills</label><br/>
-<label>
-    <input type="checkbox" name="lang_read[]" value="0" class="radio_read_hidden" checked/>
-<input type="checkbox" name="lang_read[]" value="1" class="radio_read"> Read </label> &nbsp;
-
-<label>
-   <input type="checkbox" name="speaks[]" value="0" class="radio_speaks_hidden" checked/>  
-<input type="checkbox" name="speaks[]" value="1" class="radio_speaks"> Speak </label> &nbsp;
-<label>
-    <input type="checkbox" name="writes[]" value="0" class="radio_writes_hidden" checked/>    
-<input type="checkbox" name="writes[]" value="1" class="radio_writes"> Write </label> &nbsp;
-</div>
-        <button type="button" name="btnDel_4" class="btn btn-danger btn-lang-del pull-right" ><i class='fa fa-trash-o'></i></button> 
-    <div class="clearfix"></div>
-</div> 
-</fieldset>
-</div><!-- end #entry1 -->
 
 
 <?php

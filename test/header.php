@@ -23,7 +23,7 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
         <link href="<?php echo $my_path; ?>/css/bootstrap.min.css" rel="stylesheet">
         <link href="<?php echo $my_path; ?>/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://necolas.github.io/normalize.css/4.1.1/normalize.css" rel="stylesheet" >
-
+        <link href="<?php echo $my_path; ?>/css/custom.css" rel="stylesheet">
         <link href="<?php echo $my_path; ?>/css/responsive.css" rel="stylesheet">
         <link href="<?php echo $my_path; ?>/css/main.css" rel="stylesheet">
         <link href="<?php echo $my_path; ?>/css/star-rating.min.css" rel="stylesheet">

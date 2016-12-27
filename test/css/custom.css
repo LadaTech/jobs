@@ -1,0 +1,204 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
+
+
+/*************************
+*******Typography******
+**************************/
+
+.m-t-0{
+	margin-top: 0px;
+}
+.m-t-5{
+	margin-top: 5px;
+}
+.m-t-10{
+	margin-top: 10px;
+}
+.m-t-15{
+	margin-top: 15px;
+}
+.m-t-20{
+	margin-top: 20px;
+}
+.m-t-30{
+	margin-top: 30px;
+}
+.m-b-0{
+	margin-bottom: 0px;
+}
+.m-b-5{
+	margin-bottom: 5px;
+}
+.m-r-5{
+	margin-right: 5px;
+}
+.m-r-10{
+	margin-right: 10px;
+}
+.p-l-r-15{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+#add-fields .col-lg-10 {
+	padding-left: 0px;
+}
+#edit-profile .form-group {
+    margin-bottom: 10px;
+}
+.edit-gi{
+	margin-top: 0px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+#quick-resume{
+
+}
+#quick-resume .heading{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 25px;
+	font-weight: 600;
+	color: #000;
+	text-transform: uppercase;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+#quick-resume .form-group{
+	margin-bottom: 15px;
+}
+#quick-resume form{
+	margin-top: 20px;
+}
+#quick-resume form label{
+	margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #353535;
+}
+#view-resume{
+	padding-left: 0px;
+	padding-right: 15px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+#view-resume .col-md-5 {
+	width: 38.666667%;
+}
+#view-resume .col-md-7 {
+    width: 61.333333%;
+    padding-left: 0px;
+}
+#view-resume .left-panel{
+	background-color: #ccc;
+	min-height: 700px;
+}
+#view-resume .left-panel-body{
+	padding: 10px;
+}
+#view-resume img{
+	font-size: 35px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	width: 140px;
+	height: 140px;
+}
+#view-resume .user-data label{
+	font-weight: 500;
+	color: #000;
+	margin-bottom: 0px;
+	font-size: 13px;
+}
+#view-resume .location{
+	font-weight: 500;
+	color: #000;
+	margin-bottom: 0px;
+	font-size: 12px;
+	border-top: 1px solid #e0dede;
+    margin-top: 10px;
+    padding-top: 10px;
+    line-height: 20px;
+}
+#view-resume .title h1{
+	margin-top: 10px;
+	margin-bottom: 0px;
+    font-weight: 400;
+    text-align: center;
+    color: #000;
+}
+#view-resume .divider {
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+#view-resume .or-text {
+    position: absolute;
+    top: -12px;
+    padding: 0 10px;
+    background: #fff;
+    display: inline-block;
+    left: 30%;
+    right: 30%;
+    margin-left: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #e48f1a;
+    font-weight: 600;
+}
+#view-resume .experience .title{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: 600;
+	color: #000;
+	font-size: 20px;
+}
+#view-resume .experience h3{
+
+}
+#view-resume .content {
+	font-size: 12px;
+    line-height: 18px;
+    margin-top: 10px;
+    color: #8e8e8e;
+}
+#view-resume .company {
+	margin-top: 20px;
+}
+#view-resume .company .title {
+	font-size: 16px;
+    color: #444343;
+}
+#view-resume .company .date {
+	font-size: 10px;
+    font-weight: normal;
+}
+#view-resume .company .postion {
+	color: #e48f1a;
+    margin-top: 3px;
+    font-weight: 600;
+    font-size: 13px;
+}
+#view-resume .reason {
+	color: #444343;
+    margin-top: 3px;
+    font-weight: bold;
+    font-size: 13px;
+}
+#view-resume .skills h3 {
+	color: #000;
+    border-bottom: 1px solid #e0dede;
+}
+#view-resume .content label {
+	font-size: 13px;
+    font-weight: 600;
+    color: #565656;
+}
+#view-resume .content p {
+	color: #000;
+}
+    
+    
+
+	

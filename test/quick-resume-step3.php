@@ -8,12 +8,12 @@
         $Industry = $_POST["Industry"];
         $Domain = $_POST['Domain'];
         $Address = $_POST["Address"];
-        $qr_expecting_comp = $_POST['expecting_comp'];
-        $qr_job_offers = $_POST["job_offers"];
+        $qr_exp_expecting_comp = $_POST['exp_expecting_comp'];
+        $qr_exp_job_offers = $_POST["exp_job_offers"];
         $jsinsert = $db->query("update job_seeker set 
-                    Industry='$Industry',Domain='$Domain',Address='$Address',qr_expecting_comp='$qr_expecting_comp',qr_job_offers='$qr_job_offers' "
+                    Industry='$Industry',Domain='$Domain',Address='$Address',qr_exp_expecting_comp='$qr_exp_expecting_comp',qr_exp_job_offers='$qr_exp_job_offers' "
                         . "where Job_Seeker_Id=$user_info[Job_Seeker_Id]");    
-        $url = $my_path."/view-resume-fresher.php";
+        $url = $my_path."/view-resume.php";
         header("Location: $url");
     }
     $sql_dom = 'SELECT * FROM industry  order by name asc';
@@ -107,8 +107,8 @@
                                     <textarea class="form-control" rows="2" name="Address"><?php echo $user_info["Address"]; ?></textarea>
                                 </div>
                                 <div class="form-group">
-                                <label for="exampleInputEmail1">What you are expecting from the company?</label>
-                                <textarea class="form-control" rows="2" name="expecting_comp"></textarea>
+                                <label for="exampleInputEmail1">Reason For Change: Vs mention What you are expecting from the new company</label>
+                                <textarea class="form-control" rows="2" name="exp_expecting_comp"></textarea>
                                 <span>
                                     <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
                                         <li>1. Screen readers will have trouble with your forms if you don't include</li>
@@ -118,8 +118,8 @@
                                 </span>
                                 </div>
                                 <div class="form-group">
-                                <label for="exampleInputEmail1">Any Offers In Hand?  If Yes - Please mention the details why you are still looking out for a change?</label>
-                                <textarea class="form-control" rows="2" name="job_offers"></textarea>
+                                <label for="exampleInputEmail1">Any Offers In Hand? If Yes - Please mention the details why you are still looking out for a change?</label>
+                                <textarea class="form-control" rows="2" name="exp_job_offers"></textarea>
                                 <span>
                                     <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
                                         <li>1. Screen readers will have trouble with your forms if you don't include</li>

@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
         $formData['order_id'] = date('YmdHis');
         $formData['merchant_param1'] = str_replace(array('&','='),array('|',','),http_build_query($orderInfo));
         $formData['order_id'] = date('YmdHis');
-        $formData['amount'] = $_POST['price'] = '1.00';
+        $formData['amount'] = $_POST['price'] = '130.00';
         $formData['redirect_url'] = $my_path.'/js-payment-success.php';
         $formData['cancel_url'] = $my_path.'/js-payment-failure.php';
         $ccpayObj->request($formData);

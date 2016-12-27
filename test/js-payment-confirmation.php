@@ -20,19 +20,19 @@ if(isset($_POST['submit'])){
     $formData['order_id'] = date('YmdHis');
     $formData['merchant_param1'] = str_replace(array('&','='),array('|',','),http_build_query($orderInfo));
     $formData['order_id'] = date('YmdHis');
-    $formData['amount'] = $_POST['price'] = '1.00';
+    $formData['amount'] = $_POST['price'] = '130.00';
     $formData['redirect_url'] = $my_path.'/js-payment-success.php';
     $formData['cancel_url'] = $my_path.'/js-payment-failure.php';
     $ccpayObj->request($formData);
 }
 ?>
-    <style>
-        div.papersheet-outer{
-        	margin-right: 0px;
-    		margin-left: 0px;
-		width: 100%;
-        }
-    </style>
+<style>
+    div.papersheet-outer{
+            margin-right: 0px;
+            margin-left: 0px;
+            width: 100%;
+    }
+</style>
 <section class="inner_page_info">
 <div class="gmap-area1">
 
@@ -52,9 +52,8 @@ if($msg=='approved')
 ?>
     
 <div class="alert alert-success alert-dismissable">
-<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-<h4>	<i class="icon fa fa-check"></i> Invitation has been approved.</h4>
-
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h4>	<i class="icon fa fa-check"></i> Invitation has been approved.</h4>
 </div>
 <?php   
 }
@@ -65,64 +64,45 @@ if($msg=='canceled')
 ?>
     
 <div class="alert alert-success alert-dismissable">
-<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-<h4>	<i class="icon fa fa-check"></i> Invitation has been canceled.</h4>
-
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h4><i class="icon fa fa-check"></i> Invitation has been canceled.</h4>
 </div>
 <?php   
 }
-/***********************Resend  activatelinksent ***********************************/
 }
 ?>
         
 <div class="row my-resumes">
     <div class="col-sm-6 resume_preview" id="resume-viewer">
- <?php
-$sql_dom="SELECT m.*,t.name FROM js_my_resumes m LEFT JOIN templates t ON m.selected_template = t.id where m.jsid='$user_info[Job_Seeker_Id]' and m.id=$_GET[id]";
-$stmt_dom = $db->query($sql_dom);
-//$stmt_dom->execute();
-if ($stmt_dom->rowCount() == 1){
-$rt=$stmt_dom->fetch(PDO::FETCH_ASSOC);
-echo $rt["resume_text"];
-}
-else{
-$p_a=$my_path."/job-seeker/dashboard.aspx";
-header("Location: $p_a");    
-}
-?>       
+    <?php
+        $sql_dom="SELECT m.*,t.name FROM js_my_resumes m LEFT JOIN templates t ON m.selected_template = t.id where m.jsid='$user_info[Job_Seeker_Id]' and m.id=$_GET[id]";
+        $stmt_dom = $db->query($sql_dom);
+        //$stmt_dom->execute();
+        if ($stmt_dom->rowCount() == 1){
+            $rt=$stmt_dom->fetch(PDO::FETCH_ASSOC);
+            echo $rt["resume_text"];
+        } else{
+            $p_a=$my_path."/job-seeker/dashboard.aspx";
+            header("Location: $p_a");    
+        }
+    ?>       
     </div>
     <div class="col-sm-6" >
-    <div id="mblfireworks">
-        <img src="<?php echo $my_path; ?>/images/final-logo.png" class="img-responsive col-md-4 col-md-offset-4" alt="logo">
-<div class="order-confirm">
-<h1 style="font-size:40px;" align="center" id="blinker">Congratulations!!!</h1>
-
-<p style="padding:5px; background-color:#FFFFCC" >You are now eligible to avail <strong>Jatka.in launching offer</strong> where you get to create your resume absolutely <strong>free of cost</strong> instead of paying <strong style="color:orange; font-size:20px;">$2</strong>. <br /><br />
-
- As part of its launching offer, Jatka.in is pleased to announce a special free resume offer that is valid only for today. <br /><br />
-
-We look forward to make your <strong>career journey</strong> more worthwhile. <br /><br />
-
-Now you can download your desired resume form My Resumes Tab.</p>
-<!--<h4>Your Selected Resume</h4>
-
-<p>Pages that you view in incognito tabs won’t stick around in your browser’s history, cookie store or search history after you’ve closed all of your incognito tabs. Any files you download or bookmarks you create will be kept.</p>
-<p>However, you aren’t invisible. Going incognito doesn’t hide your browsing from your employer, your Internet service provider or the websites that you visit.</p>
-<h5><span>Amount : </span>$1.29 </h5>-->
-</div>
-
- 
-</div>
-        <form name="customerData" action="" class="display-inline" method="post">
-           <input type="hidden" name="item_number" value="<?php echo $rt["selected_template"]; ?>" /> 
-           <input type="hidden" name="item_name" value="<?php echo $rt["name"]; ?>" />   
-        <div class="col-sm-6 col-sm-offset-3 div-paynow">
-            <input type="submit" name="submit" class="btn  toolbar btn btn-primary open2 btn-full" value="Pay Now">
+        <div id="mblfireworks">
+            <div class="order-confirm">
+                <p style="padding:5px; background-color:#FFFFCC" >
+                    To download the resume as PDF format, Pay Rs.130/-
+                </p>
+            </div>
         </div>
-    </form>  
-   
+        <form name="customerData" action="" class="display-inline" method="post">
+            <input type="hidden" name="item_number" value="<?php echo $rt["selected_template"]; ?>" /> 
+            <input type="hidden" name="item_name" value="<?php echo $rt["name"]; ?>" />   
+            <div class="col-sm-6 col-sm-offset-3 div-paynow">
+                <input type="submit" name="submit" class="btn  toolbar btn btn-primary open2 btn-full" value="Pay Now">
+            </div>
+        </form>  
     </div>
-    
 </div>
        
         

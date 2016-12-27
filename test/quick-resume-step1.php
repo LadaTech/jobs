@@ -8,20 +8,25 @@ if(isset($_POST['submit'])){
     $fvaluesList = '';
     for($i=0;$i<$count;$i++){
         if($_POST['project_name'][$i] != ''){
-            $fvaluesList .= "('".$user_info['Job_Seeker_Id'] ."','".$_POST['project_name'][$i] ."','". $_POST['team_size'][$i] ."','". $_POST['from_date'][$i] ."','". 
+            $fvaluesList .= "('".$user_info['Job_Seeker_Id'] ."','".$_POST['project_name'][$i] ."','". $_POST['role'][$i] ."','". $_POST['from_date'][$i] ."','". 
                             $_POST['to_date'][$i]. "','" .$_POST['project_description'][$i] . "','" .$user_info['Job_Seeker_Id']
                             . "','" .date('Y-m-d H:i:s')
                             ."'),";
         }
     }
     $fvaluesList = substr($fvaluesList,0,-1);
-    $qry = "INSERT INTO js_projects (job_seeker_id,project_name,team_size,from_date,to_date,project_description,inserted_by,inserted_date) VALUES".
+    $qry = "INSERT INTO js_projects (job_seeker_id,project_name,role_id,from_date,to_date,project_description,inserted_by,inserted_date) VALUES".
                         $fvaluesList;
     if($fvaluesList != '') $db->query($qry);
-    $url = $my_path."/quick-resume-fresher-step1.php";
+    $url = $my_path."/quick-resume-step2.php";
     header("Location: $url");
 }
-
+//Roles 
+$qry = "SELECT * FROM `roles`";
+$roles_obj = $db->query($qry);
+if ($roles_obj->rowCount() >= 1) {
+    $roles = $roles_obj->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
  
     <style>
@@ -54,8 +59,13 @@ if(isset($_POST['submit'])){
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Team Size</label>
-                                                        <input class="form-control" type="team-size" name="team_size[]" placeholder="Team Size"> 
+                                                         <label for="">Role</label>
+                                                        <select class="form-control" name="role[]">
+                                                            <option>Select Role</option>
+                                                            <?php foreach($roles as $role) { ?>
+                                                            <option  value="<?php echo $role['role_id']; ?>"> <?php echo $role['role_name']; ?></option>
+                                                            <?php } ?>
+                                                        </select> 
                                                     </div> 
                                                 </div>
                                             </div>
@@ -89,7 +99,6 @@ if(isset($_POST['submit'])){
                                     
                                     <div>
                                         <button type="button" class="btn btn-primary" onclick="javascript:addDiv()">Add</button>
-                                        <button type="button" class="btn btn-default-custom open2" onclick="removeDiv()">Delete</button>
                                     </div>
                                     <div align="center" class="form-group">
                                         <input type="submit" name="submit" value="Save & Continue" class="btn btn-primary open2"/>
@@ -118,8 +127,13 @@ if(isset($_POST['submit'])){
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Team Size</label>
-                    <input class="form-control" type="team-size" name="team_size[]" placeholder="Team Size"> 
+                     <label for="">Role</label>
+                    <select class="form-control" name="role[]">
+                        <option>Select Role</option>
+                        <?php foreach($roles as $role) { ?>
+                        <option  value="<?php echo $role['role_id']; ?>"> <?php echo $role['role_name']; ?></option>
+                        <?php } ?>
+                    </select> 
                 </div> 
             </div>
         </div>
@@ -149,11 +163,11 @@ if(isset($_POST['submit'])){
             </span>
         </div>
     </div>
-    <button type="button" name="btnDel_4" class="btn btn-danger btn-proj-del pull-right" ><i class='fa fa-trash-o'></i></button> 
+    <button type="button" name="btnDel_4" class="btn btn-danger btn-proj-del pull-right" ><i class='fa fa-trash-o'></i></button>    
 </div>
 <?php include_once 'footer.php'; ?>
 <script>
-    // Add new div    
+// Add new div    
 function addDiv() {
     $('#experience').clone().addClass("clone-proj-div").appendTo("#add_projects").fadeIn('slow');
 }
