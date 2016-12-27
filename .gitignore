@@ -1,3 +1,4 @@
 /nbproject/private/
 *.properties
 nbproject/project.xml
+test/nbproject/private/private.xml

@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include "db.php";
+include_once "db.php";
 include_once 'page_number.php';
 date_default_timezone_set("Asia/Kolkata");
 require_once 'library/FlashMessages.php';
@@ -15,7 +15,7 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
         <meta name="author" content="">
         <title>Jatka.in <?PHP
             if (isset($pageTitle)) {
-                echo ":: ".$pageTitle;
+                echo ":: " . $pageTitle;
             }
             ?></title>
 
@@ -93,16 +93,16 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
                                                     /*                                                     * ***********Invitations Tab End ****** */
 
                                                     /*                                                     * ***********Enquiries Tab****** */
-$i1=$db->query("SELECT *,(select First_name from content_writer where Content_writer_id=i.cwid) as cwname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM enquiry_info i where jid='$user_info[Job_Seeker_Id]' and jsread=0 order by id desc");
-if ($i1->rowCount() != 0){
- while($row_dom = $i1->fetch(PDO::FETCH_ASSOC)){
-        $cwid = $row_dom["id"];
-                                                    ?>
-        <li class="bellinfo"><a href="<?php echo $my_path; ?>/js-read-enquiries.php?id=<?php echo $cwid;?>"><?php echo $row_dom["cwname"];?> is <?php echo $row_dom["approve"]; ?> your <b>request</b></a></li>
-                                                    <?php
-     $rc++;
- }   
-}
+                                                    $i1 = $db->query("SELECT *,(select First_name from content_writer where Content_writer_id=i.cwid) as cwname, (select name from  industry where id=i.iid) iname, (select name from domains where id=i.did) dname FROM enquiry_info i where jid='$user_info[Job_Seeker_Id]' and jsread=0 order by id desc");
+                                                    if ($i1->rowCount() != 0) {
+                                                        while ($row_dom = $i1->fetch(PDO::FETCH_ASSOC)) {
+                                                            $cwid = $row_dom["id"];
+                                                            ?>
+                                                            <li class="bellinfo"><a href="<?php echo $my_path; ?>/js-read-enquiries.php?id=<?php echo $cwid; ?>"><?php echo $row_dom["cwname"]; ?> is <?php echo $row_dom["approve"]; ?> your <b>request</b></a></li>
+                                                            <?php
+                                                            $rc++;
+                                                        }
+                                                    }
                                                     /*                                                     * ***********Enquiries Tab End ****** */
 
 
@@ -214,7 +214,8 @@ if ($i1->rowCount() != 0){
                                                     /*                                                     * ***********Invitations Tab End ****** */
 
                                                     /*                                                     * ***********Enquiries Tab****** */
-                                                    $i1 = $db->query("SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname FROM enquiry_info i where cwid='$user_info[Content_writer_id]' and approve='Pending' order by id desc");
+                                                    $enSql = "SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname FROM enquiry_info i where cwid='$user_info[Content_writer_id]' and wsread=0 order by id desc";
+                                                    $i1 = $db->query($enSql);
                                                     if ($i1->rowCount() != 0) {
                                                         while ($row_dom = $i1->fetch(PDO::FETCH_ASSOC)) {
                                                             ?>
@@ -241,7 +242,7 @@ if ($i1->rowCount() != 0){
 
 
                                                     /*                                                     * *********** My orders Tab****** */
-                                                    $sqli1= "SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname FROM cw_ordernow i where cwid='$user_info[Content_writer_id]' and id in(select item_number from payments where payment_status='Completed' and rtype='cw') and approve='pending' order by id desc";
+                                                    $sqli1 = "SELECT *,(select First_name from job_seeker where Job_Seeker_Id=i.jid) as jname FROM cw_ordernow i where cwid='$user_info[Content_writer_id]' and id in(select item_number from payments where payment_status='Completed' and rtype='cw') and approve='pending' order by id desc";
                                                     $i1 = $db->query($sqli1);
                                                     if ($i1->rowCount() != 0) {
                                                         while ($row_dom = $i1->fetch(PDO::FETCH_ASSOC)) {
