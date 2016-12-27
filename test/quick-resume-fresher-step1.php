@@ -1,4 +1,4 @@
-<?php
+<?PHP
 ob_start();
 $page = 'Fresher Quick Resume';
 include_once 'header.php';
