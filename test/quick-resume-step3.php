@@ -75,7 +75,7 @@
                                                         while ($row_dom = $industries->fetch(PDO::FETCH_ASSOC)) {
                                                 ?>
                                                 <option  value="<?php echo $row_dom['id']; ?>" 
-                                                        <?php if ($user_info["Industry"] == $row_dom['id']) {echo "selected";} ?> > <?php echo $row_dom['name']; ?></option>
+                                                        <?php if ($_SESSION["qr_industry"] == $row_dom['id']) {echo "selected";} ?> > <?php echo $row_dom['name']; ?></option>
                                                 <?php
                                                     }
                                                 }
@@ -93,7 +93,7 @@
                                                         while ($row_dom = $domains->fetch(PDO::FETCH_ASSOC)) {
                                                 ?>
                                                 <option  value="<?php echo $row_dom['id']; ?>" 
-                                                    <?php if ($user_info["Domain"] == $row_dom['id']) { echo "selected";} ?>><?php echo $row_dom['name']; ?></option>
+                                                    <?php if ($_SESSION["qr_domain"] == $row_dom['id']) { echo "selected";} ?>><?php echo $row_dom['name']; ?></option>
                                                 <?php
                                                     }
                                                 }

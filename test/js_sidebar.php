@@ -1,11 +1,22 @@
+<?php 
+if(isset($_POST['submit1'])){
+    if(isset($_POST['Industry'])) $_SESSION['qr_industry'] = $_POST['Industry'];
+    if(isset($_POST['Domain'])) $_SESSION['qr_domain'] = $_POST['Domain'];
+    if(isset($_POST['p_type']) && $_POST['p_type'] == 'Fresher'){
+        header("Location: quick-resume-fresher.php");
+    } else {
+        header("Location: quick-resume.php");
+    }
+}
+?>
 <div class="widgets resume-teplates">
     <h3>Resume Templates</h3>
-    <form name="" method="post" action="<?php echo $my_path; ?>/job-seeker/resume-templates.aspx">
+    <form name="" method="post" id="resume_templates" action="<?php echo $my_path; ?>/job-seeker/resume-templates.aspx">
         <div class="form-group">                
             <div class="col-sm-12">
                 <label class="control-label" for="address">Profile Type <span class="imp">*</span> </label>
 
-                <select class="form-control" id="" name="p_type" required>
+                <select class="form-control" id="p_type" name="p_type" required>
                     <option value="">Select Profile Type</option>
                     <option value="Fresher">Fresher</option>
                     <option value="Experienced">Experienced</option>
@@ -55,7 +66,7 @@
                 </div>-->
         <div class="form-group">
             <div class="col-sm-6">
-                <input type="submit" name="submit" value="Quick Resumes" class="btn btn-primary btn-full open2">
+                <input type="submit" name="submit1" value="Quick Resumes" onclick="checkProfile()" class="btn btn-primary btn-full open2">
             </div>
             <div class="col-sm-6">
                 <input type="submit" name="submit" value="Get Resumes" class="btn btn-primary btn-full open2">
@@ -108,3 +119,8 @@
     </div>
 </div>
 
+<script>
+    function checkProfile(){
+        $('#resume_templates').attr('action','');
+    }
+</script>
