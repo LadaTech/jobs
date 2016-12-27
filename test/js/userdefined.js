@@ -184,5 +184,43 @@ $(function () {
             }
         }
     });
+    
+    
+    $("#fresher_projects").validate({
+        rules: {
+            'project_name[]': {
+                required: true
+            },
+            'team_size[]': {
+                required: true
+            },
+            'from_date[]': {
+                required: true
+            },
+            'till_date[]': {
+                required: true
+            },
+            'project_description[]': {
+                required: true
+            }
+        },
+        messages: {
+            'project_name[]': {
+                required: "Please enter Project Name"
+            },
+            'team_size[]': {
+                required: "Please enter Team Size"
+            },
+            'from_date[]': {
+                required: "Please enter From Date"
+            },
+            'till_date[]': {
+                required: "Please enter Till date"
+            },
+            'project_description[]': {
+                required: "Please enter Project Description"
+            }
+        }
+    });
 
 });

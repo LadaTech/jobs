@@ -1,4 +1,4 @@
-jQuery(function($) {'use strict',
+$(function($) {'use strict',
 
 	//#main-slider
 	$(function(){
