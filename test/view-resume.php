@@ -1,8 +1,29 @@
 <?php
 ob_start();
+error_reporting(0);
 $page = 'Fresher Quick Resume';
 include_once 'header.php';
-include_once 'js-session-check.php';
+//include_once 'js-session-check.php';
+
+if(isset($_POST['submit1'])){
+    //Product Info
+    $orderInfo = array();
+    $orderInfo['item_number'] = $_POST['item_number'];
+    $orderInfo['item_name'] = $_POST['item_name'];
+    $orderInfo['jsid'] = $user_info['Job_Seeker_Id'];
+    $orderInfo['rtype'] = 'qr_exp';
+    include_once 'library/ccavenue_gateway/CCAvenue.php';
+    $ccpayObj = new CCAvenue();
+    $formData['tid'] = date('YmdHis');
+    $formData['order_id'] = date('YmdHis');
+    $formData['merchant_param1'] = str_replace(array('&', '='), array('|', ','), http_build_query($orderInfo));
+    $formData['order_id'] = date('YmdHis');
+    $formData['amount'] = $_POST['price'] = '130.00';
+    $formData['redirect_url'] = $my_path . '/js-payment-success.php';
+    $formData['cancel_url'] = $my_path . '/js-payment-failure.php';
+    $ccpayObj->request($formData);
+}
+
 
 //echo "<pre>";
 //Personal info
@@ -59,6 +80,17 @@ foreach($roles as $role){
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 <body style="font-family: 'Oswald', sans-serif;">
+    <div>
+        <div>
+            <a class="btn btn-primary open2" href="<?php echo $my_path; ?>/quick-resume.php">Edit</a>
+        </div>
+        <div align="center" class="form-group">
+            <form action="" method="post">
+                <input type="submit" name="submit1" value="Pay & Download" class="btn btn-primary open2"/>
+            </form>
+            
+        </div>
+    </div>
     <table align="center" cellpadding="0" cellspacing="0" style="min-height: 400px;border: 1px solid #ccc;border-radius: 3px;">
         <tr>
             <td style="width: 230px;vertical-align: top;background-color: #ccc;">
@@ -116,7 +148,9 @@ foreach($roles as $role){
                     <p style="font-size: 12px;line-height: 18px;margin-top: 10px;color: #8e8e8e;letter-spacing: 0.5px;">
                         <?php echo $personal_info['exp_about_you']; ?>
                     </p>
-                    <?php foreach($companies as $comapny) { ?>
+                    <?php foreach($companies as $comapny) { 
+                            $to_date = ($comapny['to_date'] == '0000-00-00 11:11:11') ? 'Till Date' : date('M Y', strtotime($comapny['to_date']));
+                        ?>
                     <div>
                         <table style="width: 100%;">
                             <tr>
@@ -125,7 +159,7 @@ foreach($roles as $role){
                                     <label style="color: #e48f1a;margin-top: 3px;font-weight: 600;font-size: 13px;"><?php echo $rolesArr[$comapny['role']]; ?></label>
                                 </td>
                                 <td align="right" style="width: 200px;vertical-align: top;">
-                                    <label style="font-size: 11px;font-weight: normal;"><?php echo date('M Y', strtotime($comapny['from_date'])) . " to " . date('M Y', strtotime($comapny['to_date'])); ?></label>
+                                    <label style="font-size: 11px;font-weight: normal;"><?php echo date('M Y', strtotime($comapny['from_date'])) . " to " . $to_date ; ?></label>
                                 </td>
                             </tr>
                         </table>
@@ -153,7 +187,9 @@ foreach($roles as $role){
                 </div> 
                 <div align="left">
                     <h3 style="margin-top: 0px;margin-bottom: 7px;font-weight: 500;color: #000;font-size: 20px;border-bottom: 1px solid #efefef;padding-bottom: 5px;">Projects & Domains</h3>
-                    <?php foreach($projects as $project) { ?>
+                    <?php foreach($projects as $project) { 
+                        $to_date = ($project['to_date'] == '0000-00-00 11:11:11') ? 'On Going' : date('M Y', strtotime($project['to_date']));
+                        ?>
                     <table style="width: 100%;">
                         <tr>
                             <td style="vertical-align: top;">
@@ -161,7 +197,7 @@ foreach($roles as $role){
                                 <label style="color: #e48f1a;margin-top: 3px;font-weight: 600;font-size: 13px;"><?php echo $rolesArr[$project['role_id']]; ?></label>
                             </td>
                             <td align="right" style="width: 200px;vertical-align: top;">
-                                <label style="font-size: 11px;font-weight: normal;"><?php echo date('M Y', strtotime($project['from_date'])) . " to " . date('M Y', strtotime($project['to_date'])); ?></label>
+                                <label style="font-size: 11px;font-weight: normal;"><?php echo date('M Y', strtotime($project['from_date'])) . " to " . $to_date; ?></label>
                             </td>
                         </tr>
                     </table>
