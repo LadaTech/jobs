@@ -10,7 +10,7 @@ include 'js-session-check.php';
         <div class="row profile">
             <div class="col-sm-8">
                 <div class="alert alert-info">
-                    <p>Congrats! Your payment has done. To download resume as pdf format, <a href="get_js_resume_pdf_download.php?q=<?php echo $_GET['id']?>">Click here </a> <p>
+                    <p>Congrats! Your payment has done. To download resume as pdf format, <a href="get_js_resume_pdf_download.php?id=<?php echo $_GET['q'];?>">Click here </a> <p>
                 </div>
             </div>
             <div class="col-sm-4">
