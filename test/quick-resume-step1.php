@@ -8,6 +8,7 @@ if (isset($_POST['submit'])) {
     $fvaluesList = '';
     for ($i = 0; $i < $count; $i++) {
         if ($_POST['project_name'][$i] != '') {
+            if(isset($_POST['till_date'][$i]) && $_POST['till_date'][$i] == 'on') $_POST['to_date'][$i] = '0000-00-00 11:11:11';
             $fvaluesList .= "('" . $user_info['Job_Seeker_Id'] . "','" . $_POST['project_name'][$i] . "','" . $_POST['role'][$i] . "','" . $_POST['from_date'][$i] . "','" .
                     $_POST['to_date'][$i] . "','" . $_POST['project_description'][$i] . "','" . $user_info['Job_Seeker_Id']
                     . "','" . date('Y-m-d H:i:s')
@@ -81,7 +82,8 @@ if ($roles_obj->rowCount() >= 1) {
                                             <div class="form-group">
                                                 <label for="">Due</label>
                                                 <input type="date" class="form-control" name="to_date[]" >
-                                            </div> 
+                                            </div>
+                                            <div> <input type="checkbox" onclick="checkEnable()" id="till_date[]" name="till_date[]" > Till Date </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -150,6 +152,7 @@ if ($roles_obj->rowCount() >= 1) {
                     <label for="">Due</label>
                     <input type="date" class="form-control" name="to_date[]" >
                 </div> 
+                <div> <input type="checkbox" onclick="checkEnable()" id="till_date[]" name="till_date[]" > Till Date </div>
             </div>
         </div>
         <div class="form-group">
@@ -168,6 +171,9 @@ if ($roles_obj->rowCount() >= 1) {
 </div>
 <?php include_once 'footer.php'; ?>
 <script>
+function checkEnable(){
+
+}
 // Add new div    
     function addDiv() {
         $('#experience').clone().addClass("clone-proj-div").appendTo("#add_projects").fadeIn('slow');
