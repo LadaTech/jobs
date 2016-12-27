@@ -3,9 +3,11 @@ if(isset($_POST['submit1'])){
     if(isset($_POST['Industry'])) $_SESSION['qr_industry'] = $_POST['Industry'];
     if(isset($_POST['Domain'])) $_SESSION['qr_domain'] = $_POST['Domain'];
     if(isset($_POST['p_type']) && $_POST['p_type'] == 'Fresher'){
-        header("Location: quick-resume-fresher.php");
+        $url = $my_path."/quick-resume-fresher.php";
+        header("Location: $url");
     } else {
-        header("Location: quick-resume.php");
+        $url = $my_path."/quick-resume.php";
+        header("Location: $url");
     }
 }
 ?>
