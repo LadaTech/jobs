@@ -56,40 +56,73 @@ if(isset($_POST['submit'])){
                                 <h1 class="heading">Quick Resume</h1>
                                 <form id="qr_fresher_first" action="" method="post">
                                         <div class="form-group">
-                                        <label for="exampleInputEmail1">Technical Skills</label>
+                                        <label for="exampleInputEmail1">IT Proficiency/ Technical Skills</label>
                                         <textarea class="form-control" rows="2" name="tech_skills"></textarea>
                                         <span>
-                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                                    <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                                    <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                                    <li>3. as a replacement for other labelling methods is not advised.</li>
+                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                                <li>
+                                                    Tip:
+                                                    <ul style="list-style: circle;line-height: 17px;">
+                                                        <li>
+                                                           Make sure you categorize your technical skills into familiar classifications/categories
+                                                           - like programming tools, languages, operating systems, etc.
+                                                        </li>
+                                                        <li>
+                                                            Mention how you have used those skills in your workplace/project.
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    Example
+                                                    <ul style="list-style: circle;line-height: 17px;">
+                                                        <li>
+                                                           Tools - JBuilder, Rational Rose, Dreamweaver, UltraEdit, Oracle SQL*Plus, Borland C++Builder
+                                                        </li>
+                                                        <li>
+                                                           Languages - Java, XML, SQL, HTML, UML, C, C++, JavaScript
+                                                        </li>
+                                                        <li>
+                                                           If you're including skills such as Java, UML and Oracle in the skills section, describe
+                                                            how you have employed each technology for your respective project.
+                                                        </li>
+                                                    </ul>
+                                                </li>
                                             </ul>
                                         </span>
                                         </div>
                                         <div class="form-group">
-                                        <label for="exampleInputEmail1">Academic History : with any acheivements</label>
+                                        <label for="exampleInputEmail1">Academic Accomplishments:</label>
                                         <textarea class="form-control" rows="2" name="qr_academic_history"></textarea>
                                         <span>
-                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                                    <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                                    <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                                    <li>3. as a replacement for other labelling methods is not advised.</li>
+                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                                <li>
+                                                  Tip: Write your educational qualifications, preferably in reverse chronological order. In other
+                                                  words, start off with mentioning your latest qualifications.
+                                                </li>
+                                                <li style="margin-top: 10px;">
+                                                   Example: ABC College, XYZ University, Mumbai, Bachelor of Science June 2016
+                                                   DEF School, Mumbai June 2013
+                                                </li>
                                             </ul>
                                         </span>
                                         </div>
                                         <div class="form-group">
-                                        <label for="exampleInputEmail1">Hobbies & Interests</label>
+                                        <label for="exampleInputEmail1">Activities/Hobbies and Interests</label>
                                         <textarea class="form-control" rows="2" name="hobbies"></textarea>
                                         <span>
-                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                                    <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                                    <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                                    <li>3. as a replacement for other labelling methods is not advised.</li>
+                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                                <li>
+                                                  Tip: Think of a few selected interests that you can add to your resume, preferably those that
+                                                  are indirectly relevant to the skills required for your potential job.
+                                                </li>
+                                                <li style="margin-top: 10px;">
+                                                   Example: Reading, Writing, Travelling, Sports, etc.
+                                                </li>
                                             </ul>
                                         </span>
                                         </div>
                                         <div align="center" class="form-group">
-                                            <a href="quick-resume-fresher.php" class="btn btn-default-custom open2">Back</a>
+                                            <a href="quick-resume-fresher.php" class="btn btn-primary open2">Back</a>
                                             <input type="submit" name="submit" value="Save & Continue" class="btn btn-primary open2"/>
                                         </div>
                                 </form>

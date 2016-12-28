@@ -46,7 +46,24 @@ if (isset($_POST['submit'])) {
                             <h1 class="heading">Quick Resume</h1>
                             <form id="fresher_projects" action="" method="post">
                                 <div>
-                                    <h2 class="text-primary" style="margin-top: -7px;font-weight: 400;">Academic Projects</h2>
+                                    <h2 class="text-primary" style="margin-top: -7px;font-weight: 400;">Name of your Project:</h2>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Brief About Self</label>
+                                        <textarea class="form-control" rows="2" name="about_you"></textarea>
+                                        <span>
+                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                                <li>
+                                                   Tip: Your experience description must be precise, concise yet descriptive. The goal is to let your
+                                                    prospective employer know your responsibilities, the skills you have developed over the years, your
+                                                    key strengths and achievements.
+                                                </li>
+                                                <li style="margin-top: 10px;">
+                                                    Example: An effective, highly organized, confident professional with a passion to accomplish
+                                                    assigned projects while staying calm yet productive under pressure.
+                                                </li>
+                                            </ul>
+                                        </span>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -80,10 +97,25 @@ if (isset($_POST['submit'])) {
                                         <label for="">Project Description</label>
                                         <textarea class="form-control" required="true" rows="2" name="project_description[]"></textarea>
                                         <span>
-                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                                <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                                <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                                <li>3. as a replacement for other labelling methods is not advised.</li>
+                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                                <li>
+                                                    Tip:
+                                                    <ul style="list-style: circle;line-height: 17px;">
+                                                        <li>
+                                                            If you're a fresher, it is imperative that you show your projects, assignments
+                                                            undertaken at the time of internship.
+                                                        </li>
+                                                        <li>
+                                                            Mention briefly about the entire project, your role, your contribution and module.
+                                                            Also, don't forget to mention the tools, technologies, platforms used and
+                                                            commendation/rewards, if any.
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li style="margin-top: 10px;">
+                                                   For example : if you have worked on mobile text messaging, you can mention like this -A mobile app for sending across text messages on various mobile devices. You
+                                                     could mention the technology that you have used - like J2ME and J2me Wireless Toolkit (in this case).
+                                                </li>
                                             </ul>
                                         </span>
                                     </div>
@@ -145,10 +177,25 @@ if (isset($_POST['submit'])) {
             <label for="">Project Description</label>
             <textarea class="form-control" rows="2" name="project_description[]"></textarea>
             <span>
-                <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                    <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                    <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                    <li>3. as a replacement for other labelling methods is not advised.</li>
+                <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                    <li>
+                        Tip:
+                        <ul style="list-style: circle;line-height: 17px;">
+                            <li>
+                                If you're a fresher, it is imperative that you show your projects, assignments
+                                undertaken at the time of internship.
+                            </li>
+                            <li>
+                                Mention briefly about the entire project, your role, your contribution and module.
+                                Also, don't forget to mention the tools, technologies, platforms used and
+                                commendation/rewards, if any.
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 10px;">
+                       For example : if you have worked on mobile text messaging, you can mention like this -A mobile app for sending across text messages on various mobile devices. You
+                         could mention the technology that you have used - like J2ME and J2me Wireless Toolkit (in this case).
+                    </li>
                 </ul>
             </span>
         </div>

@@ -110,27 +110,47 @@
                                 <label for="exampleInputEmail1">Reason For Change: Vs mention What you are expecting from the new company</label>
                                 <textarea class="form-control" rows="2" name="exp_expecting_comp"></textarea>
                                 <span>
-                                    <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                        <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                        <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                        <li>3. as a replacement for other labelling methods is not advised.</li>
+                                    <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                        <li>
+                                            Tip:
+                                            <ul style="list-style: circle;line-height: 17px;">
+                                                <li>
+                                                    This is your chance to portray your personal responsibility to your potential employer.
+                                                    You want to assure them of your willingness to work hard and give your best no matter what!
+                                                </li>
+                                                <li>
+                                                    Focus on speaking positively and mention what you can offer to your potential
+                                                    organization in terms of putting your aptitude and skills to the best use.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li style="margin-top: 10px;">
+                                           I expect to perform exceptionally well in my role and hope to be evaluated both in terms of
+                                           positive and negative points so that I can work towards perfection in case of deficiencies (if any). I hope to excel in my career by rendering exceptional performance.
+                                        </li>
                                     </ul>
                                 </span>
                                 </div>
                                 <div class="form-group">
-                                <label for="exampleInputEmail1">Any Offers In Hand? If Yes - Please mention the details why you are still looking out for a change?</label>
+                                <label for="exampleInputEmail1">Are you interviewing with anyone else? If yes, mention why you are still looking for a change</label>
                                 <textarea class="form-control" rows="2" name="exp_job_offers"></textarea>
                                 <span>
-                                    <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                        <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                        <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                        <li>3. as a replacement for other labelling methods is not advised.</li>
+                                    <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                        <li>
+                                           Tip: It is not necessary to sound overly available that you have been applying for other jobs
+                                           as well. Say something nice about your current organization and mention about why you're
+                                           looking for a change. It is also a good idea to remain transparent.
+                                        </li>
+                                        <li style="margin-top: 10px;">
+                                           Example: It's been a great experience, but I see this opportunity well-fitting to take me in the
+                                           right career direction.
+                                        </li>
                                     </ul>
                                 </span>
                                 </div>
                                 <div align="center" class="form-group">
-                                        <a href="quick-resume-fresher-step1.php" class="btn btn-default-custom open2">Back</a>
-                                        <input type="submit" name="submit" value="Save & Continue" class="btn btn-primary open2"/>
+                                        <a href="quick-resume-fresher-step1.php" class="btn btn-primary open2">Back</a>
+                                        <input type="submit" name="submit" value="Submit" class="btn btn-primary open2"/>
                                 </div>
                             </form>
                         </div>

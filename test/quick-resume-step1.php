@@ -90,10 +90,15 @@ if ($roles_obj->rowCount() >= 1) {
                                         <label for="">Project Description</label>
                                         <textarea class="form-control" rows="2" name="project_description[]"></textarea>
                                         <span>
-                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                                <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                                <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                                <li>3. as a replacement for other labelling methods is not advised.</li>
+                                           <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                                <li>
+                                                   Tip: Mention briefly about the entire project, your role, your contribution and module. Also, do not
+                                                   forget to mention the tools, technologies, platforms used and commendation/rewards, if any.
+                                                </li>
+                                                <li style="margin-top: 10px;">
+                                                    Example: Ability to measure project performance by utilizing appropriate tools, systems and
+                                                    techniques.
+                                                </li>
                                             </ul>
                                         </span>
                                     </div>
@@ -159,10 +164,15 @@ if ($roles_obj->rowCount() >= 1) {
             <label for="">Project Description</label>
             <textarea class="form-control" rows="2" name="project_description[]"></textarea>
             <span>
-                <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                    <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                    <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                    <li>3. as a replacement for other labelling methods is not advised.</li>
+                <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                    <li>
+                       Tip: Mention briefly about the entire project, your role, your contribution and module. Also, do not
+                       forget to mention the tools, technologies, platforms used and commendation/rewards, if any.
+                    </li>
+                    <li style="margin-top: 10px;">
+                        Example: Ability to measure project performance by utilizing appropriate tools, systems and
+                        techniques.
+                    </li>
                 </ul>
             </span>
         </div>

@@ -54,8 +54,21 @@ if ($roles_obj->rowCount() >= 1) {
                             <h1 class="heading">Quick Resume</h1>
                             <form id="qr_experience" method="post" action="">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Brief About Your Experience</label>
+                                    <label for="exampleInputEmail1">Brief Summary of Experience</label>
                                     <textarea class="form-control" rows="2" name="about_you"></textarea>
+                                    <span>
+                                        <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                            <li>
+                                               Tip: Your experience description must be precise, concise yet descriptive. The goal is to let your
+                                                prospective employer know your responsibilities, the skills you have developed over the years, your
+                                                key strengths and achievements.
+                                            </li>
+                                            <li style="margin-top: 10px;">
+                                                Example: An effective, highly organized, confident professional with a passion to accomplish
+                                                assigned projects while staying calm yet productive under pressure.
+                                            </li>
+                                        </ul>
+                                    </span>
                                 </div>
                                 <div>
                                     <h3 class="text-primary" style="font-weight: 400;">Companies Worked with Duration With Reason for leaving from each company</h3>
@@ -97,21 +110,32 @@ if ($roles_obj->rowCount() >= 1) {
                                         <label for="">Job Description</label>
                                         <textarea class="form-control" rows="2" name="job_description[]"></textarea>
                                         <span>
-                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                                <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                                <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                                <li>3. as a replacement for other labelling methods is not advised.</li>
+                                            <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                                <li>
+                                                   Tip: Enlist your achievements; write impactful statements that highlight your skills and
+                                                   accomplishments.
+                                                </li>
+                                                <li style="margin-top: 10px;">
+                                                    Example: Used strong interpersonal skills to serve customers in dealing with their concerns
+                                                    effectively; received employee of the month award twice for performance excellence.
+                                                </li>
                                             </ul>
                                         </span>
                                     </div>
                                     <div class="form-group">
-                                    <label for="">Reason for Leaving</label>
+                                    <label for="">Reason for Job Change</label>
                                     <textarea class="form-control" rows="2" name="reason_for_leaving[]"></textarea>
                                     <span>
-                                        <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                                            <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                                            <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                                            <li>3. as a replacement for other labelling methods is not advised.</li>
+                                        <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                            <li>
+                                               Tip: Never talk negatively about your previous company, always be positive. You can mention that
+                                               your idea is to move towards companies that give you a chance to grow big and reward you
+                                               accordingly for the extra efforts.
+                                            </li>
+                                            <li style="margin-top: 10px;">
+                                                Example: I wish to explore various technologies and take my career to the next level. I see a great
+                                                opportunity in XYZ company and hence would like to prove myself.
+                                            </li>
                                         </ul>
                                     </span>
                                     </div>
