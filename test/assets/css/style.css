@@ -1607,7 +1607,10 @@ input.form-control:active, input.form-control:focus, textarea.form-control:activ
 	-webkit-transition: -webkit-transform .4s;
 	-moz-transition: -moz-transform .4s;
 	transition: transform .4s;
-	overflow: hidden
+	overflow: hidden;
+	border: 1px solid #ccc;
+	padding: 3px;
+	border-radius: 3px;
 }
 .portfolio .item .image p {
 	position: absolute;

@@ -41,6 +41,8 @@ include_once 'db.php';
                         <li><a href="#team">Why Jatka.in</a></li>
                         <li><a href="#testimonial">Testimonial</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <!--<li><a href="<?PHP echo $my_path; ?>/register.aspx">Register</a></li>
+                        <li><a href="<?PHP echo $my_path; ?>/login.aspx">Login</a></li>-->
                     </ul>
                 </div>
             </div>
@@ -69,7 +71,6 @@ include_once 'db.php';
                                 <h2 class="subtitle">Jatka.in bridges the gap between job seekers and employers and emerges as the only platform for <br>
                                     candidates to build crisp and high-impact résumés that catch the eye, maximizing their chances to nail their dream job.</h2>
                                 <div class="button-box"> <a class="btn btn-primary" href="<?PHP echo $my_path; ?>/register.aspx">Register Now</a> <a class="btn btn-default" href="<?PHP echo $my_path; ?>/login.aspx">Login</a></div>
-                                <p class="desc">Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur amet, consectetur.</p>
                             </div>
                         </div>
                     </div>
@@ -279,7 +280,7 @@ include_once 'db.php';
                   </div> -->
                 <div id="grid-container" class="bg-color1" style="padding-top: 20px;padding-bottom: 20px;padding-left: 50px;padding-right: 50px;">
                     <ul class="row">
-                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;">
+                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;padding-right: 20px;">
                             <div class="item-wrapper">
                                 <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume2.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume2.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
@@ -287,7 +288,7 @@ include_once 'db.php';
                                 <div class="text"> <span><strong>Technical Architect</strong></div>
                             </div>
                         </li>
-                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;">
+                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;padding-right: 20px;">
                             <div class="item-wrapper">
                                 <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume3.png" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume3.png" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
@@ -295,7 +296,7 @@ include_once 'db.php';
                                 <div class="text"> <span><strong>Art Director & Designer</strong></div>
                             </div>
                         </li>
-                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;">
+                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;padding-right: 20px;">
                             <div class="item-wrapper">
                                 <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume4.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume4.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
@@ -303,7 +304,7 @@ include_once 'db.php';
                                 <div class="text"> <span><strong>Customer Care Representative</strong></div>
                             </div>
                         </li>
-                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;">
+                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;padding-right: 20px;">
                             <div class="item-wrapper">
                                 <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume5.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume5.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
@@ -311,7 +312,7 @@ include_once 'db.php';
                                 <div class="text"> <span><strong>Photography</strong></div>
                             </div>
                         </li>
-                        <li class="col-md-3 col-sm-6 item web_dev web-design">
+                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="padding-right: 20px;">
                             <div class="item-wrapper">
                                 <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume9.png" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume9.png" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
@@ -319,7 +320,7 @@ include_once 'db.php';
                                 <div class="text"> <span><strong>System Analyst</strong></div>
                             </div>
                         </li>
-                        <li class="col-md-3 col-sm-6 item web_dev web-design">
+                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="padding-right: 20px;">
                             <div class="item-wrapper">
                                 <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume8.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume8.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
@@ -327,7 +328,7 @@ include_once 'db.php';
                                 <div class="text"> <span><strong>Business Analyst</strong></div>
                             </div>
                         </li>
-                        <li class="col-md-3 col-sm-6 item web_dev web-design">
+                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="padding-right: 20px;">
                             <div class="item-wrapper">
                                 <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume7.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume7.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
@@ -335,7 +336,7 @@ include_once 'db.php';
                                 <div class="text"> <span><strong>Accountant</strong></div>
                             </div>
                         </li>
-                        <li class="col-md-3 col-sm-6 item web_dev web-design">
+                        <li class="col-md-3 col-sm-6 item web_dev web-design" style="padding-right: 20px;">
                             <div class="item-wrapper">
                                 <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume6.png" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume6.png" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
