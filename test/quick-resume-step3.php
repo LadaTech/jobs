@@ -10,9 +10,10 @@
         $Address = $_POST["Address"];
         $qr_exp_expecting_comp = $_POST['exp_expecting_comp'];
         $qr_exp_job_offers = $_POST["exp_job_offers"];
-        $jsinsert = $db->query("update job_seeker set 
+        $update = "update job_seeker set 
                     Industry='$Industry',Domain='$Domain',Address='$Address',qr_exp_expecting_comp='$qr_exp_expecting_comp',qr_exp_job_offers='$qr_exp_job_offers' "
-                        . "where Job_Seeker_Id=$user_info[Job_Seeker_Id]");    
+                        . "where Job_Seeker_Id=$user_info[Job_Seeker_Id]";
+        $jsinsert = $db->query($update);    
         $url = $my_path."/view-resume.php";
         header("Location: $url");
     }

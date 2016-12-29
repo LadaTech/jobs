@@ -108,7 +108,7 @@ if(isset($_POST['submit'])){
                                             </span>
                                         </div>
                                         <div align="center" class="form-group">
-                                            <a href="quick-resume-fresher.php" class="btn btn-primary open2">Back</a>
+                                            <a href="quick-resume-step1.php" class="btn btn-primary open2">Back</a>
                                             <input type="submit" name="submit" value="Save & Continue" class="btn btn-primary open2"/>
                                         </div>
                                 </form>
