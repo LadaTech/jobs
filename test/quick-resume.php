@@ -211,10 +211,15 @@ if ($roles_obj->rowCount() >= 1) {
         <label for="exampleInputEmail1">Job Description</label>
         <textarea class="form-control" rows="2" name="job_description[]"></textarea>
         <span>
-            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                <li>3. as a replacement for other labelling methods is not advised.</li>
+            <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                <li>
+                   Tip: Enlist your achievements; write impactful statements that highlight your skills and
+                   accomplishments.
+                </li>
+                <li style="margin-top: 10px;">
+                    Example: Used strong interpersonal skills to serve customers in dealing with their concerns
+                    effectively; received employee of the month award twice for performance excellence.
+                </li>
             </ul>
         </span>
     </div>
@@ -222,10 +227,16 @@ if ($roles_obj->rowCount() >= 1) {
         <label for="exampleInputEmail1">Reason for Leaving</label>
         <textarea class="form-control" rows="2" name="reason_for_leaving[]"></textarea>
         <span>
-            <ul class="list-unstyled" style="line-height: 14px;font-size: 10px;color: #383737;margin-top: 5px;">
-                <li>1. Screen readers will have trouble with your forms if you don't include</li>
-                <li>2. methods of providing a label for assistive technologies, such as the attribute. If none of these is present</li>
-                <li>3. as a replacement for other labelling methods is not advised.</li>
+            <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                <li>
+                   Tip: Never talk negatively about your previous company, always be positive. You can mention that
+                   your idea is to move towards companies that give you a chance to grow big and reward you
+                   accordingly for the extra efforts.
+                </li>
+                <li style="margin-top: 10px;">
+                    Example: I wish to explore various technologies and take my career to the next level. I see a great
+                    opportunity in XYZ company and hence would like to prove myself.
+                </li>
             </ul>
         </span>
     </div>
