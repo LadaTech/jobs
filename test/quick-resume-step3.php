@@ -4,16 +4,16 @@
     include_once 'header.php';
     include_once 'js-session-check.php';
 
-    if(isset($_POST['submit'])){
+     if(isset($_POST['submit'])){
+        if(isset($_SESSION['qr_last_id'])) $qrLastId = $_SESSION['qr_last_id'];
         $Industry = $_POST["Industry"];
         $Domain = $_POST['Domain'];
         $Address = $_POST["Address"];
         $qr_exp_expecting_comp = $_POST['exp_expecting_comp'];
         $qr_exp_job_offers = $_POST["exp_job_offers"];
-        $update = "update job_seeker set 
-                    Industry='$Industry',Domain='$Domain',Address='$Address',qr_exp_expecting_comp='$qr_exp_expecting_comp',qr_exp_job_offers='$qr_exp_job_offers' "
-                        . "where Job_Seeker_Id=$user_info[Job_Seeker_Id]";
-        $jsinsert = $db->query($update);    
+        $jsinsert = $db->query("update quick_resumes set 
+                    Industry='$Industry',Domain='$Domain',address='$Address',expecting_comp='$qr_exp_expecting_comp',job_offers='$qr_exp_job_offers' "
+                        . "where quick_resume_id=$qrLastId");    
         $url = $my_path."/view-resume.php";
         header("Location: $url");
     }

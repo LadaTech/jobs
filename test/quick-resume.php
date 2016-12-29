@@ -6,25 +6,36 @@ include_once 'js-session-check.php';
 if(isset($_POST['submit'])){
 //    echo "<pre>";
 //    print_r($_POST);
+    $jobSeekerId = $user_info['Job_Seeker_Id'];
+    if(isset($_SESSION['qr_industry'])) $industryId = $_SESSION['qr_industry'];
+    if(isset($_SESSION['qr_domain'])) $domainId = $_SESSION['qr_domain'];
+    if(isset($_SESSION['resume_type'])) $resumeType = $_SESSION['resume_type'];
+    $dateTime = date('Y-m-d H:i:s');
+    $qry = "INSERT INTO quick_resumes (job_seeker_id,industry_id,domain_id,resume_type,inserted_date) VALUES"
+            . "('$jobSeekerId','$industryId','$domainId','$resumeType','$dateTime')";
+    $db->query($qry);
+    $_SESSION['qr_last_id'] = $qrLastId = $db->lastinsertid();
+    
+    //Companies
     $count = count($_POST['company_name']);
     $fvaluesList = '';
     for($i=0;$i<$count;$i++){
         if($_POST['company_name'][$i] != ''){
             if(isset($_POST['to_date'][$i]) && $_POST['to_date'][$i] == 'on') $_POST['to_date'][$i] = '0000-00-00 11:11:11';
-            $fvaluesList .= "('".$user_info['Job_Seeker_Id'] ."','".$_POST['company_name'][$i] ."','". $_POST['role'][$i] ."','". $_POST['from_date'][$i] ."','". 
-                            $_POST['to_date'][$i]. "','" .$_POST['job_description'][$i] . "','". $_POST['reason_for_leaving'][$i] . "','" .$user_info['Job_Seeker_Id']
-                            . "','" .date('Y-m-d H:i:s')
+            $fvaluesList .= "('".$jobSeekerId ."','". $qrLastId . "','".$_POST['company_name'][$i] ."','". $_POST['role'][$i] ."','". $_POST['from_date'][$i] ."','". 
+                            $_POST['to_date'][$i]. "','" .$_POST['job_description'][$i] . "','". $_POST['reason_for_leaving'][$i] . "','" .$jobSeekerId
+                            . "','" .$dateTime
                             ."'),";
         }
     }
     $fvaluesList = substr($fvaluesList,0,-1);
-    $qry = "INSERT INTO js_companies (job_seeker_id,company_name,role,from_date,to_date,job_description,reason_for_leaving,inserted_by,inserted_date) VALUES".
+    $qry = "INSERT INTO js_companies (job_seeker_id,quick_resume_id,company_name,role,from_date,to_date,job_description,reason_for_leaving,inserted_by,inserted_date) VALUES".
                         $fvaluesList;
     if($fvaluesList != '') $db->query($qry);
     
     //About You
     $about_you =  $_POST['about_you'];
-    $jsinsert = $db->query("update job_seeker set exp_about_you='$about_you' where Job_Seeker_Id=$user_info[Job_Seeker_Id]"); 
+    $jsinsert = $db->query("update quick_resumes set about_you='$about_you' where quick_resume_id=$qrLastId"); 
     
     $url = $my_path."/quick-resume-step1.php";
     header("Location: $url");
@@ -34,7 +45,7 @@ $qry = "SELECT * FROM `roles`";
 $roles_obj = $db->query($qry);
 if ($roles_obj->rowCount() >= 1) {
     $roles = $roles_obj->fetchAll(PDO::FETCH_ASSOC);
-}    
+}      
 ?>
 <style>
     .navbar-nav>li {
@@ -149,6 +160,8 @@ if ($roles_obj->rowCount() >= 1) {
                                     </span>
                                     </div>
                                 </div>
+                                
+                                
                                 <div id="add_companies"></div>
                                 
                             <div>

@@ -7,26 +7,30 @@ include_once 'js-session-check.php';
 if(isset($_POST['submit'])){
     echo "<pre>";
     $dateTime = date('Y-m-d H:i:s');
+    if(isset($_SESSION['qr_last_id'])) $qrLastId = $_SESSION['qr_last_id'];
     //Technical Skills
     $techSkills = explode(",",$_POST['tech_skills']);
     $fvaluesList = '';
     foreach($techSkills as $skill){
-        $fvaluesList .= "('". $skill. "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
+        $fvaluesList .= "('". $skill. "','" .$qrLastId . "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
     }
     $fvaluesList = substr($fvaluesList,0,-1);
-    $qry = "INSERT INTO js_skills (skill_title,job_seeker_id,inserted_by,inserted_date) VALUES ". $fvaluesList;
+    $qry = "INSERT INTO js_skills (skill_title,quick_resume_id,job_seeker_id,inserted_by,inserted_date) VALUES ". $fvaluesList;
     if($fvaluesList != '') $db->query($qry);
     
     //Academic history
-    $qr_academic_history = $_POST['qr_academic_history'];
-    $qry = "INSERT INTO js_accomplishments (accomplishment_name,job_seeker_id,inserted_by,inserted_time)"
-                    . " VALUES ('$qr_academic_history','$user_info[Job_Seeker_Id]','$user_info[Job_Seeker_Id]','$dateTime' )";
-    if($qr_academic_history != '') $db->query($qry);
-    
+    if($_POST['qr_academic_history'] != ''){
+        $qr_academic_history = $_POST['qr_academic_history'];
+        $qry = "INSERT INTO js_accomplishments (quick_resume_id,accomplishment_name,job_seeker_id,inserted_by,inserted_time)"
+                        . " VALUES ('$qrLastId','$qr_academic_history','$user_info[Job_Seeker_Id]','$user_info[Job_Seeker_Id]','$dateTime' )";
+         $db->query($qry);
+    }
     //Success Stories in professional career
-    $qr_exp_success_stories =  $_POST['qr_exp_success_stories'];
-    $jsinsert = $db->query("update job_seeker set qr_exp_success_stories='$qr_exp_success_stories' where Job_Seeker_Id=$user_info[Job_Seeker_Id]"); 
-
+    if($_POST['qr_exp_success_stories'] != ''){
+        $qr_exp_success_stories =  $_POST['qr_exp_success_stories'];
+        $jsinsert = $db->query("update quick_resumes set success_stories='$qr_exp_success_stories' where quic_resume_id=$qrLastId"); 
+    }
+    
     $url = $my_path."/quick-resume-step3.php";
     header("Location: $url");
 }

@@ -1,5 +1,4 @@
 <?php
-
 ob_start();
 include "db.php";
 $q = $_GET["id"];
@@ -15,8 +14,12 @@ if ($rdata["id"] == '') {
 ?>
 
 <?php
+if($rdata["quick_resume_id"] > '0'){
+    $content = '<div id="resume-viewer">' . file_get_contents($qr_files_path .$rdata["qr_file_name"]) . '</div>';
+} else {
+    $content = '<div id="resume-viewer">' . $rdata["resume_text"] . '</div>';
+}
 
-$content = '<div id="resume-viewer">' . $rdata["resume_text"] . '</div>';
 
 // include autoloader
 require_once 'dompdf/autoload.inc.php';

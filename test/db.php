@@ -9,6 +9,8 @@ $compnay_small_name = "Jatka";
 $logo_img_url = "logo.png";
 $fav_icon_url = "";
 $compnay_name = "Jatka.in";
+$qr_files_path = 'uploads/';
+
 //echo $_SERVER['SERVER_NAME'];
 switch ($_SERVER['SERVER_NAME']) {
     case 'www.jatka.in' :

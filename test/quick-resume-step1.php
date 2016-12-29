@@ -4,19 +4,20 @@ $page = 'Fresher Quick Resume';
 include_once 'header.php';
 include_once 'js-session-check.php';
 if (isset($_POST['submit'])) {
+    if(isset($_SESSION['qr_last_id'])) $qrLastId = $_SESSION['qr_last_id'];
     $count = count($_POST['project_name']);
     $fvaluesList = '';
     for ($i = 0; $i < $count; $i++) {
         if ($_POST['project_name'][$i] != '') {
             if(isset($_POST['to_date'][$i]) && $_POST['to_date'][$i] == 'on') $_POST['to_date'][$i] = '0000-00-00 11:11:11';
-            $fvaluesList .= "('" . $user_info['Job_Seeker_Id'] . "','" . $_POST['project_name'][$i] . "','" . $_POST['role'][$i] . "','" . $_POST['from_date'][$i] . "','" .
+            $fvaluesList .= "('" . $user_info['Job_Seeker_Id'] . "','" . $qrLastId .  "','" . $_POST['project_name'][$i] . "','" . $_POST['role'][$i] . "','" . $_POST['from_date'][$i] . "','" .
                     $_POST['to_date'][$i] . "','" . $_POST['project_description'][$i] . "','" . $user_info['Job_Seeker_Id']
                     . "','" . date('Y-m-d H:i:s')
                     . "'),";
         }
     }
     $fvaluesList = substr($fvaluesList, 0, -1);
-    $qry = "INSERT INTO js_projects (job_seeker_id,project_name,role_id,from_date,to_date,project_description,inserted_by,inserted_date) VALUES" .
+    $qry = "INSERT INTO js_projects (job_seeker_id,quick_resume_id,project_name,role_id,from_date,to_date,project_description,inserted_by,inserted_date) VALUES" .
             $fvaluesList;
     if ($fvaluesList != '')
         $db->query($qry);

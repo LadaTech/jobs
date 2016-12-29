@@ -1,5 +1,6 @@
 <?php
 @session_start();
+error_reporting(0);
 include_once "db.php";
 include_once 'page_number.php';
 date_default_timezone_set("Asia/Kolkata");
