@@ -1,11 +1,27 @@
 <?php
 ob_start();
-error_reporting(0);
-$page = 'Fresher Quick Resume';
+$page = 'Experience Quick Resume';
 include_once 'header.php';
-//include_once 'js-session-check.php';
+include_once 'js-session-check.php';
+
+// If qr_last_id is not set, redirect to dashboard
+if(!isset($_SESSION['qr_last_id'])){
+    $url = $my_path. "/job-seeker/dashboard.aspx";
+    header("Location: $url");
+}
 
 if(isset($_POST['submit1'])){
+    $qrFileName = $_POST['qrFileName'];
+    $quickResumeId = $_POST['quickResumeId'];
+    $quickResumeType = 'qr_exp';
+    $qry = "INSERT INTO  js_my_resumes (jsid,selected_template,quick_resume_id,quick_resume_type,qr_file_name,status) "
+            . "VALUES('$user_info[Job_Seeker_Id]','$selected_template','$quickResumeId','$quickResumeType','$qrFileName','Saved')";
+    $db->query($qry) or die(mysql_error());
+    $myResumeId = $db->lastinsertid();
+    
+    //Unset qr_last_id from session
+    if(isset($_SESSION['qr_last_id'])) unset($_SESSION['qr_last_id']);
+    
     //Product Info
     $orderInfo = array();
     $orderInfo['item_number'] = $_POST['item_number'];
@@ -18,32 +34,34 @@ if(isset($_POST['submit1'])){
     $formData['order_id'] = date('YmdHis');
     $formData['merchant_param1'] = str_replace(array('&', '='), array('|', ','), http_build_query($orderInfo));
     $formData['order_id'] = date('YmdHis');
-    $formData['amount'] = $_POST['price'] = '130.00';
+    $formData['amount'] = $_POST['price'] = $default_price;
     $formData['redirect_url'] = $my_path . '/js-payment-success.php';
     $formData['cancel_url'] = $my_path . '/js-payment-failure.php';
     $ccpayObj->request($formData);
 }
 
-
 //echo "<pre>";
 //Personal info
 $job_seeker_id = $user_info["Job_Seeker_Id"];
-$qry = "select * from job_seeker where job_Seeker_Id= '$job_seeker_id' ";
+if(isset($_SESSION['qr_last_id'])) $qrLastId = $_SESSION['qr_last_id'];
+$qry = "SELECT js.First_name,js.Last_name,js.Email_id,js.Phone_No,js.profile_pic,qr.* FROM `job_seeker` js LEFT JOIN quick_resumes qr "
+        . "ON js.Job_Seeker_Id = qr.job_seeker_id where qr.job_seeker_id = '$job_seeker_id' and qr.quick_resume_id = '$qrLastId'";
 $personal_info_obj = $db->query($qry);
 if ($personal_info_obj->rowCount() == 1) {
-    $personal_info = $personal_info_obj->fetch(PDO::FETCH_ASSOC);
+    $personal_info = $personal_info_obj->fetchAll(PDO::FETCH_ASSOC);
 }
+$personal_info = $personal_info['0'];
 //print_r($personal_info);
 
 // Academic history
-$qry = "select 	js_accomplishments_id,	accomplishment_name from  js_accomplishments where job_seeker_id= '$job_seeker_id' order by inserted_time desc limit 1";
+$qry = "select 	js_accomplishments_id,	accomplishment_name from  js_accomplishments where quick_resume_id= '$qrLastId' order by inserted_time desc limit 1";
 $academic_history_obj = $db->query($qry);
 if ($academic_history_obj->rowCount() == 1) {
     $academic_history = $academic_history_obj->fetch(PDO::FETCH_ASSOC);
 }
 //print_r($academic_history);
 //Technical Skills
-$qry = "SELECT js_skills_id,GROUP_CONCAT(skill_title) as skills FROM `js_skills` where job_seeker_id = $job_seeker_id group by inserted_date order by inserted_date DESC limit 1";
+$qry = "SELECT js_skills_id,GROUP_CONCAT(skill_title) as skills FROM `js_skills` where quick_resume_id= '$qrLastId' group by inserted_date order by inserted_date DESC limit 1";
 $technical_skills_obj = $db->query($qry);
 if ($technical_skills_obj->rowCount() == 1) {
     $technical_skills = $technical_skills_obj->fetch(PDO::FETCH_ASSOC);
@@ -51,7 +69,7 @@ if ($technical_skills_obj->rowCount() == 1) {
 //print_r($technical_skills);
 
 //Companies
-$qry = "SELECT * FROM `js_companies` where job_seeker_id = $job_seeker_id  order by inserted_date DESC";
+$qry = "SELECT * FROM `js_companies` where quick_resume_id = '$qrLastId'  ";
 $companies_obj = $db->query($qry);
 if ($companies_obj->rowCount() >= 1) {
     $companies = $companies_obj->fetchAll(PDO::FETCH_ASSOC);
@@ -59,7 +77,7 @@ if ($companies_obj->rowCount() >= 1) {
 //print_r($companies);
 
 //Projects
-$qry = "SELECT * FROM `js_projects` where job_seeker_id = $job_seeker_id  order by inserted_date DESC";
+$qry = "SELECT * FROM `js_projects` where quick_resume_id = '$qrLastId' ";
 $projects_obj = $db->query($qry);
 if ($projects_obj->rowCount() >= 1) {
     $projects = $projects_obj->fetchAll(PDO::FETCH_ASSOC);
@@ -75,6 +93,8 @@ if ($roles_obj->rowCount() >= 1) {
 foreach($roles as $role){
     $rolesArr[$role['role_id']] = $role['role_name'];
 }
+
+$qrFileName = $job_seeker_id .'_'. $qrLastId .'.txt';
 //echo "</pre>";
 ?>		
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -82,12 +102,15 @@ foreach($roles as $role){
 <body style="font-family: 'Oswald', sans-serif;">
      <div class="col-md-6 col-md-offset-7">
         <div class="form-group">
-            <a class="btn btn-primary open2" style="float:left;" href="<?php echo $my_path; ?>/quick-resume-fresher.php">Edit</a>
-            <form action="" method="post">
-                <input type="submit" style="margin-left:10px;" name="submit1" value="Pay & Download" class="btn btn-primary open2"/>
+            <a class="btn btn-primary open2" style="float:left;" href="<?php echo $my_path; ?>/quick-resume.php">Edit</a>
+            <form id="qr_pay_form" action="<?php echo $my_path;?>/view-resume-fresher.php" method="post">
+                <input type="hidden" name="quickResumeId" value="<?php echo $qrLastId; ?>" />
+                <input type="hidden" name="qrFileName" value="<?php echo $qrFileName; ?>" />
+                <input type="submit" id="qr_pay_form_btn"  style="margin-left:10px;" name="submit1" value="Pay & Download" class=" qr_pay_form_cls btn btn-primary open2"/>
             </form>
         </div>
     </div>
+    <div id="qr_exp"> 
     <table align="center" cellpadding="0" cellspacing="0" style="min-height: 400px;border: 1px solid #ccc;border-radius: 3px;">
         <tr>
             <td style="width: 230px;vertical-align: top;background-color: #ccc;">
@@ -215,7 +238,7 @@ foreach($roles as $role){
                         <tr style="width: 100%;">
                             <td>
                                 <p style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;margin-bottom: 0px;">
-                                    <?php echo $personal_info['qr_exp_expecting_comp']; ?>
+                                    <?php echo $personal_info['expecting_comp']; ?>
                                 </p>
                             </td>
                         </tr>
@@ -227,7 +250,7 @@ foreach($roles as $role){
                         <tr style="width: 100%;">
                             <td>
                                 <p style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;margin-bottom: 0px;">
-                                    <?php echo $personal_info['qr_exp_job_offers']; ?>
+                                    <?php echo $personal_info['job_offers']; ?>
                                 </p>
                             </td>
                         </tr>
@@ -236,6 +259,24 @@ foreach($roles as $role){
             </td>
         </tr>
     </table>
+    </div>       
 </body>
 <br>
 <?php include_once 'footer.php'; ?>
+<script>
+    $(function(){
+        $('#qr_pay_form_btn').click(function(){
+            var htmlCode = $('#qr_exp').html();
+            $.ajax({
+                'type':'post',
+                'url' : '<?php echo $my_path; ?>/get_html_code.php',
+                'data': {'htmlCode':htmlCode,'filename':'<?php echo $qrFileName; ?>'},
+                'success': function(r){
+                    if(r == 'done'){
+                        $('.qr_pay_form_cls').submit();
+                    }
+                }
+            });
+        });
+    });
+</script>

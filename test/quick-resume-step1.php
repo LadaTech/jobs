@@ -5,11 +5,19 @@ include_once 'header.php';
 include_once 'js-session-check.php';
 if (isset($_POST['submit'])) {
     if(isset($_SESSION['qr_last_id'])) $qrLastId = $_SESSION['qr_last_id'];
+    
+    if($_POST['qr_id'] > 0){
+        $qrLastId = $_POST['qr_id'];
+        //Delete all records in js_projects
+        $sql_dom = "delete FROM js_projects where quick_resume_id = '$qrLastId' ";
+        $db->query($sql_dom);
+    }
+    
     $count = count($_POST['project_name']);
     $fvaluesList = '';
     for ($i = 0; $i < $count; $i++) {
         if ($_POST['project_name'][$i] != '') {
-            if(isset($_POST['to_date'][$i]) && $_POST['to_date'][$i] == 'on') $_POST['to_date'][$i] = '0000-00-00 11:11:11';
+            if(isset($_POST['to_date'][$i]) && $_POST['to_date'][$i] == 'on') $_POST['to_date'][$i] = '0000-00-11';
             $fvaluesList .= "('" . $user_info['Job_Seeker_Id'] . "','" . $qrLastId .  "','" . $_POST['project_name'][$i] . "','" . $_POST['role'][$i] . "','" . $_POST['from_date'][$i] . "','" .
                     $_POST['to_date'][$i] . "','" . $_POST['project_description'][$i] . "','" . $user_info['Job_Seeker_Id']
                     . "','" . date('Y-m-d H:i:s')
@@ -29,6 +37,22 @@ $qry = "SELECT * FROM `roles`";
 $roles_obj = $db->query($qry);
 if ($roles_obj->rowCount() >= 1) {
     $roles = $roles_obj->fetchAll(PDO::FETCH_ASSOC);
+}
+
+//Get Projects
+if(isset($_SESSION['qr_last_id']) && $_SESSION['qr_last_id'] > 0){
+    $qrLastId = $_SESSION['qr_last_id'];
+    $qry = "select * from js_projects where quick_resume_id = '$qrLastId'";
+    $projects_obj = $db->query($qry);
+    if ($projects_obj->rowCount() >= 1) {
+        $projects = $projects_obj->fetchAll(PDO::FETCH_ASSOC);
+    }
+    $qry = "select about_you from quick_resumes where quick_resume_id = '$qrLastId'";
+    $qr_data_obj = $db->query($qry);
+    if ($qr_data_obj->rowCount() >= 1) {
+        $qr_data = $qr_data_obj->fetchAll(PDO::FETCH_ASSOC);
+    }
+    $qr_data = $qr_data[0];
 }
 ?>
 
@@ -51,7 +75,67 @@ if ($roles_obj->rowCount() >= 1) {
                         <div id="quick-resume">
                             <h1 class="heading">Quick Resume</h1>
                             <form id="fresher_projects" action="" method="post">
-                                <div>
+                                <input type="hidden" name="qr_id" value="<?php echo $qrLastId; ?>" />
+                                <?php if(!empty($projects)) { ?>
+                                <?php foreach($projects as $project){ 
+                                    $to_date = ($project['to_date'] == '0000-00-11') ? 'checked' : $project['to_date'];
+                                ?>
+                                <div class="single_block">
+                                    <h2 class="text-primary" style="margin-top: -7px;font-weight: 400;">Project(s)</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Project Name</label>
+                                                <input type="text" value="<?php echo $project['project_name']; ?>" class="form-control" id="" name="project_name[]" placeholder="Project Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Role</label>
+                                                <select class="form-control" name="role[]">
+                                                    <option>Select Role</option>
+                                                    <?php foreach ($roles as $role) { ?>
+                                                        <option <?php echo ($role['role_id'] == $project['role_id']) ? 'selected':''; ?> value="<?php echo $role['role_id']; ?>"> <?php echo $role['role_name']; ?></option>
+                                                    <?php } ?>
+                                                </select> 
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">From</label>
+                                                <input type="date" value="<?php echo $project['from_date']; ?>" class="form-control" name="from_date[]" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Due</label>
+                                                <input type="date" <?php echo ($to_date != 'checked') ? "value='$to_date'" : 'disabled'; ?> class="form-control toDate" name="to_date[]" >
+                                            </div>
+                                            <div> <input type="checkbox" <?php echo ($to_date == 'checked') ? 'checked' : ''; ?> class="on_going" name="to_date[]" > On Going </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Project Description</label>
+                                        <textarea class="form-control" rows="2" name="project_description[]"><?php echo $project['project_description']; ?></textarea>
+                                        <span>
+                                           <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
+                                                <li>
+                                                   Tip: Mention briefly about the entire project, your role, your contribution and module. Also, do not
+                                                   forget to mention the tools, technologies, platforms used and commendation/rewards, if any.
+                                                </li>
+                                                <li style="margin-top: 10px;">
+                                                    Example: Ability to measure project performance by utilizing appropriate tools, systems and
+                                                    techniques.
+                                                </li>
+                                            </ul>
+                                        </span>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                                <?php } else { ?>
+                                <div class="single_block">
                                     <h2 class="text-primary" style="margin-top: -7px;font-weight: 400;">Project(s)</h2>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -67,7 +151,7 @@ if ($roles_obj->rowCount() >= 1) {
                                                     <option>Select Role</option>
                                                     <?php foreach ($roles as $role) { ?>
                                                         <option  value="<?php echo $role['role_id']; ?>"> <?php echo $role['role_name']; ?></option>
-<?php } ?>
+                                                    <?php } ?>
                                                 </select> 
                                             </div> 
                                         </div>
@@ -104,6 +188,8 @@ if ($roles_obj->rowCount() >= 1) {
                                         </span>
                                     </div>
                                 </div>
+                                <?php } ?>
+                                
                                 <div id="add_projects"></div>
 
                                 <div>
@@ -142,7 +228,7 @@ if ($roles_obj->rowCount() >= 1) {
                         <option>Select Role</option>
                         <?php foreach ($roles as $role) { ?>
                             <option  value="<?php echo $role['role_id']; ?>"> <?php echo $role['role_name']; ?></option>
-<?php } ?>
+                        <?php } ?>
                     </select> 
                 </div> 
             </div>

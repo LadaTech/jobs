@@ -10,6 +10,7 @@ $logo_img_url = "logo.png";
 $fav_icon_url = "";
 $compnay_name = "Jatka.in";
 $qr_files_path = 'uploads/';
+$default_price = '130.00';
 
 //echo $_SERVER['SERVER_NAME'];
 switch ($_SERVER['SERVER_NAME']) {

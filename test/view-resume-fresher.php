@@ -4,6 +4,11 @@ $page = 'Fresher Quick Resume';
 include_once 'header.php';
 include_once 'js-session-check.php';
 
+// If qr_last_id is not set, redirect to dashboard
+if(!isset($_SESSION['qr_last_id'])){
+    $url = $my_path. "/job-seeker/dashboard.aspx";
+    header("Location: $url");
+}
 if(isset($_POST['submit1'])){
     $qrFileName = $_POST['qrFileName'];
     $quickResumeId = $_POST['quickResumeId'];
@@ -12,6 +17,9 @@ if(isset($_POST['submit1'])){
             . "VALUES('$user_info[Job_Seeker_Id]','$selected_template','$quickResumeId','$quickResumeType','$qrFileName','Saved')";
     $db->query($qry) or die(mysql_error());
     $myResumeId = $db->lastinsertid();
+    
+    //Unset qr_last_id from session
+    if(isset($_SESSION['qr_last_id'])) unset($_SESSION['qr_last_id']);
     
     //Product Info
     $orderInfo = array();
@@ -25,7 +33,7 @@ if(isset($_POST['submit1'])){
     $formData['order_id'] = date('YmdHis');
     $formData['merchant_param1'] = str_replace(array('&', '='), array('|', ','), http_build_query($orderInfo));
     $formData['order_id'] = date('YmdHis');
-    $formData['amount'] = $_POST['price'] = '130.00';
+    $formData['amount'] = $_POST['price'] = $default_price;
     $formData['redirect_url'] = $my_path . '/js-payment-success.php';
     $formData['cancel_url'] = $my_path . '/js-payment-failure.php';
     $ccpayObj->request($formData);

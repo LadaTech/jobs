@@ -9,11 +9,11 @@
         $Industry = $_POST["Industry"];
         $Domain = $_POST['Domain'];
         $Address = $_POST["Address"];
-        $qr_exp_expecting_comp = $_POST['exp_expecting_comp'];
-        $qr_exp_job_offers = $_POST["exp_job_offers"];
+        $qr_exp_expecting_comp = $_POST['expecting_comp'];
+        $qr_exp_job_offers = $_POST["job_offers"];
         $jsinsert = $db->query("update quick_resumes set 
-                    Industry='$Industry',Domain='$Domain',address='$Address',expecting_comp='$qr_exp_expecting_comp',job_offers='$qr_exp_job_offers' "
-                        . "where quick_resume_id=$qrLastId");    
+                    industry_id='$Industry',domain_id='$Domain',address='$Address',expecting_comp='$qr_exp_expecting_comp',job_offers='$qr_exp_job_offers' "
+                        . "where quick_resume_id=$qrLastId");
         $url = $my_path."/view-resume.php";
         header("Location: $url");
     }
@@ -21,6 +21,19 @@
     $industries = $db->query($sql_dom);
     $sql_dom = "SELECT * FROM domains where iid='$user_info[Industry]'";
     $domains = $db->query($sql_dom);
+    if(isset($_SESSION['qr_last_id']) && $_SESSION['qr_last_id'] > 0){
+        $qrLastId = $_SESSION['qr_last_id'];
+        $jobSeekerId = $user_info['Job_Seeker_Id'];
+        //get quick_resumes data
+        $qr_qry = "select industry_id,domain_id,address,expecting_comp,job_offers from quick_resumes where quick_resume_id = '$qrLastId'";
+        $qr_obj = $db->query($qr_qry);
+        if ($qr_obj->rowCount() >= 1) {
+            $qr_data = $qr_obj->fetch(PDO::FETCH_ASSOC);
+        }
+        $_SESSION["qr_industry"] = $qr_data['industry_id'];
+        $_SESSION["qr_domain"] = $qr_data['domain_id'];
+    }
+    
 ?>
 <style>
 .navbar-nav>li {
@@ -105,11 +118,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Residence Address</label>
-                                    <textarea class="form-control" rows="2" name="Address"><?php echo $user_info["Address"]; ?></textarea>
+                                    <textarea class="form-control" rows="2" name="Address"><?php echo $qr_data["address"]; ?></textarea>
                                 </div>
                                 <div class="form-group">
                                 <label for="exampleInputEmail1">Reason For Change: Vs mention What you are expecting from the new company</label>
-                                <textarea class="form-control" rows="2" name="exp_expecting_comp"></textarea>
+                                <textarea class="form-control" rows="2" name="expecting_comp"><?php echo $qr_data['expecting_comp']; ?></textarea>
                                 <span>
                                     <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
                                         <li>
@@ -134,7 +147,7 @@
                                 </div>
                                 <div class="form-group">
                                 <label for="exampleInputEmail1">Are you interviewing with anyone else? If yes, mention why you are still looking for a change</label>
-                                <textarea class="form-control" rows="2" name="exp_job_offers"></textarea>
+                                <textarea class="form-control" rows="2" name="job_offers"><?php echo $qr_data['job_offers']; ?></textarea>
                                 <span>
                                     <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
                                         <li>
@@ -150,7 +163,7 @@
                                 </span>
                                 </div>
                                 <div align="center" class="form-group">
-                                        <a href="quick-resume-fresher-step1.php" class="btn btn-primary open2">Back</a>
+                                        <a href="quick-resume-step2.php" class="btn btn-primary open2">Back</a>
                                         <input type="submit" name="submit" value="Submit" class="btn btn-primary open2"/>
                                 </div>
                             </form>

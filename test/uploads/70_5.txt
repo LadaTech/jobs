@@ -1,0 +1,181 @@
+ 
+    <table align="center" cellpadding="0" cellspacing="0" style="min-height: 400px;border: 1px solid #ccc;border-radius: 3px;">
+        <tbody><tr>
+            <td style="width: 230px;vertical-align: top;background-color: #ccc;">
+                <div align="center" style="padding-left: 15px;padding-right: 15px;">
+                    <div style="margin-top: 10px;">
+                        <img src="images/jobseeker/461_Jellyfish.jpg" style="border: 1px solid #fff;border-radius: 50%;width: 140px;height: 140px;">
+                        <div style="margin-top: 10px;margin-bottom: 5px;">
+                            <label style="font-weight: 300;font-size: 13px;color: #000;"><i class="fa fa-phone" style="margin-right: 5px;"></i>9676537345</label><br>
+                            <label style="font-weight: 300;font-size: 13px;color: #000;"><i class="fa fa-envelope-o" style="margin-right: 5px;"></i>dinesh.virtuellhire@gmail.com</label>
+                        </div>
+                        <div style="border-bottom: 1px solid #efefef"></div>
+                        <div>
+                            <p style="font-weight: 500;color: #000;margin-bottom: 0px;font-size: 12px;margin-top: 7px;padding-top: 0px;line-height: 19px;">
+                                                            </p>
+                        </div>
+                    </div>
+                    <div align="left">
+                        <div>
+                            <h3 style="color: #000;border-bottom: 1px solid #e0dede;margin-bottom: 5px;font-size: 15px;padding-bottom: 5px;"><b>Technical Skills</b></h3>
+                            <div class="content">
+                                <p style="margin-top: 7px;font-size: 11px;line-height: 16px;">
+                                    HTML5, JAVA, CSS3                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="color: #000;border-bottom: 1px solid #e0dede;margin-bottom: 5px;font-size: 15px;padding-bottom: 5px;"><b>Academic History</b></h3>
+                            <div class="content">
+                                <p style="margin-top: 7px;font-size: 11px;line-height: 16px;">
+                                    Write your educational qualifications, preferably in reverse chronological order. In other                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="color: #000;border-bottom: 1px solid #e0dede;margin-bottom: 5px;font-size: 15px;padding-bottom: 5px;"><b>Success Stories</b></h3>
+                            <div class="content">
+                                <p style="margin-top: 7px;font-size: 11px;line-height: 16px;">
+                                                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td style="width: 400px;vertical-align: top;padding-left: 15px;padding-right: 15px;">
+                <div align="center">
+                    <h1 style="margin-top: 10px;margin-bottom: 0px;font-weight: 400;text-align: center;color: #000;    font-size: 30px;">Dinesh Yaganti</h1>
+                    <div style="border-bottom: 1px solid #ccc;position: relative;margin-bottom: 25px;margin-top: 20px;">
+                        <span style="position: absolute;top: -9px;padding: 0 10px;background: #fff;display: inline-block;left: 30%;right: 30%;margin-left: 0px;text-align: center;text-transform: uppercase;color: #e48f1a;font-weight: 600;font-size: 15px;">Web Devloper</span>
+                    </div>
+                </div>
+                <div align="left">
+                    <h3 style="margin-top: 0px;margin-bottom: 0px;font-weight: 500;color: #000;font-size: 20px;border-bottom: 1px solid #efefef;padding-bottom: 5px;">Professional Experience</h3>
+                    <p style="font-size: 12px;line-height: 18px;margin-top: 10px;color: #8e8e8e;letter-spacing: 0.5px;">
+                                            </p>
+                                        <div>
+                        <table style="width: 100%;">
+                            <tbody><tr>
+                                <td style="vertical-align: top;">
+                                    <h2 style="    font-size: 16px;color: #444343;margin-top: 0px;margin-bottom: 3px;">Company 1</h2>
+                                    <label style="color: #e48f1a;margin-top: 3px;font-weight: 600;font-size: 13px;"></label>
+                                </td>
+                                <td align="right" style="width: 200px;vertical-align: top;">
+                                    <label style="font-size: 11px;font-weight: normal;">Sep 2014 to Oct 2014</label>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        <table>
+                            <tbody><tr style="width: 100%;">
+                                <td>
+                                    <p style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;margin-bottom: 0px;">
+                                        Your experience description must be precise, concise yet descriptive. The goal is to let your prospective employer know your responsibilities, the skills you have developed over the years, your key strengths and achievements.                                    </p>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        <table style="vertical-align: top;width: 100%;">
+                            <tbody><tr>
+                                <td>
+                                    <h2 class="reason" style="color: #444343;margin-top: 3px;font-weight: bold;font-size: 13px;">Reason for Leaving</h2>
+                                    <p class="content" style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;">
+                                        Your experience description must be precise, concise yet descriptive. The goal is to let your prospective employer know your responsibilities, the skills you have developed over the years, your key strengths and achievements.                                    </p>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                                        <div>
+                        <table style="width: 100%;">
+                            <tbody><tr>
+                                <td style="vertical-align: top;">
+                                    <h2 style="    font-size: 16px;color: #444343;margin-top: 0px;margin-bottom: 3px;">Company 2</h2>
+                                    <label style="color: #e48f1a;margin-top: 3px;font-weight: 600;font-size: 13px;"></label>
+                                </td>
+                                <td align="right" style="width: 200px;vertical-align: top;">
+                                    <label style="font-size: 11px;font-weight: normal;">Apr 2009 to Aug 2013</label>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        <table>
+                            <tbody><tr style="width: 100%;">
+                                <td>
+                                    <p style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;margin-bottom: 0px;">
+                                        Your experience description must be precise, concise yet descriptive. The goal is to let your prospective employer know your responsibilities, the skills you have developed over the years, your key strengths and achievements.                                    </p>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        <table style="vertical-align: top;width: 100%;">
+                            <tbody><tr>
+                                <td>
+                                    <h2 class="reason" style="color: #444343;margin-top: 3px;font-weight: bold;font-size: 13px;">Reason for Leaving</h2>
+                                    <p class="content" style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;">
+                                        Your experience description must be precise, concise yet descriptive.                                     </p>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                                    </div> 
+                <div align="left">
+                    <h3 style="margin-top: 0px;margin-bottom: 7px;font-weight: 500;color: #000;font-size: 20px;border-bottom: 1px solid #efefef;padding-bottom: 5px;">Projects &amp; Domains</h3>
+                                        <table style="width: 100%;">
+                        <tbody><tr>
+                            <td style="vertical-align: top;">
+                                <h2 style="    font-size: 16px;color: #444343;margin-top: 0px;margin-bottom: 3px;">Project 1</h2>
+                                <label style="color: #e48f1a;margin-top: 3px;font-weight: 600;font-size: 13px;">Software engineer</label>
+                            </td>
+                            <td align="right" style="width: 200px;vertical-align: top;">
+                                <label style="font-size: 11px;font-weight: normal;">Sep 2014 to Sep 2014</label>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <table>
+                        <tbody><tr style="width: 100%;">
+                            <td>
+                                <p style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;margin-bottom: 0px;">
+                                    Mention briefly about the entire project, your role, your contribution and module. Also, do not forget to mention the tools, technologies, platforms used and commendation/rewards, if any.                                </p>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                                        <table style="width: 100%;">
+                        <tbody><tr>
+                            <td style="vertical-align: top;">
+                                <h2 style="    font-size: 16px;color: #444343;margin-top: 0px;margin-bottom: 3px;">Project 2</h2>
+                                <label style="color: #e48f1a;margin-top: 3px;font-weight: 600;font-size: 13px;">Systems analyst</label>
+                            </td>
+                            <td align="right" style="width: 200px;vertical-align: top;">
+                                <label style="font-size: 11px;font-weight: normal;">Sep 2013 to Jan 1970</label>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <table>
+                        <tbody><tr style="width: 100%;">
+                            <td>
+                                <p style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;margin-bottom: 0px;">
+                                    Mention briefly about the entire project, your role,                                 </p>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                                    </div>
+                <div align="left">
+                    <h3 style="margin-top: 10px;margin-bottom: 7px;font-weight: 500;color: #000;font-size: 20px;border-bottom: 1px solid #efefef;padding-bottom: 5px;">Reason For Change</h3>
+                    <table style="width: 100%;">
+                        <tbody><tr style="width: 100%;">
+                            <td>
+                                <p style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;margin-bottom: 0px;">
+                                    This is your chance to portray your personal responsibility to your potential employer. You want to assure them of your willingness to work hard and give your best no matter what!                                </p>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div align="left">
+                    <h3 style="margin-top: 10px;margin-bottom: 7px;font-weight: 500;color: #000;font-size: 20px;border-bottom: 1px solid #efefef;padding-bottom: 5px;">Any Offers In Hand?</h3>
+                    <table style="width: 100%;">
+                        <tbody><tr style="width: 100%;">
+                            <td>
+                                <p style="margin-top: 0px;font-size: 12px;line-height: 18px;color: #8e8e8e;margin-bottom: 0px;">
+                                    This is your chance to portray your personal responsibility to your potential employer.                                 </p>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+    

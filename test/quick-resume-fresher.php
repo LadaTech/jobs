@@ -111,7 +111,7 @@ if(isset($_SESSION['qr_last_id']) && $_SESSION['qr_last_id'] > 0){
                                             </ul>
                                         </span>
                                     </div>
-                                                                   <?php  if(!empty($projects)) { ?>
+                                    <?php  if(!empty($projects)) { ?>
                                     <?php foreach($projects as $project){ 
                                             $to_date = ($project['to_date'] == '0000-00-11') ? 'checked' : $project['to_date'];
                                         ?>

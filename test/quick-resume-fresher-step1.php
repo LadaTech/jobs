@@ -23,7 +23,9 @@ if(isset($_POST['submit'])){
     $techSkills = explode(",",$_POST['tech_skills']);
     $fvaluesList = '';
     foreach($techSkills as $skill){
-        $fvaluesList .= "('". $skill. "','" .$qrLastId . "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
+        if($skill != ''){
+            $fvaluesList .= "('". $skill. "','" .$qrLastId . "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
+        }
     }
     $fvaluesList = substr($fvaluesList,0,-1);
     $qry = "INSERT INTO js_skills (skill_title,quick_resume_id,job_seeker_id,inserted_by,inserted_date) VALUES ". $fvaluesList;
@@ -41,7 +43,9 @@ if(isset($_POST['submit'])){
     $hobbies = explode(",",$_POST['hobbies']);
     $fvaluesList = '';
     foreach($hobbies as $hobby){
-        $fvaluesList .= "('". $hobby. "','" .$qrLastId . "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
+        if($hobby != ''){
+            $fvaluesList .= "('". $hobby. "','" .$qrLastId . "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
+        }
     }
     $fvaluesList = substr($fvaluesList,0,-1);
     $qry = "INSERT INTO js_hobbies (hobby_name,quick_resume_id,job_seeker_id,inserted_by,inserted_time) VALUES ". $fvaluesList;

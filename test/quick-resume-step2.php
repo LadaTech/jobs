@@ -8,11 +8,23 @@ if(isset($_POST['submit'])){
     echo "<pre>";
     $dateTime = date('Y-m-d H:i:s');
     if(isset($_SESSION['qr_last_id'])) $qrLastId = $_SESSION['qr_last_id'];
+    
+    if($_POST['qr_id'] > 0){
+        $qrLastId = $_POST['qr_id'];
+        $sql_dom = "delete FROM js_skills where quick_resume_id = '$qrLastId' ";
+        $db->query($sql_dom);
+        $sql_dom = "delete FROM js_accomplishments where quick_resume_id = '$qrLastId' ";
+        $db->query($sql_dom);
+       
+    }
+    
     //Technical Skills
     $techSkills = explode(",",$_POST['tech_skills']);
     $fvaluesList = '';
     foreach($techSkills as $skill){
-        $fvaluesList .= "('". $skill. "','" .$qrLastId . "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
+        if($skill != ''){
+            $fvaluesList .= "('". $skill. "','" .$qrLastId . "','" .$user_info['Job_Seeker_Id'] . "','" .$user_info['Job_Seeker_Id'] . "','" . $dateTime ."'),";
+        }
     }
     $fvaluesList = substr($fvaluesList,0,-1);
     $qry = "INSERT INTO js_skills (skill_title,quick_resume_id,job_seeker_id,inserted_by,inserted_date) VALUES ". $fvaluesList;
@@ -26,15 +38,41 @@ if(isset($_POST['submit'])){
          $db->query($qry);
     }
     //Success Stories in professional career
-    if($_POST['qr_exp_success_stories'] != ''){
-        $qr_exp_success_stories =  $_POST['qr_exp_success_stories'];
-        $jsinsert = $db->query("update quick_resumes set success_stories='$qr_exp_success_stories' where quic_resume_id=$qrLastId"); 
+    if($_POST['success_stories'] != ''){
+        $qr_exp_success_stories =  $_POST['success_stories'];
+        $jsinsert = $db->query("update quick_resumes set success_stories='$qr_exp_success_stories' where quick_resume_id=$qrLastId"); 
     }
     
     $url = $my_path."/quick-resume-step3.php";
     header("Location: $url");
 }
 
+
+//Get Skills, Accomplishments, hobbies
+if(isset($_SESSION['qr_last_id']) && $_SESSION['qr_last_id'] > 0){
+    $qrLastId = $_SESSION['qr_last_id'];
+    // Academic history
+    $qry = "select js_accomplishments_id, accomplishment_name from  js_accomplishments where quick_resume_id = '$qrLastId' order by inserted_time desc limit 1";
+    $academic_history_obj = $db->query($qry);
+    if ($academic_history_obj->rowCount() == 1) {
+        $academic_history = $academic_history_obj->fetch(PDO::FETCH_ASSOC);
+    }
+    //print_r($academic_history);
+    //Technical Skills
+    $qry = "SELECT js_skills_id,GROUP_CONCAT(skill_title) as skills FROM `js_skills` where quick_resume_id = $qrLastId group by inserted_date order by inserted_date DESC limit 1";
+    $technical_skills_obj = $db->query($qry);
+    if ($technical_skills_obj->rowCount() == 1) {
+        $technical_skills = $technical_skills_obj->fetch(PDO::FETCH_ASSOC);
+    }
+    //print_r($technical_skills);
+    //Hobbies
+    $qry = "SELECT success_stories FROM quick_resumes where quick_resume_id = $qrLastId";
+    $qr_data_obj = $db->query($qry);
+    if ($qr_data_obj->rowCount() == 1) {
+        $qr_data = $qr_data_obj->fetch(PDO::FETCH_ASSOC);
+    }
+    //print_r($qr_data);
+}
 
 ?>
 <style>
@@ -54,9 +92,10 @@ if(isset($_POST['submit'])){
                             <div id="quick-resume">
                                 <h1 class="heading">Quick Resume</h1>
                                 <form id="qr_fresher_first" action="" method="post">
+                                    <input type="hidden" name="qr_id" value="<?php echo $qrLastId; ?>" />
                                         <div class="form-group">
                                         <label for="exampleInputEmail1">Technical Skills and Certifications</label>
-                                        <textarea class="form-control" rows="2" name="tech_skills"></textarea>
+                                        <textarea class="form-control" rows="2" name="tech_skills"><?php echo $technical_skills['skills']; ?></textarea>
                                         <span>
                                             <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
                                                 <li>
@@ -71,7 +110,7 @@ if(isset($_POST['submit'])){
                                         </div>
                                         <div class="form-group">
                                         <label for="exampleInputEmail1">Academic Accomplishments:</label>
-                                        <textarea class="form-control" rows="2" name="qr_academic_history"></textarea>
+                                        <textarea class="form-control" rows="2" name="qr_academic_history"><?php echo $academic_history['accomplishment_name']; ?></textarea>
                                         <span>
                                             <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
                                                 <li>
@@ -96,7 +135,7 @@ if(isset($_POST['submit'])){
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Career Success Stories:</label>
-                                            <textarea class="form-control" rows="2" name="qr_exp_success_stories"></textarea>
+                                            <textarea class="form-control" rows="2" name="success_stories"><?php echo $qr_data['success_stories']; ?></textarea>
                                             <span>
                                                 <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
                                                     <li>
