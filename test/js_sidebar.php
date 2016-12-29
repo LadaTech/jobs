@@ -35,11 +35,11 @@ if(isset($_POST['submit1'])){
 <div class="widgets resume-teplates">
     <h3 style="text-align: left;padding-left: 15px;">Resumes</h3>
     <div style="padding-left: 15px;padding-right: 15px;">
-        <a class="custom btn btn-primary btn-open1 btn-block" href="/test/quick-resume.php">Quick Resumes</a>
+        <a class="custom btn btn-primary btn-open1 btn-block" href="<?php echo $my_path; ?>/quick-resume.php">Quick Resumes</a>
     </div>
     <hr/>
     <div style="padding-left: 15px;padding-right: 15px;">
-        <button class="custom btn btn-default-custom btn-block">Detailed Resume</button>
+        <a class="custom btn btn-default-custom btn-block" href="<?php echo $my_path; ?>/job-seeker/resume-templates.aspx">Detailed Resume</a>
     </div>
     <!-- <form name="" method="post" id="resume_templates" action="<?php echo $my_path; ?>/job-seeker/resume-templates.aspx">
         <div class="form-group">                
