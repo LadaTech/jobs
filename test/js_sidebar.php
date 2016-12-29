@@ -24,6 +24,7 @@ if(isset($_POST['submit1'])){
     }
     .custom.btn-default-custom {
         padding: 16px 15px;
+        background color : #d0cdcd;
         font-size: 20px;
         color: #000;
         text-transform: uppercase;
