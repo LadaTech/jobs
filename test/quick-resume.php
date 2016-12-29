@@ -55,7 +55,7 @@ if ($roles_obj->rowCount() >= 1) {
                             <form id="qr_experience" method="post" action="">
                                 <div style="text-align: center" class="form-group">
                                     <label class="radio-inline" style="margin-right: 30px;">
-                                        <input type="radio" name="fresher" id="fresher" value="fresher"> Fresher
+                                        <input type="radio" name="fresher" id="fresher" onclick = "document.location.href='<?PHP echo $my_path ?>/quick-resume-fresher.php'" value="fresher"> Fresher
                                      </label>
                                     <label class="radio-inline" style="margin-right: 30px;">
                                         <input type="radio" name="experience" id="" value="experience" checked> Experience

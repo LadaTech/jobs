@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $fvaluesList = '';
     for ($i = 0; $i < $count; $i++) {
         if ($_POST['project_name'][$i] != '') {
-            if(isset($_POST['to_date'][$i]) && $_POST['to_date'][$i] == 'on')
+            if (isset($_POST['to_date'][$i]) && $_POST['to_date'][$i] == 'on')
                 $_POST['to_date'][$i] = '0000-00-00 11:11:11';
             $fvaluesList .= "('" . $user_info['Job_Seeker_Id'] . "','" . $_POST['project_name'][$i] . "','" . $_POST['team_size'][$i] . "','" . $_POST['from_date'][$i] . "','" .
                     $_POST['to_date'][$i] . "','" . $_POST['project_description'][$i] . "','" . $user_info['Job_Seeker_Id']
@@ -45,6 +45,15 @@ if (isset($_POST['submit'])) {
                         <div id="quick-resume">
                             <h1 class="heading">Quick Resume</h1>
                             <form id="fresher_projects" action="" method="post">
+                                <div style="text-align: center" class="form-group">
+                                    <label class="radio-inline" style="margin-right: 30px;">
+                                        <input type="radio" name="fresher" id="profileType"  value="fresher" checked> Fresher
+                                    </label>
+                                    <label class="radio-inline" style="margin-right: 30px;">
+                                        <input type="radio" name="experience" id="profileType"  onclick = "document.location.href = '<?PHP echo $my_path ?>/quick-resume.php'" value="experience" > Experience
+                                    </label>
+
+                                </div>
                                 <div>
                                     <h2 class="text-primary" style="margin-top: -7px;font-weight: 400;">Name of your Project:</h2>
                                     <div class="form-group">
@@ -53,7 +62,7 @@ if (isset($_POST['submit'])) {
                                         <span>
                                             <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">
                                                 <li>
-                                                   Tip: Your experience description must be precise, concise yet descriptive. The goal is to let your
+                                                    Tip: Your experience description must be precise, concise yet descriptive. The goal is to let your
                                                     prospective employer know your responsibilities, the skills you have developed over the years, your
                                                     key strengths and achievements.
                                                 </li>
@@ -90,7 +99,7 @@ if (isset($_POST['submit'])) {
                                                 <label for="">Due</label>
                                                 <input type="date" class="form-control toDate" name="to_date[]">
                                             </div> 
-                                           <div> <input type="checkbox" class="on_going" id="till_date[]" name="to_date[]" > On Going </div>
+                                            <div> <input type="checkbox" class="on_going" id="till_date[]" name="to_date[]" > On Going </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -113,8 +122,8 @@ if (isset($_POST['submit'])) {
                                                     </ul>
                                                 </li>
                                                 <li style="margin-top: 10px;">
-                                                   For example : if you have worked on mobile text messaging, you can mention like this -A mobile app for sending across text messages on various mobile devices. You
-                                                     could mention the technology that you have used - like J2ME and J2me Wireless Toolkit (in this case).
+                                                    For example : if you have worked on mobile text messaging, you can mention like this -A mobile app for sending across text messages on various mobile devices. You
+                                                    could mention the technology that you have used - like J2ME and J2me Wireless Toolkit (in this case).
                                                 </li>
                                             </ul>
                                         </span>
@@ -137,7 +146,7 @@ if (isset($_POST['submit'])) {
             <div class="col-lg-4 col-sm-12">
             </div>
             <div class="col-sm-4">
-<?php require_once 'js_sidebar.php'; ?>      
+                <?php require_once 'js_sidebar.php'; ?>      
             </div>
         </div>
     </div>
@@ -170,7 +179,7 @@ if (isset($_POST['submit'])) {
                     <label for="">Due</label>
                     <input type="date" class="form-control toDate" name="to_date[]" >
                 </div> 
-                 <div> <input type="checkbox" class="on_going"   name="to_date[]"> On Going </div>
+                <div> <input type="checkbox" class="on_going"   name="to_date[]"> On Going </div>
             </div>
         </div>
         <div class="form-group">
@@ -193,8 +202,8 @@ if (isset($_POST['submit'])) {
                         </ul>
                     </li>
                     <li style="margin-top: 10px;">
-                       For example : if you have worked on mobile text messaging, you can mention like this -A mobile app for sending across text messages on various mobile devices. You
-                         could mention the technology that you have used - like J2ME and J2me Wireless Toolkit (in this case).
+                        For example : if you have worked on mobile text messaging, you can mention like this -A mobile app for sending across text messages on various mobile devices. You
+                        could mention the technology that you have used - like J2ME and J2me Wireless Toolkit (in this case).
                     </li>
                 </ul>
             </span>
@@ -205,15 +214,15 @@ if (isset($_POST['submit'])) {
 <?php include_once 'footer.php'; ?>
 <script>
 
-   $(function(){
-    $('form').on('click','.on_going',function(){
-        if($(this).is(":checked")){
-            $(this).parents('.col-md-6').find('.toDate').attr('disabled',true);
-        } else {
-            $(this).parents('.col-md-6').find('.toDate').attr('disabled',false);
-        }
+    $(function () {
+        $('form').on('click', '.on_going', function () {
+            if ($(this).is(":checked")) {
+                $(this).parents('.col-md-6').find('.toDate').attr('disabled', true);
+            } else {
+                $(this).parents('.col-md-6').find('.toDate').attr('disabled', false);
+            }
+        });
     });
-});
 
 
     // Add new div    
