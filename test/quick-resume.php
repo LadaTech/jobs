@@ -53,6 +53,15 @@ if ($roles_obj->rowCount() >= 1) {
                         <div id="quick-resume">
                             <h1 class="heading">Quick Resume</h1>
                             <form id="qr_experience" method="post" action="">
+                                <div style="text-align: center" class="form-group">
+                                    <label class="radio-inline" style="margin-right: 30px;">
+                                        <input type="radio" name="fresher" id="fresher" value="fresher"> Fresher
+                                     </label>
+                                    <label class="radio-inline" style="margin-right: 30px;">
+                                        <input type="radio" name="experience" id="" value="experience" checked> Experience
+                                     </label>
+                                    
+                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Brief Summary of Experience</label>
                                     <textarea class="form-control" rows="2" name="about_you"></textarea>

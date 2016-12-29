@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
                                 <div>
                                     <h2 class="text-primary" style="margin-top: -7px;font-weight: 400;">Name of your Project:</h2>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Brief About Self</label>
+                                        <label for="exampleInputEmail1">Brief About your Self</label>
                                         <textarea class="form-control" rows="2" name="about_you"></textarea>
                                         <span>
                                             <ul class="list-unstyled" style="line-height: 14px;font-size: 12px;color: #383737;margin-top: 10px;">

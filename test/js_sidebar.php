@@ -11,9 +11,37 @@ if(isset($_POST['submit1'])){
     }
 }
 ?>
+<style>
+    .custom.btn-primary, .btn-default {
+        padding: 16px 15px;
+        background: #e48f1a;
+        font-size: 20px;
+        color: #fff;
+        text-transform: uppercase;
+        border-radius: 0px;
+        border: none;
+        margin-top: 5px;
+    }
+    .custom.btn-default-custom {
+        padding: 16px 15px;
+        font-size: 20px;
+        color: #000;
+        text-transform: uppercase;
+        border-radius: 0px;
+        border: none;
+        margin-top: 5px;
+    }
+</style>
 <div class="widgets resume-teplates">
-    <h3>Resume Templates</h3>
-    <form name="" method="post" id="resume_templates" action="<?php echo $my_path; ?>/job-seeker/resume-templates.aspx">
+    <h3 style="text-align: left;padding-left: 15px;">Resumes</h3>
+    <div style="padding-left: 15px;padding-right: 15px;">
+        <a class="custom btn btn-primary btn-open1 btn-block" href="/test/quick-resume.php">Quick Resumes</a>
+    </div>
+    <hr/>
+    <div style="padding-left: 15px;padding-right: 15px;">
+        <button class="custom btn btn-default-custom btn-block">Detailed Resume</button>
+    </div>
+    <!-- <form name="" method="post" id="resume_templates" action="<?php echo $my_path; ?>/job-seeker/resume-templates.aspx">
         <div class="form-group">                
             <div class="col-sm-12">
                 <label class="control-label" for="address">Profile Type <span class="imp">*</span> </label>
@@ -35,11 +63,9 @@ if(isset($_POST['submit1'])){
                     <?php
                     $sql_dom = 'SELECT * FROM industry order by name asc';
                     $stmt_dom = $db->query($sql_dom);
-//$stmt_dom->execute();
 
                     if ($stmt_dom->rowCount() > 0) {
                         while ($row_dom = $stmt_dom->fetch(PDO::FETCH_ASSOC)) {
-                            //  echo $row_dom['domain_name']; 
                             ?>
 
                             <option  value="<?php echo $row_dom['id']; ?>"><?php echo $row_dom['name']; ?></option>
@@ -60,12 +86,6 @@ if(isset($_POST['submit1'])){
                 </select>
             </div><div class="clear"></div>
         </div>  
-
-        <!--        <div class="form-group">
-                    <div class="col-sm-12">
-                        <input type="submit" name="submit" value="Get Resumes"  class="btn btn-primary btn-full open2"/>
-                    </div>
-                </div>-->
         <div class="form-group">
             <div class="col-sm-6">
                 <input type="submit" name="submit1" value="Quick Resumes" onclick="checkProfile()" class="btn btn-primary btn-full open2">
@@ -76,7 +96,7 @@ if(isset($_POST['submit1'])){
         </div>
 
         <div class="clear"></div>
-    </form>
+    </form> -->
 </div>
 
 <div class="widgets resume-teplates">
