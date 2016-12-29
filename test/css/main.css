@@ -1925,3 +1925,17 @@ input.form-control1 {
 .social-links a.insta:hover { border-color:#395973; color:#395973 }
 
 label.error {color:red}
+
+.btn-default-custom {
+    padding: 8px 30px;
+    background: #d0cdcd;
+    color: #000;
+    border-radius: 0px;
+    border: 1px solid #bfbebe;
+    margin-top: 10px;
+}
+.btn-default-custom:hover {
+    background: #afadad;
+    color: #000;
+    border: 1px solid #969595;
+}
