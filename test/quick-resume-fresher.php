@@ -46,6 +46,7 @@ if (isset($_POST['submit'])) {
     header("Location: $url");
 }
 //Get Projects
+if(isset($_GET['qr_last_id'])) $_SESSION['qr_last_id'] =  $_GET['qr_last_id'];
 if(isset($_SESSION['qr_last_id']) && $_SESSION['qr_last_id'] > 0){
     $qrLastId = $_SESSION['qr_last_id'];
     $qry = "select * from js_projects where quick_resume_id = '$qrLastId'";

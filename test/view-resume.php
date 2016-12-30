@@ -5,7 +5,7 @@ include_once 'header.php';
 include_once 'js-session-check.php';
 
 // If qr_last_id is not set, redirect to dashboard
-if(!isset($_SESSION['qr_last_id'])){
+if(!isset($_SESSION['qr_last_id']) || $_SESSION['qr_last_id'] == ''){
     $url = $my_path. "/job-seeker/dashboard.aspx";
     header("Location: $url");
 }
@@ -20,7 +20,7 @@ if(isset($_POST['submit1'])){
     $myResumeId = $db->lastinsertid();
     
     //Unset qr_last_id from session
-    if(isset($_SESSION['qr_last_id'])) unset($_SESSION['qr_last_id']);
+    if(isset($_SESSION['qr_last_id'])) $_SESSION['qr_last_id'] = '';
     
     //Product Info
     $orderInfo = array();

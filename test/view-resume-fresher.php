@@ -4,8 +4,16 @@ $page = 'Fresher Quick Resume';
 include_once 'header.php';
 include_once 'js-session-check.php';
 
+$_SESSION['vh_qr_last_id'] = $_SESSION['qr_last_id'];
+
+//Unset qr_last_id from session
+if(isset($_SESSION['qr_last_id'])) {
+    $_SESSION['qr_last_id'] = '';
+}
+
+
 // If qr_last_id is not set, redirect to dashboard
-if(!isset($_SESSION['qr_last_id'])){
+if(!isset($_SESSION['vh_qr_last_id']) || $_SESSION['vh_qr_last_id'] == ''){
     $url = $my_path. "/job-seeker/dashboard.aspx";
     header("Location: $url");
 }
@@ -18,8 +26,8 @@ if(isset($_POST['submit1'])){
     $db->query($qry) or die(mysql_error());
     $myResumeId = $db->lastinsertid();
     
-    //Unset qr_last_id from session
-    if(isset($_SESSION['qr_last_id'])) unset($_SESSION['qr_last_id']);
+    //Unset vh_qr_last_id from session
+    if(isset($_SESSION['vh_qr_last_id'])) $_SESSION['vh_qr_last_id'] = '';
     
     //Product Info
     $orderInfo = array();
@@ -41,7 +49,7 @@ if(isset($_POST['submit1'])){
 //echo "<pre>";
 //Personal info
 $job_seeker_id = $user_info["Job_Seeker_Id"];
-if(isset($_SESSION['qr_last_id'])) $qrLastId = $_SESSION['qr_last_id'];
+if(isset($_SESSION['vh_qr_last_id'])) $qrLastId = $_SESSION['vh_qr_last_id'];
 $qry = "SELECT js.First_name,js.Last_name,js.Email_id,js.Phone_No,js.profile_pic,qr.* FROM `job_seeker` js LEFT JOIN quick_resumes qr "
         . "ON js.Job_Seeker_Id = qr.job_seeker_id where qr.job_seeker_id = '$job_seeker_id' and qr.quick_resume_id = '$qrLastId'";
 $personal_info_obj = $db->query($qry);
@@ -94,7 +102,7 @@ $qrFileName = $job_seeker_id .'_'. $qrLastId .'.txt';
 <body style="font-family: 'Oswald', sans-serif;">
     <div class="col-md-6 col-md-offset-7">
         <div class="form-group">
-            <a class="btn btn-primary open2" style="float:left;" href="<?php echo $my_path; ?>/quick-resume-fresher.php">Edit</a>
+            <a class="btn btn-primary open2" style="float:left;" href="<?php echo $my_path; ?>/quick-resume-fresher.php?qr_last_id=<?php echo $qrLastId; ?>">Edit</a>
             <form id="qr_pay_form" action="<?php echo $my_path;?>/view-resume-fresher.php" method="post">
                 <input type="hidden" name="quickResumeId" value="<?php echo $qrLastId; ?>" />
                 <input type="hidden" name="qrFileName" value="<?php echo $qrFileName; ?>" />
