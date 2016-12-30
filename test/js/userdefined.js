@@ -235,5 +235,24 @@ $(function () {
             }
         });
     });
+    
+     $("#search_resumes").validate({
+        rules: {
+            'p_type': {
+                required: true
+            },
+            'Industry': {
+                required: true
+            } 
+        },
+        messages: {
+            'p_type': {
+                required: "Please select Profile type"
+            },
+            'Industry': {
+                required: "Please select Industry"
+            } 
+        }
+    });
 
 });

@@ -13,7 +13,7 @@ include "header.php";
 <h3 class="main-heading">Resume Templates</h3>
 
 <div class="resume-search-form">
-   <form name="" method="post" action="<?php echo $my_path; ?>/job-seeker/resume-templates.aspx">
+   <form id="search_resumes" method="post" action="<?php echo $my_path; ?>/job-seeker/resume-templates.aspx">
 <div class="form-group">                
 <div class="col-sm-3">
 <label class="control-label" for="address">Profile Type <span class="imp">*</span> </label>
