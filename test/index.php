@@ -117,7 +117,7 @@ include_once 'db.php';
             <section id="about" class="about-us padding gray-bg">
                 <div class="container">
                     <header class="heading_1 text-center">
-                        <h2 class="main_title"> <span class="sub_title"></span> What We <span class="base-highlight">Are..</span></h2>
+                        <h2 class="main_title"> <span class="sub_title"></span> We <span class="base-highlight">Are..</span></h2>
                     </header>
                     <ul class="nav nav-tabs alt">
                         <li class="active"><a href="#third-tab" data-toggle="tab" aria-expanded="false">About</a></li>
@@ -155,7 +155,7 @@ include_once 'db.php';
                         <div class="tab-pane fade" id="second-tab">
                             <div class="row flex-row-center">
                                 <div class="col-md-8">
-                                    <h4>Jatka.in in a nutshells</h4>
+                                    <h4>Jatka.in in a nutshell</h4>
                                     <p style="color: black"> If you want to unlock your chances for an exceptional career path, try Jatka.in, the one and only ideal resume making engine that helps create, depict and connect you to a better professional world. </p>
                                     <p style="color: black"> To conclude, here’s what it’s all about -</p>
                                     <ul class="ul-list-slider">
@@ -173,7 +173,7 @@ include_once 'db.php';
             <section class="features-grid pad-top-1 pad-bottom-2 bb-1">
                 <div class="container">
                     <header class="heading_1 text-center">
-                        <h2 class="main_title"> <span class="sub_title"></span> What Our <span class="base-highlight">Features..</span></h2>
+                        <h2 class="main_title"> <span class="sub_title"></span> Our <span class="base-highlight">Features..</span></h2>
                     </header>
                     <div class="row text-center">
                         <div class="col-sm-4"> <i class="fa fa-bullhorn icon-color-1"></i>
@@ -220,37 +220,37 @@ include_once 'db.php';
             <section id="services" class="about-us padding">
                 <div class="container">
                     <header class="heading_1 text-center">
-                        <h2 class="main_title"> Services We <span class="base-highlight">Provide</span></h2>
+                        <h2 class="main_title"> Our <span class="base-highlight">Services</span></h2>
                     </header>
                     <ul class="nav nav-tabs alt">
-                        <li class="active"><a href="#third-tab" data-toggle="tab" aria-expanded="false">Jobseeker</a></li>
-                        <li class=""><a href="#first-tab" data-toggle="tab" aria-expanded="true">CONTENT WRITER</a></li>
-                        <li class=""><a href="#second-tab" data-toggle="tab" aria-expanded="false">Recruiter</a></li>
+                        <li class="active"><a href="#jobseeker" data-toggle="tab" aria-expanded="false">Jobseeker</a></li>
+                        <li class=""><a href="#content-writer" data-toggle="tab" aria-expanded="true">Content Writer</a></li>
+                        <li class=""><a href="#recruiter" data-toggle="tab" aria-expanded="false">Recruiter</a></li>
                     </ul>
                     <div class="tab-content alt">
-                        <div class="tab-pane fade active in" id="third-tab">
+                        <div class="tab-pane fade active in" id="jobseeker">
                             <div class="row flex-row-center">
                                 <div class="col-md-5"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/images/services/1_jobseeker.jpg" style="width: 350px;height: 280px"> </div>
                                 <div class="col-md-6 col-md-offset-1">
-                                    <h4>Jobseeker</h4>
+                                    <h4 style="text-transform: uppercase">Jobseeker</h4>
                                     <p> Jatka.in is the perfect solution and one-stop software that enables them to independently and effortlessly create their resume with just a few clicks. It consists of a plethora of dynamic predefined templates from which the job seeker may choose from based on their respective industry, domain and of course, their level of experience. </p>
                                     <!-- <a href="#" class="read-more">Read More</a> --></div>
                             </div>
                         </div>
-                        <div class="tab-pane fade " id="first-tab">
+                        <div class="tab-pane fade " id="content-writer">
                             <div class="row flex-row-center">
                                 <div class="col-md-5">
                                     <div> <img src="<?PHP echo $my_path; ?>/images/about_us/resume_writing_001.jpg"> </div>
                                 </div>
                                 <div class="col-md-6 col-md-offset-1">
-                                    <h4>CONTENT WRITER</h4>
+                                    <h4>Content Writer</h4>
                                     <p> Jatka.in is a unique technology that also bridges the gap for professionals who are hard-pressed for time to create their resume. The platform connects job seekers to a team of certified professional content writers with 10+ years of expertise in writing, who are always happy to assist and suggest them to help articulate.The details of their roles and accomplishments effectively onto paper. In other words, the professional writers will work with professionals until they are completely satisfied with the final order and outlook of their resume. </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="second-tab">
+                        <div class="tab-pane fade" id="recruiter">
                             <div class="row flex-row-center">
-                                <div class="col-md-5"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/images/about_us/recruiter.jpg" style="width: 350px;height: 280px"> </div>
+                                <div class="col-md-5"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/images/about_us/recruiter.jpg" style="width: 350px;height: 280px"> </div>
                                 <div class="col-md-6 col-md-offset-1">
                                     <h4>Recruiters</h4>
                                     <p> Jatka.in has a unique benefit of giving them a chance where they can demand their potential candidates to submit their details via a specified and predetermined resume format according to their respective company norms. In other words, the resume making engine enables recruiters to create a customized specific resume format so that they can gather only specific candidate details. </p>
@@ -282,7 +282,7 @@ include_once 'db.php';
                     <ul class="row">
                         <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;padding-right: 20px;">
                             <div class="item-wrapper">
-                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume2.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume2.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
+                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/00.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/00.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
                                 </div>
                                 <div class="text"> <span><strong>Technical Architect</strong></div>
@@ -290,7 +290,7 @@ include_once 'db.php';
                         </li>
                         <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;padding-right: 20px;">
                             <div class="item-wrapper">
-                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume3.png" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume3.png" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
+                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/01.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/01.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
                                 </div>
                                 <div class="text"> <span><strong>Art Director & Designer</strong></div>
@@ -298,7 +298,7 @@ include_once 'db.php';
                         </li>
                         <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;padding-right: 20px;">
                             <div class="item-wrapper">
-                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume4.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume4.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
+                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/02.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/02.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
                                 </div>
                                 <div class="text"> <span><strong>Customer Care Representative</strong></div>
@@ -306,7 +306,7 @@ include_once 'db.php';
                         </li>
                         <li class="col-md-3 col-sm-6 item web_dev web-design" style="margin-bottom: 20px;padding-right: 20px;">
                             <div class="item-wrapper">
-                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume5.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume5.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
+                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/4.jpg" class="image_pop" title="Project Title" style="width: 500px; height: 600px;"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/4.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
                                 </div>
                                 <div class="text"> <span><strong>Photography</strong></div>
@@ -314,7 +314,7 @@ include_once 'db.php';
                         </li>
                         <li class="col-md-3 col-sm-6 item web_dev web-design" style="padding-right: 20px;">
                             <div class="item-wrapper">
-                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume9.png" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume9.png" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
+                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/04.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/04.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
                                 </div>
                                 <div class="text"> <span><strong>System Analyst</strong></div>
@@ -338,7 +338,7 @@ include_once 'db.php';
                         </li>
                         <li class="col-md-3 col-sm-6 item web_dev web-design" style="padding-right: 20px;">
                             <div class="item-wrapper">
-                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/resume6.png" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/resume6.png" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
+                                <div class="image"> <a href="<?PHP echo $my_path; ?>/assets/img/resume-img/05.jpg" class="image_pop" title="Project Title"> <img class="img-responsive" src="<?PHP echo $my_path; ?>/assets/img/resume-img/05.jpg" alt="Portfolio" style="width: 700px;height: 350px;" /> </a> 
                                   <!--              <p> <a href="#">Bootstrap</a> <a href="#">Landing</a> <a href="#">css</a> <a href="#">jQuery</a></p>--> 
                                 </div>
                                 <div class="text"> <span><strong>Web Designer</strong></div>
@@ -553,7 +553,7 @@ include_once 'db.php';
                         <div class="col-md-10">
                             <div class="company mar-top-1">
                                 <label class="text-muted" style="font-size: 20px;font-weight: normal;margin-right: 40px;">Virtuell Technologies</label>
-                                <label class="text-muted" style="font-size: 20px;font-weight: normal;">Compass5 IT Solutions</label>
+                                <label class="text-muted" style="font-size: 20px;font-weight: normal;">Compas5 IT Solutions</label>
                                 <!--    <div><img src="assets/img/company/5.png" alt="Client Company"></div>
                                 <div><img src="assets/img/company/6.png" alt="Client Company"></div> --> 
                             </div>
@@ -680,8 +680,8 @@ include_once 'db.php';
                             <aside>
                                 <h5 class="title">Stay in touch with us</h5>
                                 <ul class="soc-list">
-                                    <li><a href="#" target="_blank" class="fa fa-facebook facebook"></a></li>
-                                    <li><a href="#" target="_blank" class="fa fa-twitter twitter"></a></li>
+                                    <li><a href="https://www.facebook.com/jatka.in/?ref=aymt_homepage_panel" target="_blank" class="fa fa-facebook facebook"></a></li>
+                                    <li><a href="https://twitter.com/jatkaservices" target="_blank" class="fa fa-twitter twitter"></a></li>
                                 </ul>
                             </aside>
                         </div>
@@ -689,15 +689,15 @@ include_once 'db.php';
                     <br />
                     <div class="copyright">
                         <div class="col-md-6\12">
-                            <p class="pull-left"> © 2016, <a href="http://jatka.in/">jatka.in</a> All rights reserved.</p>
-                            <p class="pull-right">Powered by <a href="http://compas5.com/">Compass5 IT Solutions </a> &amp; IT Partner <a href="http://virtuelltech.com/">Virtuell Technologies</a></p>
+                            <p class="pull-left"> © 2016, <a href="http://jatka.in/" target="_blank">jatka.in</a> All rights reserved.</p>
+                            <p class="pull-right">Powered by <a href="http://compas5.com/" target="_blank">Compas5 IT Solutions </a> &amp; IT Partner <a href="http://virtuelltech.com/">Virtuell Technologies</a></p>
                         </div>
                     </div>
                 </div>
             </footer>
         </div>
         <a href="#0" class="back-to-top-link">Top</a> 
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
             var Tawk_API = Tawk_API || {},
                     Tawk_LoadStart = new Date();
             (function () {
@@ -709,7 +709,7 @@ include_once 'db.php';
                 s1.setAttribute('crossorigin', '*');
                 s0.parentNode.insertBefore(s1, s0);
             })();
-        </script> 
+        </script> -->
         <script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script> 
         <script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
         <script type="text/javascript" src="assets/js/jquery.smooth-scroll.min.js"></script> 
