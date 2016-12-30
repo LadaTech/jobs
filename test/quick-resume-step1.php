@@ -196,7 +196,7 @@ if(isset($_SESSION['qr_last_id']) && $_SESSION['qr_last_id'] > 0){
                                     <button type="button" class="btn btn-primary" onclick="javascript:addDiv()">Add</button>
                                 </div>
                                 <div align="center" class="form-group">
-                                    <input type="submit" name="button" value="Back" onclick = "document.location.href='<?PHP echo $my_path ?>/quick-resume.php'" class="btn btn-primary open2"/>
+                                    <input type="button" name="button" value="Back" onclick = "document.location.href='<?PHP echo $my_path ?>/quick-resume.php'" class="btn btn-primary open2"/>
                                     <input type="submit" name="submit" value="Save & Continue" class="btn btn-primary open2"/>
                                 </div>
                             </form>    

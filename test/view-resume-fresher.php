@@ -155,7 +155,7 @@ $qrFileName = $job_seeker_id .'_'. $qrLastId .'.txt';
                                         </div>
                                     </td>
                                     <td style="width: 150px;vertical-align: top;">
-                                        <img src="<?php echo "images/jobseeker/".$personal_info['profile_pic']; ?>" style="border: 1px solid #ccc;border-radius: 50%;width: 140px;height: 140px;">
+                                        <img src="<?php echo $my_path."/images/jobseeker/".$personal_info['profile_pic']; ?>" style="border: 1px solid #ccc;border-radius: 50%;width: 140px;height: 140px;">
                                     </td>
                                 </tr>
                             </table>

@@ -123,7 +123,7 @@ $qrFileName = $job_seeker_id .'_'. $qrLastId .'.txt';
             <td style="width: 230px;vertical-align: top;background-color: #ccc;">
                 <div align="center" style="padding-left: 15px;padding-right: 15px;">
                     <div style="margin-top: 10px;">
-                        <img src="<?php echo "images/jobseeker/".$personal_info['profile_pic']; ?>" style="border: 1px solid #fff;border-radius: 50%;width: 140px;height: 140px;">
+                        <img src="<?php echo $my_path."/images/jobseeker/".$personal_info['profile_pic']; ?>" style="border: 1px solid #fff;border-radius: 50%;width: 140px;height: 140px;">
                         <div style="margin-top: 10px;margin-bottom: 5px;">
                             <label style="font-weight: 300;font-size: 13px;color: #000;"><i class="fa fa-phone" style="margin-right: 5px;"></i><?php echo $personal_info['Phone_No']; ?></label><br/>
                             <label style="font-weight: 300;font-size: 13px;color: #000;"><i class="fa fa-envelope-o" style="margin-right: 5px;"></i><?php echo $personal_info['Email_id']; ?></label>

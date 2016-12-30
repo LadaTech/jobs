@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
     if($_POST['qr_id'] > 0){
         $qrLastId = $_POST['qr_id'];
         //Delete all records in js_projects
-        $sql_dom = "delete FROM js_projects where quick_resume_id = '$qrLastId' ";
+        $sql_dom = "delete FROM js_companies where quick_resume_id = '$qrLastId' ";
         $db->query($sql_dom);
     } else { 
         $resumeType = 'qr_exp';

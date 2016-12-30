@@ -170,6 +170,13 @@ include 'js-session-check.php';
                                     <?php
 //$lor="001";
                                     while ($row_dom = $stmt_dom->fetch(PDO::FETCH_ASSOC)) {
+                                            if($row_dom['quick_resume_type'] == 'qr_fresher'){
+                                                $editPath = $my_path. "/quick-resume-fresher.php?qr_last_id=".$row_dom["quick_resume_id"];
+                                            } else if($row_dom['quick_resume_type'] == 'qr_exp') {
+                                                $editPath = $my_path. "/quick-resume.php?qr_last_id=".$row_dom["quick_resume_id"];
+                                            } else {
+                                                $editPath = '';
+                                            }
                                         ?>    
                                         <tr>
                                             <td>JR<?php echo date("dmy", strtotime($row_dom['created_on'])); ?><?php echo sprintf("%03d", $row_dom['id']); ?>
@@ -194,6 +201,7 @@ include 'js-session-check.php';
                                             <td>
                                                 <?php echo $row_dom["status"]; ?></td><td>
                                                 <a title='Preview' class="preview" data-rid="<?php echo $row_dom["id"]; ?>"><i class="fa fa-eye"></i></a> 
+                                                <a  href="<?php echo $editPath  ; ?>">Edit</a> 
                                                 <div class="dropdown down-dropdown">
                                                     <button class="btn btn-primary dropdown-toggle download-btn" type="button" data-toggle="dropdown"><i class="fa fa-download"></i>
                                                         <span class="caret"></span></button>
@@ -285,41 +293,41 @@ include "footer.php";
 <script src="<?php echo $my_path; ?>/js/FileSaver.js"></script>
 <script src="<?php echo $my_path; ?>/js/jquery.wordexport.js"></script>
 <script>
-                                            $(".doc-download").click(function () {
-                                                $id = $(this).data("rid");
-                                                $.ajax({
-                                                    type: "get",
-                                                    url: "<?php echo $path; ?>/get_js_resume.php",
-                                                    data: {"id": $id},
-                                                    success: function (data) {
+$(".doc-download").click(function () {
+    $id = $(this).data("rid");
+    $.ajax({
+        type: "get",
+        url: "<?php echo $path; ?>/get_js_resume.php",
+        data: {"id": $id},
+        success: function (data) {
 //alert(data);
-                                                        $(".doc-resume").empty().html(data);
-                                                        $("#docresume_css").empty().html($(".doc-resume style").text());
-                                                        $(".doc-resume style").text("");
+            $(".doc-resume").empty().html(data);
+            $("#docresume_css").empty().html($(".doc-resume style").text());
+            $(".doc-resume style").text("");
 //$("#preview-popup").modal("show");
-                                                        $resumeName = "Resume-" + $id + ".doc";
-                                                        saveDoc();
+            $resumeName = "Resume-" + $id + ".doc";
+            saveDoc();
 //alert($(".doc-resume").html());
 //$(".doc-resume").wordExport();
-                                                    }
-                                                });
-                                            });
+        }
+    });
+});
 
-                                            $(".preview").click(function () {
-                                                $id = $(this).data("rid");
-                                                $.ajax({
-                                                    type: "get",
-                                                    url: "<?php echo $path; ?>/get_js_resume.php",
-                                                    data: {"id": $id},
-                                                    success: function (data) {
-//alert(data);
-                                                        $(".modal-body").empty().html(data);
-                                                        $("#preview-popup").modal("show");
-                                                    }
-                                                });
+$(".preview").click(function () {
+    $id = $(this).data("rid");
+    $.ajax({
+        type: "get",
+        url: "<?php echo $path; ?>/get_js_resume.php",
+        data: {"id": $id},
+        success: function (data) {
+                //alert(data);
+            $(".modal-body").empty().html(data);
+            $("#preview-popup").modal("show");
+        }
+    });
 //    $(this).closest(".preview_content").html();
 //    $(".modal-header").html()
-                                            });
+});
 </script>
 
 
