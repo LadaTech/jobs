@@ -83,7 +83,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="first-name">Industry</label>
-                                            <select class="form-control" name="Industry">
+                                            <select class="form-control" id="Industry" name="Industry">
                                                 <option>Select Industry</option>
                                                 <?php
                                                     if ($industries->rowCount() > 0) {
@@ -101,7 +101,7 @@
                                     <div class="col-md-6" class="form-control">
                                         <div class="form-group">
                                             <label for="first-name">Domain</label>
-                                            <select class="form-control" name="Domain">
+                                            <select class="form-control" id="Domain" name="Domain">
                                                 <option>Select Domain</option>
                                                 <?php
                                                     if ($domains->rowCount() > 0) {

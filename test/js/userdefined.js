@@ -223,4 +223,17 @@ $(function () {
         }
     });
 
+    $("#Industry").on('change', function(){
+        $("#Domain").empty().append("<image src='images/spinner.gif' />");
+        var id=$(this).val();
+        $.ajax({
+            type:"get",
+            url: my_path +'/get_domains.php',
+            data:{"q":id},
+            success:function(data){
+                $("#Domain").empty().append(data);
+            }
+        });
+    });
+
 });

@@ -33,6 +33,9 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
         <script src="js/respond.min.js"></script>
         <![endif]-->       
         <link rel="shortcut icon" href="<?php echo $my_path; ?>/images/fav.png">
+        <script>
+            var my_path = '<?php echo $my_path; ?>';
+            </script>
     </head><!--/head-->
 
     <body class="homepage">
