@@ -4,7 +4,7 @@ $page = 'Fresher Quick Resume';
 include_once 'header.php';
 include_once 'js-session-check.php';
 
-$_SESSION['vh_qr_last_id'] = $_SESSION['qr_last_id'];
+if($_SESSION['qr_last_id'] != '') $_SESSION['vh_qr_last_id'] = $_SESSION['qr_last_id'];
 
 //Unset qr_last_id from session
 if(isset($_SESSION['qr_last_id'])) {
