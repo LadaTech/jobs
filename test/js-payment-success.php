@@ -37,7 +37,7 @@ if(!empty($_POST)){
             $qry = "INSERT INTO payments (" . $fnamesList . ") VALUES (". $fvaluesList . ")";
             $qryResp = $db->query($qry);
             $item_number = $response['item_number'];
-            if($response['rtype'] == "self" || $response['rtype'] == "qr_exp" || $response['rtype'] == "qr_fresher" ){
+            if($response['rtype'] == "self" || $response['rtype'] == "qrexp" || $response['rtype'] == "qrfresher" ){
                 $db->query("update js_my_resumes set amount='paid' where id=$item_number ");           
                 $pa=$my_path."/js-order-success.php?q=$item_number";
                 header("Location: $pa");

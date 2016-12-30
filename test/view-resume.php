@@ -12,7 +12,7 @@ if(isset($_SESSION['qr_last_id'])) {
 }
 
 // If qr_last_id is not set, redirect to dashboard
-if(!isset($_SESSION['qr_last_id']) || $_SESSION['qr_last_id'] == ''){
+if(!isset($_SESSION['vh_qr_last_id']) || $_SESSION['vh_qr_last_id'] == ''){
     $url = $my_path. "/job-seeker/dashboard.aspx";
     header("Location: $url");
 }
