@@ -261,34 +261,35 @@ if($jt->rowCount()==0)
 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 <h4>
     <i class="icon fa fa-times"></i> Sorry, No templates found!</h4>
-</div>   
+</div> 
+<div class="form-group">
+    <div class="col-sm-4 col-sm-offset-4">
+        <input type="submit" name="submit" value="Pay Now"  class="btn btn-primary btn-full open2 continue disabled" />
+    </div>
+</div>
 <?php
 }
 else{
-while($row_dom = $jt->fetch(PDO::FETCH_ASSOC)){    
+    while($row_dom = $jt->fetch(PDO::FETCH_ASSOC)){    
 ?>
-<div class="col-sm-4">
-    <div class="s_template s_t1">    
-<a><img class="thumb template-T1 img-responsive" data-key="T1" src="<?php echo $my_path; ?>/images/templates/<?php echo $row_dom["image1"]; ?>" >
-    <h4> <input type="radio" name="selected_template" value="<?php echo $row_dom['id'].'-'.$row_dom['name']; ?>" required>Select This</h4>
-</a>
-</div>
+    <div class="col-sm-4">
+        <div class="s_template s_t1">    
+            <a><img class="thumb template-T1 img-responsive" data-key="T1" src="<?php echo $my_path; ?>/images/templates/<?php echo $row_dom["image1"]; ?>" >
+                <h4> <input type="radio" name="selected_template" value="<?php echo $row_dom['id'].'-'.$row_dom['name']; ?>" required>Select This</h4>
+            </a>
+        </div>
+    </div>  
+    <?php } ?>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-4">
+            <input type="submit" name="submit" value="Pay Now"  class="btn btn-primary btn-full open2 continue"/>
+        </div>
+    </div>
+<?php } ?>   
 </div>  
-    
-<?php
-        }
-    }
- ?>   
-</div>    
 </div>
 </div>
-<div class="form-group">
-<div class="col-sm-4 col-sm-offset-4">
-<input type="submit" name="submit" value="Pay Now"  class="btn btn-primary btn-full open2 continue"/>
 
-
-</div>
-</div>
 </div>
 </div>
 </form>
@@ -342,17 +343,19 @@ $("#Domain").empty().append(data);
 });
 
 $("#Domain").on('change', function(){
-$q=$("#Industry").val();
-$r=$(this).val();
-$.ajax({
-type:"get",
-url:"<?php echo $my_path; ?>/get_templates.php",
-data:{"q":$q,"r":$r},
-success:function(data){
-//  alert(data);
-$(".templates-wrapper").empty().append(data);
-}
-});
+    $q=$("#Industry").val();
+    $r=$(this).val();
+    if($r != ''){
+        $.ajax({
+            type:"get",
+            url:"<?php echo $my_path; ?>/get_templates.php",
+            data:{"q":$q,"r":$r},
+            success:function(data){
+                //  alert(data);
+                $(".templates-wrapper").empty().append(data);
+            }
+        });
+    }
 });
 /**************Getting Templates Ends***********************/
 
