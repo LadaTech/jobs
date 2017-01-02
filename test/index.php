@@ -52,13 +52,13 @@ include_once 'db.php';
                 <div class="color_overlay"></div>
                 <div class="slider-fade-bg">
                     <div class="slide">
-                        <div class="cover-bg fixed-bg" style="background-image: url(assets/img/background/bg18.jpg);"></div>
+                        <div class="cover-bg fixed-bg" style="background-image: url(assets/img/background/bg18.jpg);opacity: none;"></div>
                     </div>
                     <div class="slide">
-                        <div class="cover-bg fixed-bg" style="background-image: url(assets/img/background/bg17.jpg);"></div>
+                        <div class="cover-bg fixed-bg" style="background-image: url(assets/img/background/bg17.jpg);opacity: none;"></div>
                     </div>
                     <div class="slide">
-                        <div class="cover-bg fixed-bg" style="background-image: url(assets/img/background/bg19.jpg);"></div>
+                        <div class="cover-bg fixed-bg" style="background-image: url(assets/img/background/bg19.jpg);opacity: none;"></div>
                     </div>
                 </div>
                 <div class="container mar-bottom-1">
