@@ -1,4 +1,5 @@
 <?php
+$page = 'Edit Content Writer';
 ob_start();
 include "header.php";
 $id = $_GET['uid'];
@@ -92,7 +93,7 @@ if ($sql->rowCount() == 1) {
     $p1 = $db->query("select * from cw_payment_info where cwid=$_GET[uid]");
     if ($p1->rowCount() != 1) {
         $pa = $my_path . "/cw/dashboard.aspx";
-        header("Location: $pa");
+//        header("Location: $pa");
     }
     $payment = $p1->fetch(PDO::FETCH_ASSOC);
     ?><div role="tabpanel" class=" active" id="personal_details"><h3 class="sub_heading">For Specialized</h3><div class="form-group">    <div class="col-lg-6"><label class="control-label" for="address">Industry </label><select class="form-control" id="Industry" name="iid">    <option value="">Select Industry</option>    <?php

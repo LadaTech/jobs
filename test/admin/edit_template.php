@@ -1,4 +1,5 @@
 <?php
+$page = 'Edit Template';
 ob_start();
 include "header.php";
 $id=$_GET['uid'];

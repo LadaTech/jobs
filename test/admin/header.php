@@ -1,6 +1,8 @@
 <?php
 ob_start();
 session_start();
+require_once '../library/FlashMessages.php';
+$msg = new \Plasticbrain\FlashMessages\FlashMessages();
 //echo $_SESSION['username'];
 if(!isset($_SESSION['username']))
 {
@@ -15,7 +17,7 @@ $resswa=$swa->fetch(PDO::FETCH_ASSOC);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>::: <?php echo $compnay_name; ?>  ::: | Dashboard</title>
+<title>::: <?php echo $compnay_name; ?>  ::: | <?php echo (isset($page) && $page != '') ? $page : ''; ?></title>
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 <!-- Bootstrap 3.3.4 -->
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />  
@@ -115,15 +117,25 @@ if($resswa['role']=='admin') {
 <!-- Sidebar user panel -->
 
 
+<?php 
+    // Highlight active menu which is exist in URL
+    $fileName = pathinfo( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), PATHINFO_FILENAME );
+    $menuPages = array('home','manage_industries','manage_domains','manage_jobseekers','manage_cw','manage_enquiries','manage_invitations','manage_chat',
+                    'manage_payments','manage_templates');
+    if(!in_array($fileName,$menuPages)){
+        $fileName = $_SESSION['menu_name'];
+    } else {
+        $_SESSION['menu_name'] = $fileName;
+    }
+?>
 <!-- sidebar menu: : style can be found in sidebar.less -->
 <ul class="sidebar-menu">
 
 <li class="active treeview">
-<a href="home.php">
-<i class="fa fa-dashboard text-yellow"></i> <span>Dashboard</span> 
-</a>
+    <a href="home.php">
+    <i class="fa fa-dashboard text-yellow"></i> <span>Dashboard</span> 
+    </a>
 </li>
-
 <li><a href="manage_industries.php"><i class="fa fa-tree text-yellow"></i> <span>Industries</span></a></li>
 <li><a href="manage_domains.php"><i class="fa  fa-globe text-yellow"></i> <span>Domains</span></a></li>
 <li><a href="manage_jobseekers.php"><i class="fa fa-users text-yellow"></i> <span>Job Seekers</span></a></li>
@@ -138,4 +150,16 @@ if($resswa['role']=='admin') {
 <!-- /.sidebar -->
 </aside>
 
-
+<script>
+    $(function(){
+        var filename = '<?php echo $fileName; ?>';
+        $('.sidebar-menu li a').each(function(){
+                var hrefName = $(this).attr('href');
+                if(hrefName.indexOf(filename) >= 0){
+                    $(this).parent().addClass('active');
+                } else {
+                    $(this).parent().removeClass('active');
+                }
+        });
+    });
+</script> 

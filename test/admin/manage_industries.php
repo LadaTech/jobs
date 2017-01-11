@@ -1,4 +1,5 @@
 <?php
+$page = 'Industries';
 	include "header.php";
 	include_once 'page_number.php';
 ?>

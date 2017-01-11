@@ -1,5 +1,6 @@
 <?php
-	include "header.php";
+$page = 'Invitations';
+include "header.php";
 	include_once 'page_number.php';
 ?>
 <script type="text/javascript">

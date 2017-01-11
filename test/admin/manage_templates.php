@@ -1,4 +1,5 @@
 <?php
+$page = 'Templates';
 include "header.php";
 include_once 'page_number.php';
 ?>

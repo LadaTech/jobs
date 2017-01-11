@@ -156,7 +156,7 @@ $qrFileName = $job_seeker_id .'_'. $qrLastId .'.txt';
                             <h3 style="color: #000;border-bottom: 1px solid #e0dede;margin-bottom: 5px;font-size: 15px;padding-bottom: 5px;"><b>Success Stories</b></h3>
                             <div class="content">
                                 <p style="margin-top: 7px;font-size: 11px;line-height: 16px;">
-                                    <?php echo $personal_info['qr_exp_success_stories']; ?>
+                                    <?php echo $personal_info['success_stories']; ?>
                                 </p>
                             </div>
                         </div>

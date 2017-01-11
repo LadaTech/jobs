@@ -175,7 +175,7 @@ include 'js-session-check.php';
                                             } else if($row_dom['quick_resume_type'] == 'qr_exp') {
                                                 $editPath = $my_path. "/quick-resume.php?qr_last_id=".$row_dom["quick_resume_id"];
                                             } else {
-                                                $editPath = '';
+                                                $editPath = $my_path. "/job-seeker/r-". $row_dom["id"]. "/edit-resume.aspx";
                                             }
                                         ?>    
                                         <tr>
@@ -338,8 +338,8 @@ $(".preview").click(function () {
 <?php
 //if($row_dom["amount"]!="paid"){
 ?>
-<!--<a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/edit-resume.aspx" class="btn-rsms"><i class="fa fa-pencil"></i> Edit</a> 
-
+<a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/edit-resume.aspx" class="btn-rsms"><i class="fa fa-pencil"></i> Edit</a> 
+<!--
 <a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/order-now.aspx" class="btn-rsms" title='Pay Now'><i class="fa fa-money"></i></a> 
 
 <a href="<?php echo $my_path; ?>/job-seeker/r-<?php echo $row_dom["id"]; ?>/delete-resume.aspx" onclick="javascript:return confirm('Do you want Delete This?');" class="btn-rsms" title='Delete'><i class="fa fa-trash-o"></i></a>

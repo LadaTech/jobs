@@ -452,11 +452,12 @@ if ($loop_page == 'payments') {
             ?>		
 
             <tr>
-  <td><a class="jspreview" data-rid="<?php echo $row_dom["jsid"]; ?>"><?php echo $row_dom["jname"]; ?></a></td>
-               <td><?php echo $row_dom["txn_id"]; ?></td>
+                <td><a class="jspreview" data-rid="<?php echo $row_dom["jsid"]; ?>"><?php echo $row_dom["First_name"]; ?></a></td>
+                <td><?php echo $row_dom["rtype"]; ?></td>
+                <td><a class="cwpreview" data-rid="<?php echo $row_dom["cwid"]; ?>"><?php echo $row_dom["cw_name"]; ?></a></td>           
+                <td><?php echo $row_dom["txn_id"]; ?></td>
                 <td><?php echo $row_dom["payment_status"]; ?></td>
                 <td><?php echo $row_dom["mc_currency"]." ".$row_dom["payment_gross"]; ?></td>
-                <td><?php echo $row_dom["rtype"]; ?></td>
                 <td><?php echo date("d M Y h:i A", strtotime($row_dom["created_on"])); ?></td>
 
             </tr>

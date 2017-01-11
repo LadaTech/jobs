@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$page = "enquiries";
+$page = "Payment Success";
 include_once "header.php";
 include_once 'js-session-check.php';
 

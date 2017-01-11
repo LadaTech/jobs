@@ -1,4 +1,5 @@
 <?php
+$page = 'Edit Industry';
 ob_start();
 include "header.php";
 $id=$_GET['uid'];
